@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, Users, Audio
+from api.models import db, Users, Audio, Tipo_de_meditacion
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
@@ -17,11 +17,15 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-@api.route('/meditacion', method=['GET'])
-def get_audio():
 
-    if request.method == 'GET':
-        all_audios = Audios.query.all()
-        all_audios = list(map(lambda x: x.serialize(), all_audios))
-        response_body = all_audios
-        return jsonify(response_body), 200
+@api.route('/meditacion', methods=['GET'])
+def get_meditation_type():
+    all_meditation_type = Tipo_de_meditacion.query.all()
+    all_meditation_type = list(map(lambda x: x.serialize(), all_meditation_type))
+    response_body = all_meditation_type
+    return jsonify(response_body), 200
+
+
+## src: "https://res.cloudinary.com/dgn3hxolh/video/upload/v1672924137/ES_Dancing_Pink_Orbs_-_369_cjldxl.mp3",
+## title: "Meditación 1",
+## id: 1,
