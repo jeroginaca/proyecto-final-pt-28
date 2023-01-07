@@ -83,6 +83,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({
 					token: localStorage.getItem("token") ? localStorage.getItem("token") : null
 				})
+				// condicion ? valor si se cumple : valor si no se cumple
 
 			},
 
