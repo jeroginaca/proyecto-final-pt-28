@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class Users(db.Model):
+class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     avatar = db.Column(db.String(120))
     email_address = db.Column(db.String(120), unique=True, nullable=False)
@@ -29,8 +29,8 @@ class Users(db.Model):
 
 class Calendar(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    user= db.relationship('Users', backref='calendar', lazy=True) 
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    user= db.relationship('User', backref='calendar', lazy=True) 
     feeling = db.Column(db.String(120), nullable=False)
     date = db.Column(db.DateTime, nullable=False)
     
@@ -44,8 +44,8 @@ class Calendar(db.Model):
 
 class Journal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    user= db.relationship('Users', backref='journal', lazy=True) 
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    user= db.relationship('User', backref='journal', lazy=True) 
     title = db.Column(db.String(120), nullable=False)
     notes = db.Column(db.String(120), nullable=False)
     color = db.Column(db.String(120), nullable=False)
@@ -63,8 +63,8 @@ class Journal(db.Model):
 
 class Objetivos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    user= db.relationship('Users', backref='objetivos', lazy=True) 
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    user= db.relationship('User', backref='objetivos', lazy=True) 
     task = db.Column(db.String(120), nullable=False)
     done = db.Column(db.Boolean, nullable=False)
     date = db.Column(db.DateTime, nullable=False)
@@ -81,8 +81,8 @@ class Objetivos(db.Model):
 
 class Meditacion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    user= db.relationship('Users', backref='meditacion', lazy=True) 
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    user= db.relationship('User', backref='meditacion', lazy=True) 
     audio_id = db.Column(db.Integer, db.ForeignKey("audio.id"), nullable=False)
     audio = db.relationship('Audio', backref='meditacion', lazy=True) 
     date = db.Column(db.DateTime, nullable=False)
