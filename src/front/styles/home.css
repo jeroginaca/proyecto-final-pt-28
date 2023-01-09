@@ -52,3 +52,6 @@ input {
     display: flex;
     align-items: center;
 }
+.volver {
+    background-color: rgb(103, 155, 200);
+}

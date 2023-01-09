@@ -10,6 +10,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Tiempos from "./pages/Meditacion/Tiempos.jsx";
+import Tareas from "./pages/Tareas/Tareas.jsx";
 import SeleccionDeAudios from "./pages/Meditacion/SeleccionDeAudio.jsx";
 import Meditacion from "./pages/Meditacion/Meditacion.jsx";
 import Felicitaciones from "./pages/Felicitaciones.jsx";
@@ -29,6 +30,7 @@ const Layout = () => {
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Tiempos />} path="/tiempos" />
+            <Route element={<Tareas />} path="/tareas" />
             <Route element={<Meditacion />} path="/meditacion/:id" />
             <Route element={<Felicitaciones />} path="/felicitaciones" />
             <Route element={<SeleccionDeAudios />} path="/audios" />
