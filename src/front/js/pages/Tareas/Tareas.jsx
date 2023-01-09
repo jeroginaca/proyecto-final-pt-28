@@ -55,7 +55,8 @@ const TodoList = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container-fluid container-lista">
+      <div className="p-5">
       <h1>Objetivos</h1>
       <ul>
         <li className="question">
@@ -73,7 +74,7 @@ const TodoList = () => {
           ></input>
         </li>
         {todos.map((t, index) => (
-          <li className="delete-icon" key={index}>
+          <li className="item-lista" key={index} style={{ backgroundColor: "light-blue" }}>
           <input
             type="text"
             value={t}
@@ -92,7 +93,8 @@ const TodoList = () => {
               )
             }
           ></i>
-        </li>      
+        </li>
+              
         ))}
       </ul>
       <div className="todos-counter">
@@ -117,6 +119,7 @@ const TodoList = () => {
             Volver
           </button>
         </Link>
+      </div> 
     </div>
   );
 };
