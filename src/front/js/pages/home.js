@@ -28,6 +28,11 @@ export const Home = () => {
           <img src="https://i.ibb.co/rs9ZX4X/Vector.png" width="75%" />
         </button>
       </Link>
+      <Link to={"/pomodoro"}>
+        <button style={meditar}>
+          <img src="https://i.ibb.co/rs9ZX4X/Vector.png" width="75%" />
+        </button>
+      </Link>
 
       <Calendario />
 
