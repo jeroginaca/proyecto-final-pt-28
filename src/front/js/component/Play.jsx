@@ -8,8 +8,6 @@ const Play = ({ id }) => {
 
   const getAudios = (id) => {
     const audio = store.audiosTest.find((element) => element.id == id);
-    console.log(id);
-    console.log(audio);
     return audio.src;
   };
 
