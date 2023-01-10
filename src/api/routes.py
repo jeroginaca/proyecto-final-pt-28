@@ -2,9 +2,10 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Audio, Tipo_de_meditacion
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+import datetime
 
 api = Blueprint('api', __name__)
 
@@ -19,11 +20,11 @@ def handle_hello():
     return jsonify(response_body), 200
 
 
-@api.route('/sign-up', methods=['POST'])
+@api.route('/signup', methods=['POST'])
 def create_user():
     
     data = request.get_json()
-    user = User(email=data['email'],password=data['password'], is_active=True)
+    user = User(email_address=data['email_address'],password=data['password'],name=data['first_name'],last_name=data['last_name'],birth_date=data['birth_date'], date=datetime.datetime.today())
     db.session.add(user)
     db.session.commit()
     token = create_access_token(identity=user.id)
@@ -34,7 +35,7 @@ def create_user():
 @api.route('/login', methods=['POST'])
 def login_user():
     data = request.get_json()
-    user = User.query.filter_by(email=data['email'],password=data['password']).first()
+    user = User.query.filter_by(email_address=data['email'],password=data['password']).first()
     token = create_access_token(identity=user.id)
 
     return jsonify({"message":"el usuario se ha logeado con exito", "user": user.serialize(), "token": token}), 200
@@ -47,3 +48,15 @@ def handle_private():
     user = User.query.get(user_id)
 
     return jsonify({"message":"el usuario es quien dice ser", "user": user.serialize()}), 200
+
+@api.route('/meditacion', methods=['GET'])
+def get_meditation_type():
+    all_meditation_type = Tipo_de_meditacion.query.all()
+    all_meditation_type = list(map(lambda x: x.serialize(), all_meditation_type))
+    response_body = all_meditation_type
+    return jsonify(response_body), 200
+
+
+## src: "https://res.cloudinary.com/dgn3hxolh/video/upload/v1672924137/ES_Dancing_Pink_Orbs_-_369_cjldxl.mp3",
+## title: "Meditación 1",
+## id: 1,
