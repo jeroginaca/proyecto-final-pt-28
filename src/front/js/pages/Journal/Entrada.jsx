@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
-import '../../../styles/entrada.css';
+import React, { useEffect, useState } from "react";
+import { Editor } from "react-draft-wysiwyg";
+import { EditorState } from "draft-js";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import "../../../styles/entrada.css";
 
-function FullScreenTextEditor() {
-  const [note, setNote] = useState('');
-
+export default function App() {
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty()
+  );
+  useEffect(() => {
+    console.log(editorState);
+  }, [editorState]);
   return (
-    <div className="journal-component full-screen-editor">
-      <textarea 
-        className="editor-textarea"
-        value={note}
-        onChange={(e) => setNote(e.target.value)}
-      />
-      <button 
-        className="save-button"
+    <div className="full-screen-editor">
+      <div className="editor-textarea">
+        <Editor
+          editorState={editorState}
+          onEditorStateChange={setEditorState}
+        />
+      </div>
+      <button
+        className="save-button btn btn-primary border-0"
         onClick={() => {
-          // Aquí puedes agregar la lógica para guardar la nota
           console.log(note);
         }}
       >
@@ -23,5 +30,3 @@ function FullScreenTextEditor() {
     </div>
   );
 }
-
-export default FullScreenTextEditor;
