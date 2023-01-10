@@ -5,6 +5,7 @@ import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import Calendario from "../component/Calendario.jsx";
 import targetImageUrl from "../../img/target.png";
+import Yoga from "./Yoga.jsx";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -21,6 +22,7 @@ export const Home = () => {
   return (
     <div className="text-center mt-5">
       <h1>Mindful Me</h1>
+
       <p>
         <img src="https://i.ibb.co/v1f1GGr/Group-2.png" />
       </p>
@@ -31,6 +33,12 @@ export const Home = () => {
       </Link>
 
       <Link to={"/tareas"}>
+        <button style={meditar}>
+          <img src={targetImageUrl} width="75%" />
+        </button>
+      </Link>
+
+      <Link to={"/yoga"}>
         <button style={meditar}>
           <img src={targetImageUrl} width="75%" />
         </button>

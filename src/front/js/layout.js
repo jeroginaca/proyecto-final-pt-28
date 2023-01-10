@@ -14,6 +14,7 @@ import Tareas from "./pages/Tareas/Tareas.jsx";
 import SeleccionDeAudios from "./pages/Meditacion/SeleccionDeAudio.jsx";
 import Meditacion from "./pages/Meditacion/Meditacion.jsx";
 import Felicitaciones from "./pages/Felicitaciones.jsx";
+import Yoga from "./pages/Yoga.jsx";
 
 //create your first component
 const Layout = () => {
@@ -34,6 +35,7 @@ const Layout = () => {
             <Route element={<Meditacion />} path="/meditacion/:id" />
             <Route element={<Felicitaciones />} path="/felicitaciones" />
             <Route element={<SeleccionDeAudios />} path="/audios" />
+            <Route element={<Yoga />} path="/yoga" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
