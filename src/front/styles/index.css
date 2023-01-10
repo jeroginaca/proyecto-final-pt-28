@@ -12,3 +12,16 @@
   font-weight: 700;
   background-color: yellow;
 }
+
+@media (max-width: 767px) {
+  .react-player {
+    width: 100%;
+    height: auto; /* el alto se ajustará automáticamente */
+  }
+}
+@media (min-width: 768px) {
+  .react-player {
+    width: 80%;
+    height: auto; /* el alto se ajustará automáticamente */
+  }
+}

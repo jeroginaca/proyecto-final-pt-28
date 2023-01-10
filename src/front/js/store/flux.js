@@ -46,6 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         )
           .then((resp) => resp.json())
           .then((data) => {
+            console.log(data)
             setStore({ audios: data.results });
           });
       },

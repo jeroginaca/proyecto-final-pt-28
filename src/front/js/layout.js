@@ -15,6 +15,9 @@ import Meditacion from "./pages/Meditacion/Meditacion.jsx";
 import Felicitaciones from "./pages/Felicitaciones.jsx";
 import Pomodoro from "./pages/pomodoro.jsx";
 
+import YoutubePlayer from "./component/YoutubePlayer.jsx";
+import Player from "./component/Player.jsx";
+
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -34,6 +37,8 @@ const Layout = () => {
             <Route element={<Felicitaciones />} path="/felicitaciones" />
             <Route element={<SeleccionDeAudios />} path="/audios" />
             <Route element={<Pomodoro />} path="/pomodoro" />
+
+            <Route element={<Player />} path="/youtube" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
