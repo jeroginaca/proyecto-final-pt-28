@@ -50,8 +50,7 @@ const TodoList = () => {
         }
         new Error("Ocurrió un error eliminando User");
       })
-      .then((json) => conso
-      le.log(json))
+      .then((json) => console.log(json))
       .catch((error) => console.log(error));
   };
 
