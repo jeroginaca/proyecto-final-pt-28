@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import Calendario from "../component/Calendario.jsx";
 import targetImageUrl from "../../img/target.png";
 import editImageUrl from "../../img/edit.png";
+import DarkModeToggle from "../component/DarkModeToggle.jsx";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -48,6 +48,8 @@ export const Home = () => {
           <img src={editImageUrl} width="75%" />
         </button>
       </Link>
+
+      <DarkModeToggle />
 
       <Calendario />
 
