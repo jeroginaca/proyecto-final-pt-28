@@ -1,43 +1,28 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import '../../styles/signup.css'
-import { useForm } from "react-hook-form";
-import { Context } from "../store/appContext";
 
 export const Signup = () => {
 
-    // https://3001-jeroginaca-proyectofina-8snowwfk7z4.ws-eu81.gitpod.io/api/signup
+    const [data, setData] = useState({
+        first_name: '',
+        last_name: '',
+        email_address: '',
+        password: '',
+        confirm_password: '',
+        birth_date: ''
+    });
 
-    const [data, setData] = useState({});
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [birthDate, setBirthDate] = useState(undefined);
+    // const [firstName, setFirstName] = useState("");
+    // const [lastName, setLastName] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
+    // const [confirmPassword, setConfirmPassword] = useState("");
+    // const [birthDate, setBirthDate] = useState(undefined);
 
     const handleInputChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
-        const { id, value } = e.target;
-        if (id === "firstName") {
-            setFirstName(value);
-        }
-        if (id === "lastName") {
-            setLastName(value);
-        }
-        if (id === "email") {
-            setEmail(value);
-        }
-        if (id === "password") {
-            setPassword(value);
-        }
-        if (id === "confirmPassword") {
-            setConfirmPassword(value);
-        }
-        if (id === "birth_date") {
-            setBirthDate(value);
-        }
-
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -60,43 +45,23 @@ export const Signup = () => {
                 })
         }
         else {
-            console.log("error el password no es igual")
+            alert("Error, el password debe coincidir.")
         }
     }
 
     return (
-        <div className="form">
-            <form onSubmit={handleSubmit}>
-                <div className="form-body">
-                    <div className="username">
-                        <label className="form__label" htmlFor="firstName">First Name </label>
-                        <input className="form__input" value={firstName} onChange={(e) => handleInputChange(e)} type="text" id="firstName" placeholder="First Name" name="first_name" />
-                    </div>
-                    <div className="lastname">
-                        <label className="form__label" htmlFor="lastName">Last Name </label>
-                        <input type="text" id="lastName" value={lastName} onChange={(e) => handleInputChange(e)} className="form__input" placeholder="Last Name" name="last_name" />
-                    </div>
-                    <div className="birthdate">
-                        <label htmlFor="birth_date">Birth Date:</label>
-                        <input type="date" id="birth_date" onChange={(e) => handleInputChange(e)} value={birthDate} name="birth_date" />
-                    </div>
-                    <div className="email">
-                        <label className="form__label" htmlFor="email">Email </label>
-                        <input type="email" id="email" value={email} onChange={(e) => handleInputChange(e)} className="form__input" placeholder="Email" name="email_address" />
-                    </div>
-                    <div className="password">
-                        <label className="form__label" htmlFor="password">Password </label>
-                        <input className="form__input" value={password} onChange={(e) => handleInputChange(e)} type="password" id="password" placeholder="Password" name="password" />
-                    </div>
-                    <div className="confirm-password">
-                        <label className="form__label" htmlFor="confirmPassword">Confirm Password </label>
-                        <input className="form__input" value={confirmPassword} onChange={(e) => handleInputChange(e)} type="password" id="confirmPassword" placeholder="Confirm Password" name="confirm_password" />
-                    </div>
-                </div>
-                <div className="footer">
-                    <button className="btn btn-primary">Register</button>
-                </div>
-            </form>
-        </div>
+        <div className="signup-bg-image pt-5">
+            <div className="signup-container-1">
+                <form className="signup-container-2" onSubmit={handleSubmit}>
+                    <input className="signup-input" type="text" onChange={(e) => handleInputChange(e)} id="firstName" placeholder="First Name" name="first_name" maxLength="50" required />
+                    <input className="signup-input" type="text" onChange={(e) => handleInputChange(e)} placeholder="Last Name" name="last_name" maxLength="50" required />
+                    <input className="signup-input" type="date" onChange={(e) => handleInputChange(e)} name="birth_date" required />
+                    <input className="signup-input" type="email" onChange={(e) => handleInputChange(e)} placeholder="Email Address" name="email_address" maxLength="80" required />
+                    <input className="signup-input" type="password" onChange={(e) => handleInputChange(e)} placeholder="Password" name="password" minLength="6" maxLength="50" required />
+                    <input className="signup-input" type="password" onChange={(e) => handleInputChange(e)} placeholder="Confirm Password" name="confirm_password" minLength="6" maxLength="50" required />
+                    <button className="register-button btn btn-lg">Register</button>
+                </form>
+            </div >
+        </div >
     )
 }

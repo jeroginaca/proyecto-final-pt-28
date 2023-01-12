@@ -151,6 +151,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({
 					token: ""
 				});
+				localStorage.removeItem("token")
 			}
 		}
 	};
