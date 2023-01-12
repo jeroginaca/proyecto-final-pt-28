@@ -24,7 +24,7 @@ function DarkModeToggle() {
     <>
       <GlobalStyle isDarkMode={isDarkMode} />
       <Button isDarkMode={isDarkMode} onClick={handleClick}>
-        {isDarkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
+        {isDarkMode ? <i class="fa fa-toggle-off" aria-hidden="true"></i> : <i class="fa fa-toggle-on" aria-hidden="true"></i>}
       </Button>
     </>
   );
