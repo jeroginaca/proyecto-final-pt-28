@@ -80,6 +80,7 @@
 		"prop-types": "^15.6.1",
 		"react": "^16.14.0",
 		"react-calendar": "^4.0.0",
+		"react-hook-form": "^7.41.5",
 		"react-dom": "^16.14.0",
 		"react-draft-wysiwyg": "^1.15.0",
 		"react-polyfills": "0.0.1",

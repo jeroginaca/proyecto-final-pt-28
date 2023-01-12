@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-
+import { useNavigate } from "react-router-dom";
+import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import Calendario from "../component/Calendario.jsx";
@@ -9,7 +10,17 @@ import editImageUrl from "../../img/edit.png";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
+  const handleClick = async () => {
+    const login = await actions.login(email, password)
+    console.log(login)
+    if (login) {
+      navigate("/demo")
+    };
+  }
   const meditar = {
     padding: "1rem 2.6rem",
     borderRadius: "15px",
@@ -57,4 +68,5 @@ export const Home = () => {
       </p>
     </div>
   );
+
 };
