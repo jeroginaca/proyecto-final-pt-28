@@ -37,12 +37,6 @@ export const Home = () => {
         </button>
       </Link>
 
-      <Link to={"/pruebaTodoJournal"}>
-        <button style={meditar}>
-          Prueba ToDo/Journal
-        </button>
-      </Link>
-
       <Link to={"/journal"}>
         <button style={meditar}>
           <img src={editImageUrl} width="75%" />
