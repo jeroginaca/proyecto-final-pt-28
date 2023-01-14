@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const TodoList = () => {
   const [inputValue, setInputValue] = useState("");
@@ -54,64 +55,22 @@ const TodoList = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Objetivos</h1>
-      <ul>
-        <li className="question">
-          <input
-            type="text"
-            onChange={(e) => setInputValue(e.target.value)}
-            value={inputValue}
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                setTodos(todos.concat(inputValue));
-                setInputValue("");
-              }
-            }}
-            placeholder="¿Qué quieres hacer?"
-          ></input>
-        </li>
-        {todos.map((t, index) => (
-          <li className="delete-icon" key={index}>
-          <input
-            type="text"
-            value={t}
-            onChange={(e) => {
-              const newTodos = [...todos];
-              newTodos[index] = e.target.value;
-              setTodos(newTodos);
-            }}
-            style={{ backgroundColor: "transparent" }}
-          />
-          <i
-            class="fa fa-times"
-            onClick={() =>
-              setTodos(
-                todos.filter((t, currentIndex) => index != currentIndex)
-              )
-            }
-          ></i>
-        </li>      
-        ))}
-      </ul>
+    <div className="container-fluid container-lista">
+      <div className="p-5">
+      <h1>Entradas</h1>
       <div className="todos-counter">
-        {todos.length === 0 ? "Ninguna tarea" : 
-        todos.length === 1 ? `${todos.length} tarea` : 
-        `${todos.length} tareas`}
-    </div>
-      <button
-        className="clear btn btn-danger mt-3 border-0"
-        onClick={() =>
-          setTodos(
-            todos.filter((t, currentIndex) => {
-              return (t = 0);
-            })
-          )
-        }
-      >
-        Limpiar
-      </button>
-    </div>
+      <Link to="/entrada">
+          <button className="volver btn btn-primary mt-3 border-0">
+            Nueva entrada
+          </button>
+        </Link>
+        <Link to="/">
+          <button className="volver btn btn-primary mt-3 border-0">
+            Volver
+          </button>
+        </Link>
+      </div> 
+    </div></div>
   );
 };
 
