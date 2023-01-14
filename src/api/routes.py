@@ -4,6 +4,8 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Audio, Tipo_de_meditacion
 from api.utils import generate_sitemap, APIException
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+import datetime
 
 api = Blueprint('api', __name__)
 
@@ -17,6 +19,35 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+
+@api.route('/signup', methods=['POST'])
+def create_user():
+    
+    data = request.get_json()
+    user = User(email_address=data['email_address'],password=data['password'],name=data['first_name'],last_name=data['last_name'],birth_date=data['birth_date'], date=datetime.datetime.today())
+    db.session.add(user)
+    db.session.commit()
+    token = create_access_token(identity=user.id)
+
+    return jsonify({"message":"el usuario se ha creado con exito", "user": user.serialize(), "token": token}), 200
+
+ 
+@api.route('/login', methods=['POST'])
+def login_user():
+    data = request.get_json()
+    user = User.query.filter_by(email_address=data['email'],password=data['password']).first()
+    token = create_access_token(identity=user.id)
+
+    return jsonify({"message":"el usuario se ha logeado con exito", "user": user.serialize(), "token": token}), 200
+
+
+@api.route('/private', methods=['POST'])
+@jwt_required()
+def handle_private():
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
+
+    return jsonify({"message":"el usuario es quien dice ser", "user": user.serialize()}), 200
 
 @api.route('/meditacion', methods=['GET'])
 def get_meditation_type():
