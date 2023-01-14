@@ -1,108 +1,122 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import TodoForm from "./TodoForm.jsx";
+import "../../../styles/todolist.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
-const TodoList = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [todos, setTodos] = useState([]);
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    getList();
-  }, []);
+function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
+  const [isEditing, setIsEditing] = React.useState(false);
+  const [newText, setNewText] = React.useState(todo.text);
 
-  const getList = () => {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/mindfulme")
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        setList(result);
-      })
-      .catch((error) => console.log(error));
-  };
-
-  const addTask = (myTask) => {
-    var newList = [...list, { label: myTask, done: false }];
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/mindfulme", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newList),
-      redirect: "follow",
-    })
-      .then((response) => {
-        response.status === 200 ? setList(newList) : "";
-      })
-      .then((result) => getList())
-      .catch((error) => console.log(error));
-  };
-
-  const deleteTask = async () => {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/mindfulme", {
-      method: "DELETE",
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => {
-        console.log(response);
-        if (response.ok) {
-          response.json();
-          addTask();
-          setTodos([]);
-        }
-        new Error("Ocurrió un error eliminando User");
-      })
-      .then((json) => console.log(json))
-      .catch((error) => console.log(error));
-  };
+  const handleEdit = (index) => {
+    setIsEditing(true);
+  }
+  
+  const handleSave = (index) => {
+    setIsEditing(false);
+    editTodo(index, newText);
+  }
 
   return (
-    <div className="container-fluid container-lista">
-      <div className="p-5">
-      <h1>Objetivos</h1>
-      <ul>
-        <li className="question">
-          <input
-            type="text"
-            onChange={(e) => setInputValue(e.target.value)}
-            value={inputValue}
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                setTodos(todos.concat(inputValue));
-                setInputValue("");
-              }
-            }}
-            placeholder="¿Qué quieres hacer?"
-          ></input>
-        </li>
-        {todos.map((t, index) => (
-          <li className="item-lista" key={index} style={{ backgroundColor: "light-blue" }}>
-          <input
-            type="text"
-            value={t}
-            onChange={(e) => {
-              const newTodos = [...todos];
-              newTodos[index] = e.target.value;
-              setTodos(newTodos);
-            }}
-            style={{ backgroundColor: "transparent" }}
-          />
-          <i
-            class="fa fa-times"
-            onClick={() =>
-              setTodos(
-                todos.filter((t, currentIndex) => index != currentIndex)
-              )
-            }
-          ></i>
-        </li>
-              
-        ))}
-      </ul>
-      <div className="todos-counter">
-        {todos.length === 0 ? "Ninguna tarea" : 
-        todos.length === 1 ? `${todos.length} tarea` : 
-        `${todos.length} tareas`}
-    </div>
-      <button
+    <div
+      className="todo"
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+    >
+      {isEditing ? (
+        <input type="text" value={newText} onChange={(
+		e) => setNewText(e.target.value)} />
+) : (
+<span>{todo.text}</span>
+)}
+<div>
+{isEditing ? (
+<button className="save btn btn-success" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button>
+) : (
+<button className="edit btn btn-warning" onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} className="fa-edit"/></button>
+)}
+<button
+className="complete btn btn-primary"
+onClick={() => completeTodo(index)}
+>
+<FontAwesomeIcon icon={faCircleCheck} />
+</button>
+<button className="remove btn btn-danger" onClick={() => removeTodo(index)}>
+<i class="fa fa-times m-0 p-0"></i>
+</button>
+</div>
+</div>
+);
+}
+
+function Journal() {
+const [todos, setTodos] = React.useState([
+{
+text: "Learn about React",
+isCompleted: false,
+},
+{
+text: "Meet friend for lunch",
+isCompleted: false,
+},
+{
+text: "Build really cool todo Journal",
+isCompleted: false,
+},
+]);
+
+const addTodo = (text) => {
+const newTodos = [...todos, { text }];
+setTodos(newTodos);
+};
+
+const completeTodo = (index) => {
+const newTodos = [...todos];
+newTodos[index].isCompleted = true;
+setTodos(newTodos);
+};
+
+const editTodo = (index, text) => {
+const newTodos = [...todos];
+newTodos[index].text = text;
+setTodos(newTodos);
+};
+const removeTodo = (index) => {
+const newTodos = [...todos];
+newTodos.splice(index, 1);
+setTodos(newTodos);
+};
+
+return (
+<div className="container-fluid container-lista">
+<div className="p-5">
+<h1>Objetivos</h1>
+<div className="Journal">
+<div className="todo-list">
+<TodoForm addTodo={addTodo} />
+{todos.map((todo, index) => (
+<Todo
+             key={index}
+             index={index}
+             todo={todo}
+             completeTodo={completeTodo}
+             removeTodo={removeTodo}
+             editTodo={editTodo}
+           />
+))}
+</div>
+<div className="todos-counter">
+{todos.length === 0 
+  ? "Ninguna tarea" 
+  : todos.length === 1 
+    ? `${todos.length} tarea` 
+    : `${todos.length} tareas`
+}
+</div>
+</div>
+<button
         className="clear btn btn-danger mt-3 border-0"
         onClick={() =>
           setTodos(
@@ -114,14 +128,11 @@ const TodoList = () => {
       >
         Limpiar
       </button>
-      <Link to="/">
-          <button className="volver btn btn-primary mt-3 border-0">
-            Volver
-          </button>
-        </Link>
-      </div> 
-    </div>
-  );
-};
-
-export default TodoList;
+<Link to="/">
+  <button className="volver btn btn-primary mt-3 border-0">Volver</button>
+</Link>
+</div>
+</div>
+);
+}
+export default Journal;
