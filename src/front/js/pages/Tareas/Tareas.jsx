@@ -23,37 +23,48 @@ editTodo(index, newText);
 }
 
 return (
-<div className="todo-container" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
-<button className="btn boton-completar" onClick={() => completeTodo(index)}>
-<FontAwesomeIcon icon={todo.isCompleted ? faCircleCheck : faCheckCircle} /></button>
-<div className="task-container">
-{isEditing ? (<input type="text" value={newText} onChange={(e) => setNewText(e.target.value)} /> ) : ( <span>{todo.text}</span>)}
-</div>
-<div className="botones">
-{isEditing ? (
-<button className="boton boton-guardar" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button> ) : (
-<button className="boton boton-editar" onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} /></button>)}
-{!isEditing && <button className="boton boton-basura" onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} /></button>}
-</div>
-</div>
+  <div className="todo-container" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+    <button className="btn boton-completar" onClick={() => completeTodo(index)}>
+      <FontAwesomeIcon icon={todo.isCompleted ? faCircleCheck : faCheckCircle} />
+    </button>
+    <div className="task-container">
+      {isEditing ? (
+        <input
+          type="text"
+          value={newText}
+          onChange={e => setNewText(e.target.value)}
+          onKeyPress={e => {
+            if (e.key === "Enter") {
+              handleSave(index);
+            }
+          }}
+        />
+      ) : (
+        <span>{todo.text}</span>
+      )}
+    </div>
+    <div className="botones">
+      {isEditing ? (
+        <button className="boton boton-guardar" onClick={() => handleSave(index)}>
+          <FontAwesomeIcon icon={faFloppyDisk} />
+        </button>
+      ) : (
+        <button className="boton boton-editar" onClick={() => handleEdit(index)}>
+          <FontAwesomeIcon icon={faPencil} />
+        </button>
+      )}
+      {!isEditing && (
+        <button className="boton boton-basura" onClick={() => removeTodo(index)}>
+          <FontAwesomeIcon icon={faTrashCan} />
+        </button>
+      )}
+    </div>
+  </div>
 );
 }
 
 function ListaTareas() {
-  const [todos, setTodos] = React.useState([
-    {
-      text: "Learn about React",
-      isCompleted: false,
-    },
-    {
-      text: "Meet friend for lunch",
-      isCompleted: false,
-    },
-    {
-      text: "Build really cool todo Journal",
-      isCompleted: false,
-    },
-  ]);
+  const [todos, setTodos] = React.useState([]);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
@@ -95,52 +106,45 @@ return (
 />
 ))}
 </div>
-{todos.length > 0 && 
+<div className="counter-container pb-5">
+  {todos.length > 0 && 
+    <div className="todos-counter">
+      {
+        todos.filter(todo => !todo.isCompleted).length === 0
+        ? "¡No tienes tareas pendientes! 🥳"
+        : todos.filter(todo => !todo.isCompleted).length === 1
+          ? `Tienes ${todos.filter(todo => !todo.isCompleted).length} tarea pendiente⚡`
+          : `Tienes ${todos.filter(todo => !todo.isCompleted).length} tareas pendientes⚡`
+      }
+    </div>
+  }
+  {todos.length > 0 && 
+    <div className="todos-counter">
+      {
+        todos.filter(todo => todo.isCompleted).length === 0
+        ? "No tienes tareas completadas"
+        : todos.filter(todo => todo.isCompleted).length === 1
+          ? `Has completado ${todos.filter(todo => todo.isCompleted).length} tarea ✅`
+          : `Has completado  ${todos.filter(todo => todo.isCompleted).length} tareas ✅`
+      }
+    </div>
+  }
   <div className="todos-counter">
-    {
-      todos.filter(todo => !todo.isCompleted).length === 0
-      ? "¡No tienes tareas pendientes! 🥳"
-      : todos.filter(todo => !todo.isCompleted).length === 1
-        ? `Tienes ${todos.filter(todo => !todo.isCompleted).length} tarea pendiente⚡`
-        : `Tienes ${todos.filter(todo => !todo.isCompleted).length} tareas pendientes⚡`
+    {todos.length === 0 
+      ? "No tienes ninguna tarea 🏝️" 
+      : todos.length === 1 
+        ? `${todos.length} tarea en total` 
+        : `${todos.length} tareas en total`
     }
   </div>
-}
+</div>
+
+</div>
 {todos.length > 0 && 
-  <div className="todos-counter">
-    {
-      todos.filter(todo => todo.isCompleted).length === 0
-      ? "No tienes tareas completadas"
-      : todos.filter(todo => todo.isCompleted).length === 1
-        ? `Has completado ${todos.filter(todo => todo.isCompleted).length} tarea ✅`
-        : `Has completado  ${todos.filter(todo => todo.isCompleted).length} tareas ✅`
-    }
-  </div>
+  <button className="boton-limpiar" onClick={() => setTodos( todos.filter((t, currentIndex) => { return (t = 0);}))}>
+    Limpiar
+  </button>
 }
-<div className="todos-counter">
-{todos.length === 0 
-  ? "No tienes ninguna tarea 🏝️" 
-  : todos.length === 1 
-    ? `${todos.length} tarea en total` 
-    : `${todos.length} tareas en total`
-}
-</div>
-</div>
-<button
-        className="clear btn btn-danger mt-3 border-0"
-        onClick={() =>
-          setTodos(
-            todos.filter((t, currentIndex) => {
-              return (t = 0);
-            })
-          )
-        }
-      >
-        Limpiar
-      </button>
-<Link to="/">
-  <button className="volver btn btn-primary mt-3 border-0">Volver</button>
-</Link>
 </div>
 </div>
 );
