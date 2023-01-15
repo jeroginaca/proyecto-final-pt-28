@@ -8,8 +8,10 @@
     border-radius: 5px;
     box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.25);
     display: flex;
-    justify-content: space-between;
     margin-bottom: 10px;
+  }
+  .todo span {
+    
   }
 
 .question {
@@ -22,13 +24,19 @@
     color: transparent;
   }
 
+.botones {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 .borrar {
     background-color: rgb(229, 114, 120);
   }
 
-.fa-times, .fa-edit {
+.fa-trash, .fa-edit {
     color: rgb(255, 255, 255);
   }
-  .fa-times:hover {
+  .fa-trash:hover {
     color: rgb(255, 255, 255);
   }
