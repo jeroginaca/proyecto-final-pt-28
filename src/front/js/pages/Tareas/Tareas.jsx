@@ -6,35 +6,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
-import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
-  const [isEditing, setIsEditing] = React.useState(false);
-  const [newText, setNewText] = React.useState(todo.text);
+const [isEditing, setIsEditing] = React.useState(false);
+const [newText, setNewText] = React.useState(todo.text);
 
-  const handleEdit = (index) => {
-    setIsEditing(true);
-  }
-  
-  const handleSave = (index) => {
-    setIsEditing(false);
-    editTodo(index, newText);
-  }
+const handleEdit = (index) => {
+setIsEditing(true);
+}
 
-  return (
-    <div className="todo-container" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
-      <button className="btn boton-completar" onClick={() => completeTodo(index)}><FontAwesomeIcon icon={faCircleCheck} /></button>   
-      <div className="task-container">
-        {isEditing ? (<input type="text" value={newText} onChange={(e) => setNewText(e.target.value)} /> ) : ( <span>{todo.text}</span>)}
-      </div>
-      <div className="botones">
-          {isEditing ? (
-            <button className="boton boton-guardar" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button> ) : (
-            <button className="boton boton-editar"  onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} /></button>)}
-            {!isEditing && <button className="boton boton-basura"  onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} /></button>}
-      </div>
-    </div>
-  );
+const handleSave = (index) => {
+setIsEditing(false);
+editTodo(index, newText);
+}
+
+return (
+<div className="todo-container" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+<button className="btn boton-completar" onClick={() => completeTodo(index)}>
+<FontAwesomeIcon icon={todo.isCompleted ? faCircleCheck : faCheckCircle} /></button>
+<div className="task-container">
+{isEditing ? (<input type="text" value={newText} onChange={(e) => setNewText(e.target.value)} /> ) : ( <span>{todo.text}</span>)}
+</div>
+<div className="botones">
+{isEditing ? (
+<button className="boton boton-guardar" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button> ) : (
+<button className="boton boton-editar" onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} /></button>)}
+{!isEditing && <button className="boton boton-basura" onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} /></button>}
+</div>
+</div>
+);
 }
 
 function ListaTareas() {

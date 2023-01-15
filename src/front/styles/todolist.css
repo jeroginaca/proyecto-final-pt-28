@@ -76,6 +76,9 @@
   background-color: #9AA162;
   color: white;
 }
+.fa-check-circle, fa-check-circle-o {
+  color: black;
+}
 
 .borrar {
     background-color: rgb(229, 114, 120);
