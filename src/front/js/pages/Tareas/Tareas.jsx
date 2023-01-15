@@ -22,24 +22,22 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
   }
 
   return (
-    <div className="todo" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
-      <button className="btn boton-completar" onClick={() => completeTodo(index)}>
-        <FontAwesomeIcon icon={faCircleCheck} />
-      </button>   
-      {isEditing ? (
-        <input type="text" value={newText} onChange={(e) => setNewText(e.target.value)} /> ) : ( <span>{todo.text}</span>)}
-        <div className="botones" >
+    <div className="todo-container" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+      <button className="btn boton-completar" onClick={() => completeTodo(index)}><FontAwesomeIcon icon={faCircleCheck} /></button>   
+      <div className="task-container">
+        {isEditing ? (<input type="text" value={newText} onChange={(e) => setNewText(e.target.value)} /> ) : ( <span>{todo.text}</span>)}
+      </div>
+      <div className="botones">
           {isEditing ? (
             <button className="boton boton-guardar" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button> ) : (
-            <button className="boton boton-editar" onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} className="fa-edit"/></button>)}
-            {!isEditing && <button className="boton boton-basura" onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} className="fa-trash"/></button>}
-        </div>
+            <button className="boton boton-editar"  onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} /></button>)}
+            {!isEditing && <button className="boton boton-basura"  onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} /></button>}
+      </div>
     </div>
   );
 }
 
-
-function Journal() {
+function ListaTareas() {
 const [todos, setTodos] = React.useState([
 {
 text: "Learn about React",
@@ -81,7 +79,7 @@ return (
 <div className="container-fluid container-lista">
 <div className="p-5">
 <h1>Objetivos</h1>
-<div className="Journal">
+<div className="ListaTareas">
 <div className="todo-list">
 <TodoForm addTodo={addTodo} />
 {todos.map((todo, index) => (
@@ -145,4 +143,4 @@ return (
 </div>
 );
 }
-export default Journal;
+export default ListaTareas;
