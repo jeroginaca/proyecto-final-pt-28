@@ -23,16 +23,16 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
 
   return (
     <div className="todo" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
-      <button className="btn" onClick={() => completeTodo(index)}>
+      <button className="btn boton-completar" onClick={() => completeTodo(index)}>
         <FontAwesomeIcon icon={faCircleCheck} />
       </button>   
       {isEditing ? (
         <input type="text" value={newText} onChange={(e) => setNewText(e.target.value)} /> ) : ( <span>{todo.text}</span>)}
 <div className="botones" >
 {isEditing ? (
-<button className="save btn btn-outline-success rounded-circle" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button> ) : (
-<button className="edit btn btn-outline-warning rounded-circle" onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} className="fa-edit"/></button>)}
-<button className="remove btn btn-outline-danger rounded-circle" onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} className="fa-trash"/></button>
+<button className="boton boton-guardar" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button> ) : (
+<button className="boton boton-editar" onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} className="fa-edit"/></button>)}
+<button className="boton boton-basura" onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} className="fa-trash"/></button>
 </div>
 </div>
 );
