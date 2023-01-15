@@ -30,9 +30,9 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
         <input type="text" value={newText} onChange={(e) => setNewText(e.target.value)} /> ) : ( <span>{todo.text}</span>)}
 <div className="botones" >
 {isEditing ? (
-<button className="save btn btn-success" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button> ) : (
-<button className="edit btn btn-warning" onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} className="fa-edit"/></button>)}
-<button className="remove btn btn-danger" onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} className="fa-trash"/></button>
+<button className="save btn btn-outline-success rounded-circle" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button> ) : (
+<button className="edit btn btn-outline-warning rounded-circle" onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} className="fa-edit"/></button>)}
+<button className="remove btn btn-outline-danger rounded-circle" onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} className="fa-trash"/></button>
 </div>
 </div>
 );
