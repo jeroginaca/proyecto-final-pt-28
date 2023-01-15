@@ -28,15 +28,16 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
       </button>   
       {isEditing ? (
         <input type="text" value={newText} onChange={(e) => setNewText(e.target.value)} /> ) : ( <span>{todo.text}</span>)}
-<div className="botones" >
-{isEditing ? (
-<button className="boton boton-guardar" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button> ) : (
-<button className="boton boton-editar" onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} className="fa-edit"/></button>)}
-<button className="boton boton-basura" onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} className="fa-trash"/></button>
-</div>
-</div>
-);
+        <div className="botones" >
+          {isEditing ? (
+            <button className="boton boton-guardar" onClick={() => handleSave(index)}><FontAwesomeIcon icon={faFloppyDisk} /></button> ) : (
+            <button className="boton boton-editar" onClick={() => handleEdit(index)}><FontAwesomeIcon icon={faPencil} className="fa-edit"/></button>)}
+            {!isEditing && <button className="boton boton-basura" onClick={() => removeTodo(index)}><FontAwesomeIcon icon={faTrashCan} className="fa-trash"/></button>}
+        </div>
+    </div>
+  );
 }
+
 
 function Journal() {
 const [todos, setTodos] = React.useState([
@@ -94,12 +95,34 @@ return (
            />
 ))}
 </div>
+{todos.length > 0 && 
+  <div className="todos-counter">
+    {
+      todos.filter(todo => !todo.isCompleted).length === 0
+      ? "¡No tienes tareas pendientes! 🥳"
+      : todos.filter(todo => !todo.isCompleted).length === 1
+        ? `Tienes ${todos.filter(todo => !todo.isCompleted).length} tarea pendiente⚡`
+        : `Tienes ${todos.filter(todo => !todo.isCompleted).length} tareas pendientes⚡`
+    }
+  </div>
+}
+{todos.length > 0 && 
+  <div className="todos-counter">
+    {
+      todos.filter(todo => todo.isCompleted).length === 0
+      ? "No tienes tareas completadas"
+      : todos.filter(todo => todo.isCompleted).length === 1
+        ? `Has completado ${todos.filter(todo => todo.isCompleted).length} tarea ✅`
+        : `Has completado  ${todos.filter(todo => todo.isCompleted).length} tareas ✅`
+    }
+  </div>
+}
 <div className="todos-counter">
 {todos.length === 0 
-  ? "Ninguna tarea" 
+  ? "No tienes ninguna tarea 🏝️" 
   : todos.length === 1 
-    ? `${todos.length} tarea` 
-    : `${todos.length} tareas`
+    ? `${todos.length} tarea en total` 
+    : `${todos.length} tareas en total`
 }
 </div>
 </div>
