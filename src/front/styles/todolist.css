@@ -1,10 +1,13 @@
 .todo-list {
     width: 100%;
+    margin-bottom: 30px;
   }
   
 .todo-container {
     display: flex;
     align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .boton-completar {

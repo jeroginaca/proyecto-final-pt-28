@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TodoForm from "./TodoForm.jsx";
 import "../../../styles/todolist.css";
+import TodoForm from "./TodoForm.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
@@ -38,31 +38,31 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
 }
 
 function ListaTareas() {
-const [todos, setTodos] = React.useState([
-{
-text: "Learn about React",
-isCompleted: false,
-},
-{
-text: "Meet friend for lunch",
-isCompleted: false,
-},
-{
-text: "Build really cool todo Journal",
-isCompleted: false,
-},
-]);
+  const [todos, setTodos] = React.useState([
+    {
+      text: "Learn about React",
+      isCompleted: false,
+    },
+    {
+      text: "Meet friend for lunch",
+      isCompleted: false,
+    },
+    {
+      text: "Build really cool todo Journal",
+      isCompleted: false,
+    },
+  ]);
 
-const addTodo = (text) => {
-const newTodos = [...todos, { text }];
-setTodos(newTodos);
-};
+  const addTodo = (text) => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
 
-const completeTodo = (index) => {
-const newTodos = [...todos];
-newTodos[index].isCompleted = true;
-setTodos(newTodos);
-};
+  const completeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    setTodos(newTodos);
+  };
 
 const editTodo = (index, text) => {
 const newTodos = [...todos];
@@ -83,14 +83,14 @@ return (
 <div className="todo-list">
 <TodoForm addTodo={addTodo} />
 {todos.map((todo, index) => (
-<Todo
-             key={index}
-             index={index}
-             todo={todo}
-             completeTodo={completeTodo}
-             removeTodo={removeTodo}
-             editTodo={editTodo}
-           />
+  <Todo
+  key={index}
+  index={index}
+  todo={todo}
+  completeTodo={completeTodo}
+  removeTodo={removeTodo}
+  editTodo={editTodo}
+/>
 ))}
 </div>
 {todos.length > 0 && 
