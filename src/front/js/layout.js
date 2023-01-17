@@ -14,6 +14,7 @@ import Tiempos from "./pages/Meditacion/Tiempos.jsx";
 import Tareas from "./pages/Tareas/Tareas.jsx";
 import Journal from "./pages/Journal/Journal.jsx";
 import Entrada from "./pages/Journal/Entrada.jsx";
+import AppJournal from "./pages/Journal/AppJournal.jsx";
 import SeleccionDeAudios from "./pages/Meditacion/SeleccionDeAudio.jsx";
 import Meditacion from "./pages/Meditacion/Meditacion.jsx";
 import Felicitaciones from "./pages/Felicitaciones.jsx";
@@ -38,6 +39,7 @@ const Layout = () => {
             <Route element={<Tareas />} path="/tareas" />
             <Route element={<Journal />} path="/journal" />
             <Route element={<Entrada />} path="/entrada" />
+            <Route element={<AppJournal />} path="/appjournal" />
             <Route element={<Meditacion />} path="/meditacion/:id" />
             <Route element={<Felicitaciones />} path="/felicitaciones" />
             <Route element={<SeleccionDeAudios />} path="/audios" />
