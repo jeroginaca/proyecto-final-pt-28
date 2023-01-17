@@ -9,18 +9,18 @@ function Note(props) {
 
     const date = new Date(value);
     const monthNames = [
-      "Jan",
-      "Feb",
-      "March",
-      "April",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sept",
-      "Oct",
-      "Nov",
-      "Dec",
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre",
     ];
 
     let hrs = date.getHours();
