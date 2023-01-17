@@ -30,7 +30,7 @@ export const Home = () => {
       </Link>
       <Link to={"/pomodoro"}>
         <button style={meditar}>
-          <img src="https://i.ibb.co/rs9ZX4X/Vector.png" width="75%" />
+          <img src="https://i.ibb.co/Qcds6rP/icon-timer.png" width="75%" />
         </button>
       </Link>
 
