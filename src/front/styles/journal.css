@@ -1,6 +1,6 @@
-/* footer, .navbar {
+footer, .navbar {
   display: none;
-} */
+}
 
 .journal-entry input:focus::placeholder {
     color: transparent;
@@ -87,14 +87,14 @@ input {
     background-color: #ffffff;
     color:black;
   }
-  
-  .boton-guardar {
-    border: 2px solid #9AA162;
-    color: #9AA162;
+
+  .guardar-entrada {
+    border: 2px solid #000000;
+    color: #000000;
   }
-    .boton-guardar:hover {
-    background-color: #9AA162;
-    color: white;
+    .guardar-entrada:hover {
+    background-color: #000000;
+    color: #ffffff;
   }
   
   .boton-limpiar {
