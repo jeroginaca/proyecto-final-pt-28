@@ -6,7 +6,7 @@ footer, .navbar {
     color: transparent;
   }
   
-  .journal-entry {
+.journal-entry {
     margin:0;
     padding:0;
     border: 1px solid rgb(225, 225, 225);
@@ -14,7 +14,7 @@ footer, .navbar {
     height: 80vh;
   }
   
-  input {
+input {
     background: none;
     border: none;
     width: 100%;
@@ -33,7 +33,6 @@ footer, .navbar {
   .todo-list {
       width: 100%;
       margin-bottom: 30px;
-      /* background-color: orange; */
     }
     
   .todo-container {
@@ -43,8 +42,8 @@ footer, .navbar {
       margin-bottom: 15px;
       border-radius: 7px;
       -webkit-box-shadow: 0px 0px 14px -9px rgba(0,0,0,0.51);
--moz-box-shadow: 0px 0px 14px -9px rgba(0,0,0,0.51);
-box-shadow: 0px 0px 14px -9px rgba(0,0,0,0.51);
+      -moz-box-shadow: 0px 0px 14px -9px rgba(0,0,0,0.51);
+      box-shadow: 0px 0px 14px -9px rgba(0,0,0,0.51);
   }
   
 .fecha-container {
@@ -74,28 +73,19 @@ box-shadow: 0px 0px 14px -9px rgba(0,0,0,0.51);
     border-radius: 50%;
     background-color: transparent;
   }
-  .boton:hover, .boton-limpiar:hover {
+  .boton:hover {
     -webkit-transition: 200ms linear;
     -ms-transition: 200ms linear;
     transition: 200ms linear;
   }
   
-  .boton-editar {
-    border: 2px solid #85B5B5;
-    color: #85B5B5;
+  .borrar-entrada {
+    border: 2px solid #ffffff;
+    color: #ffffff;
   }
-    .boton-editar:hover {
-    background-color: #85B5B5;
-    color: white;
-  }
-  
-  .boton-basura {
-    border: 2px solid #CD6C51;
-    color: #CD6C51;
-  }
-    .boton-basura:hover {
-    background-color: #CD6C51;
-    color: white;
+    .borrar-entrada:hover {
+    background-color: #ffffff;
+    color:black;
   }
   
   .boton-guardar {

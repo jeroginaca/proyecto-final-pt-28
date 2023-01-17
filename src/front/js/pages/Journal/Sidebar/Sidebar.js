@@ -11,8 +11,8 @@ function Sidebar(props) {
 
   return (
     <div className="sidebar">
-      <img src={plusIcon} alt="Add" onClick={() => setListOpen(!listOpen)} />
-      <ul className={`sidebar_list ${listOpen ? "sidebar_list_active" : ""}`}>
+      <img src={plusIcon} onClick={() => setListOpen(!listOpen)} />
+      <ul className={`sidebar_list ${listOpen ? "sidebar_list_active align-items" : ""}`}>
         {colors.map((item, index) => (
           <li
             key={index}

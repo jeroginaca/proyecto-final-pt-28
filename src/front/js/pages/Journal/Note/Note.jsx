@@ -55,7 +55,7 @@ function Note(props) {
       />
       <div className="note_footer">
         <p>{formatDate(props.note.time)}</p>
-        <i alt="DELETE" onClick={() => props.deleteNote(props.note.id)} class="fa" aria-hidden="true"></i>
+        <button className="boton borrar-entrada"><i onClick={() => props.deleteNote(props.note.id)} class="fa" aria-hidden="true"></i></button>
       </div>
     </div>
   );
