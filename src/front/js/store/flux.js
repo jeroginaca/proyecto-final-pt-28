@@ -40,13 +40,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
     },
     actions: {
-      getAudios: () => {
-        fetch(
-          "https://318116478912829:Qe6tfvIi84x0H6BIR-2gwiO52x4@api.cloudinary.com/v1_1/dgn3hxolh/resources/video"
-        )
+      getAudios: (id) => {
+        fetch(process.env.BACKEND_URL + `/api/audios-by-type/${id}`)
           .then((resp) => resp.json())
           .then((data) => {
-            setStore({ audios: data.results });
+            setStore({ audios: data });
           });
       },
 
@@ -54,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch("https://api.quotable.io/random")
           .then((response) => response.json())
           .then((data) => {
-            setStore({ frases: data.content });
+            setStore({ frases: data });
           });
       },
       // Use getActions to call a function within a fuction

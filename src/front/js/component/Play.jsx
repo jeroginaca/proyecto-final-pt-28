@@ -7,8 +7,8 @@ const Play = ({ id }) => {
   const { store, actions } = useContext(Context);
 
   const getAudios = (id) => {
-    const audio = store.audiosTest.find((element) => element.id == id);
-    return audio.src;
+    const audio = store.audios.find((element) => element.id == id);
+    return audio.url;
   };
 
   return (

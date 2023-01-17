@@ -1,29 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ListaDeAudios from "../../component/ListaDeAudios.jsx";
 
 const SeleccionDeAudios = () => {
-  const buttons = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    margin: "2rem 0",
-  };
-
-  const text = {
-    textAlign: "center",
-    color: "#754942",
-    textDecoration: "none",
-  };
+  const params = useParams();
 
   return (
-    <div style={{ backgroundColor: "#EDDCC3" }}>
-      <h3 style={text}>Selecciona tu Audio</h3>
-      <div className="buttons" style={buttons}>
-        <ListaDeAudios />
-        <Link style={text} to={"/tiempos"}>
-          <p>Volver</p>
-        </Link>
+    <div className="meditacion-background">
+      <h3 className="meditacion-titulo">Selecciona tu Audio</h3>
+      <div className="meditacion-botones">
+        <ListaDeAudios id={params.id} />
       </div>
     </div>
   );

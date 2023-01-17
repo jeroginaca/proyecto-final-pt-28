@@ -1,45 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Tiempos = () => {
-  const buttons = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    margin: "2rem 0",
-  };
+  const [categories, setCategories] = useState([]);
 
-  const button = {
-    padding: "0.7rem",
-    borderRadius: "15px",
-    margin: "0.5rem",
-    backgroundColor: "#754942",
-    border: "none",
-    color: "#FBF7F1",
-  };
-
-  const text = {
-    textAlign: "center",
-    color: "#754942",
-    textDecoration: "none",
-  };
+  useEffect(() => {
+    fetch(process.env.BACKEND_URL + "/api/recibir_meditacion")
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        setCategories(response);
+      });
+  }, []);
 
   return (
-    <div style={{ backgroundColor: "#EDDCC3" }}>
-      <h3 style={text}>¿Cuánto vas a meditar hoy?</h3>
-      <div className="buttons" style={buttons}>
-        <Link to={"/audios"}>
-          <button style={button}>5min</button>
-        </Link>
-        <button style={button}>10min</button>
-        <button style={button}>15min</button>
-        <button style={button}>20min</button>
-        <button style={button}>25min</button>
-        <button style={button}>30min</button>
+    <div className="meditacion-background">
+      <h3 className="meditacion-titulo">¿Cuánto vas a meditar hoy?</h3>
+      <div className="meditacion-botones">
+        {categories.map((element, index) => {
+          return (
+            <Link to={`/audios/${element.id}`} key={index}>
+              <button className="meditacion-boton">{element.name}</button>
+            </Link>
+          );
+        })}
       </div>
-      <Link style={text} to={"/"}>
-        <p>Volver</p>
-      </Link>
     </div>
   );
 };

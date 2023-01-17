@@ -41,6 +41,13 @@ def recibir_meditacion():
         return jsonify(response_body), 200
 
 
+@api.route('/audios-by-type/<id>', methods=['GET'])
+def get_audios_by_type(id):
+        audios = Audio.query.filter_by(meditation_type_id=id)
+        data = list(map(lambda x: x.serialize(), audios))
+        return jsonify(data), 200
+
+
 ## src: "https://res.cloudinary.com/dgn3hxolh/video/upload/v1672924137/ES_Dancing_Pink_Orbs_-_369_cjldxl.mp3",
 ## title: "Meditación 1",
 ## id: 1,

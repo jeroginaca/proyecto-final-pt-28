@@ -108,12 +108,15 @@ class Audio(db.Model):
             "id": self.id,
             "url": self.url,
             "title": self.title,
-            "meditation_type": self.meditation_type
+            "meditation_type": self.meditation_type.serialize()
         }
 
 class Tipo_de_meditacion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
+
+    def __repr__(self):
+        return self.name
     
     def serialize(self):
         return{
