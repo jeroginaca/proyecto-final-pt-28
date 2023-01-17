@@ -1,5 +1,6 @@
 import React from "react";
 import "./Note.css";
+import "../../../../styles/journal.css";
 
 let timer = 500,
   timeout;
@@ -34,7 +35,7 @@ function Note(props) {
     let day = date.getDate();
     const month = monthNames[date.getMonth()];
 
-    return `${hrs}:${min} ${amPm} ${day} ${month}`;
+    return `${day} ${month} | ${hrs}:${min} ${amPm}`;
   };
 
   const debounce = (func) => {
@@ -45,6 +46,15 @@ function Note(props) {
   const updateText = (text, id) => {
     debounce(() => props.updateText(text, id));
   };
+  
+  const handleFullScreen = (event) => {
+    const note = event.currentTarget.parentNode.parentNode;
+    if (document.fullscreenElement === note) {
+        document.exitFullscreen();
+    } else {
+        note.requestFullscreen();
+    }
+};
 
   return (
     <div className="note" style={{ backgroundColor: props.note.color }}>
@@ -54,8 +64,10 @@ function Note(props) {
         onChange={(event) => updateText(event.target.value, props.note.id)}
       />
       <div className="note_footer">
-        <p>{formatDate(props.note.time)}</p>
-        <i alt="DELETE" onClick={() => props.deleteNote(props.note.id)} class="fa" aria-hidden="true"></i>
+        <p className="fecha-nota">{formatDate(props.note.time)}</p>
+        <button className="boton borrar-entrada"><i onClick={() => props.deleteNote(props.note.id)} class="fa" aria-hidden="true"></i></button>
+        <button className="boton pantalla-completa" onClick={handleFullScreen}><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>
+        <button className="boton guardar-entrada"><i class="fa" aria-hidden="true"></i></button>
       </div>
     </div>
   );

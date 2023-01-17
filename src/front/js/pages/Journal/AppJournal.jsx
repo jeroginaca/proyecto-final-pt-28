@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import NoteContainer from "./NoteContainer/NoteContainer.jsx";
-import Sidebar from "./Sidebar/Sidebar";
+import Sidebar from "./Sidebar/Sidebar.jsx";
 import "./AppJournal.css";
 
 function AppJournal() {
-  const [notes, setNotes] = useState(
-    JSON.parse(localStorage.getItem("notes-app")) || []
-  );
+const [notes, setNotes] = useState(
+JSON.parse(localStorage.getItem("notes-app")) || []
+);
 
-  const addNote = (color) => {
-    const tempNotes = [...notes];
+const addNote = (color) => {
+  const tempNotes = [...notes];
 
-    tempNotes.push({
-      id: Date.now() + "" + Math.floor(Math.random() * 78),
-      text: "",
-      time: Date.now(),
-      color,
-    });
-    setNotes(tempNotes);
+  tempNotes.push({
+    id: Date.now() + "" + Math.floor(Math.random() * 78),
+    text: "",
+    time: Date.now(),
+    color,
+  });
+  setNotes(tempNotes);
   };
 
   const deleteNote = (id) => {
@@ -45,7 +45,7 @@ function AppJournal() {
   }, [notes]);
 
   return (
-    <div className="AppJournal">
+    <div className="AppJournal px-3 py-5">
       <Sidebar addNote={addNote} />
       <NoteContainer
         notes={notes}
