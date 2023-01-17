@@ -40,27 +40,20 @@ const addNote = (color) => {
     setNotes(tempNotes);
   };
 
-  const duplicateNote = (note) => {
-    const tempNotes = [...notes];
-    tempNotes.push({...note});
-    setNotes(tempNotes);
-    }
-    
-    useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("notes-app", JSON.stringify(notes));
-    }, [notes]);
-    
-    return (
+  }, [notes]);
+
+  return (
     <div className="AppJournal px-3 py-5">
-    <Sidebar addNote={addNote} />
-    <NoteContainer
-         notes={notes}
-         deleteNote={deleteNote}
-         updateText={updateText}
-         duplicateNote={duplicateNote}
-       />
+      <Sidebar addNote={addNote} />
+      <NoteContainer
+        notes={notes}
+        deleteNote={deleteNote}
+        updateText={updateText}
+      />
     </div>
-    );
-    }
-    
-    export default AppJournal;
+  );
+}
+
+export default AppJournal;

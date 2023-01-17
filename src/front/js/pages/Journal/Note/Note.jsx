@@ -35,7 +35,7 @@ function Note(props) {
     let day = date.getDate();
     const month = monthNames[date.getMonth()];
 
-    return `${day} ${month} ${hrs}:${min} ${amPm}`;
+    return `${day} ${month} | ${hrs}:${min} ${amPm}`;
   };
 
   const debounce = (func) => {
