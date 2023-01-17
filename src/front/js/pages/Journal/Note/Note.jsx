@@ -1,5 +1,6 @@
 import React from "react";
 import "./Note.css";
+import "../../../../styles/journal.css";
 
 let timer = 500,
   timeout;
@@ -34,7 +35,7 @@ function Note(props) {
     let day = date.getDate();
     const month = monthNames[date.getMonth()];
 
-    return `${hrs}:${min} ${amPm} ${day} ${month}`;
+    return `${day} ${month} ${hrs}:${min} ${amPm}`;
   };
 
   const debounce = (func) => {

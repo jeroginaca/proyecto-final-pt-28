@@ -47,9 +47,6 @@
 
 .fecha-nota {
     margin-top: 0;
-    margin-bottom: 0; /* Añado esta línea para eliminar el margen inferior */
-}
-
-.pantalla-completa {
-  /* Estilos para el botón */
+    margin-bottom: 0;
+    font-size: 13px;
 }
