@@ -10,7 +10,8 @@ const FraseInspiradora = () => {
 
   return (
     <div>
-      <p>{store.frases}</p>
+      <p className="quote">"{store.frases.content}"</p>
+      <p className="author">{store.frases.author}</p>
     </div>
   );
 };

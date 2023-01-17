@@ -6,6 +6,8 @@ import injectContext from "./store/appContext";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+
+
 import { Login } from "./pages/login";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -17,7 +19,8 @@ import Entrada from "./pages/Journal/Entrada.jsx";
 import AppJournal from "./pages/Journal/AppJournal.jsx";
 import SeleccionDeAudios from "./pages/Meditacion/SeleccionDeAudio.jsx";
 import Meditacion from "./pages/Meditacion/Meditacion.jsx";
-import Felicitaciones from "./pages/Felicitaciones.jsx";
+import Felicitaciones from "./pages/Meditacion/Felicitaciones.jsx";
+import Landing from "./pages/Landing.jsx";
 
 //create your first component
 const Layout = () => {
@@ -29,8 +32,8 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <Navbar />
           <Routes>
+            <Route element={<Landing />} path="/landing" />
             <Route element={<Home />} path="/" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Demo />} path="/demo" />
@@ -42,11 +45,10 @@ const Layout = () => {
             <Route element={<AppJournal />} path="/appjournal" />
             <Route element={<Meditacion />} path="/meditacion/:id" />
             <Route element={<Felicitaciones />} path="/felicitaciones" />
-            <Route element={<SeleccionDeAudios />} path="/audios" />
+            <Route element={<SeleccionDeAudios />} path="/audios/:id" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
-          <Footer />
         </ScrollToTop>
       </BrowserRouter>
     </div>

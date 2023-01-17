@@ -7,39 +7,21 @@ const Meditacion = () => {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    margin: "2rem 0",
-  };
-
-  const button = {
-    padding: "0.7rem",
-    borderRadius: "15px",
-    margin: "0.5rem",
-    backgroundColor: "#754942",
-    border: "none",
-    color: "#FBF7F1",
-  };
-
-  const text = {
-    textAlign: "center",
-    color: "#754942",
-    textDecoration: "none",
+    justifyContent: "center",
   };
 
   const params = useParams();
 
   return (
-    <div style={{ backgroundColor: "#EDDCC3" }}>
-      <div className="buttons" style={buttons}>
+    <div className="meditacion-background-noche">
+      <div style={buttons}>
         <img
-          src="https://i.ibb.co/5rzgjcc/Group-28.png"
-          style={{ marginTop: "3rem" }}
+          src="https://i.ibb.co/8K4RWxc/Personaje-noche.png"
+          className="meditacion-personaje-noche"
         />
         <Play id={params.id} />
         <div style={{ display: "flex", gap: "2rem", margin: "2rem 0" }}>
-          <Link style={text} to={"/audios"}>
-            <p>Volver</p>
-          </Link>
-          <Link style={text} to={"/felicitaciones"}>
+          <Link className="meditacion-terminar" to={"/felicitaciones"}>
             <p>Terminar</p>
           </Link>
         </div>
