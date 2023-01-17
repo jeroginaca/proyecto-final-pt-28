@@ -88,11 +88,11 @@ input {
     color:black;
   }
 
-  .guardar-entrada {
+  .guardar-entrada, .pantalla-completa {
     border: 2px solid #000000;
     color: #000000;
   }
-    .guardar-entrada:hover {
+    .guardar-entrada:hover, .pantalla-completa:hover {
     background-color: #000000;
     color: #ffffff;
   }
