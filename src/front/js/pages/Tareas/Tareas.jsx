@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const Home = () => {
+const TodoList = () => {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
   const [count, setCount] = useState(0);
@@ -9,7 +10,7 @@ const Home = () => {
   }, []);
 
   const getList = () => {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/miriamvalades")
+    fetch("https://assets.breatheco.de/apis/fake/todos/user/mindfulme")
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -20,7 +21,7 @@ const Home = () => {
 
   const addTask = (myTask) => {
     var newList = [...list, { label: myTask, done: false }];
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/miriamvalades", {
+    fetch("https://assets.breatheco.de/apis/fake/todos/user/mindfulme", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +37,7 @@ const Home = () => {
   };
 
   const deleteTask = async () => {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/miriamvalad", {
+    fetch("https://assets.breatheco.de/apis/fake/todos/user/mindfulme", {
       method: "DELETE",
       headers: { "Content-type": "application/json" },
     })
@@ -47,15 +48,16 @@ const Home = () => {
           addTask();
           setTodos([]);
         }
-        new Error("Ocurrió un error eliminando User");
+        new Error("Ocurrió un error eliminando la tarea");
       })
       .then((json) => console.log(json))
       .catch((error) => console.log(error));
   };
 
   return (
-    <div className="container">
-      <h1>my todos</h1>
+    <div className="container-fluid container-lista">
+      <div className="p-5">
+      <h1>Objetivos</h1>
       <ul>
         <li className="question">
           <input
@@ -68,26 +70,40 @@ const Home = () => {
                 setInputValue("");
               }
             }}
-            placeholder="What do you need to do?"
+            placeholder="¿Qué quieres hacer?"
           ></input>
         </li>
         {todos.map((t, index) => (
-          <li>
-            {t}
-            <i
-              class="fa fa-times"
-              onClick={() =>
-                setTodos(
-                  todos.filter((t, currentIndex) => index != currentIndex)
-                )
-              }
-            ></i>
-          </li>
+          <li className="item-lista" key={index} style={{ backgroundColor: "light-blue" }}>
+          <input
+            type="text"
+            value={t}
+            onChange={(e) => {
+              const newTodos = [...todos];
+              newTodos[index] = e.target.value;
+              setTodos(newTodos);
+            }}
+            style={{ backgroundColor: "transparent" }}
+          />
+          <i
+            class="fa fa-times"
+            onClick={() =>
+              setTodos(
+                todos.filter((t, currentIndex) => index != currentIndex)
+              )
+            }
+          ></i>
+        </li>
+              
         ))}
       </ul>
-      <div className="todos-counter">{todos.length} tasks</div>
+      <div className="todos-counter">
+        {todos.length === 0 ? "Ninguna tarea" : 
+        todos.length === 1 ? `${todos.length} tarea` : 
+        `${todos.length} tareas`}
+    </div>
       <button
-        className="btn btn-danger mt-3 border-0"
+        className="clear btn btn-danger mt-3 border-0"
         onClick={() =>
           setTodos(
             todos.filter((t, currentIndex) => {
@@ -96,10 +112,16 @@ const Home = () => {
           )
         }
       >
-        Clear
+        Limpiar
       </button>
+      <Link to="/">
+          <button className="volver btn btn-primary mt-3 border-0">
+            Volver
+          </button>
+        </Link>
+      </div> 
     </div>
   );
 };
 
-export default Home;
+export default TodoList;

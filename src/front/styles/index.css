@@ -163,3 +163,68 @@
     color: #754942;
   }
 }
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul li {
+  list-style: none;
+}
+
+.container-lista {
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+}
+
+.question {
+  margin:0;
+  padding:0;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 30px;
+}
+.question input:focus::placeholder {
+  color: transparent;
+}
+
+input {
+  background: none;
+  border: none;
+  width: 100%;
+  outline: none;
+  padding:10px;
+}
+input:active {
+  background: white;
+  border-radius: 30px;
+}
+input:focus {
+  background: white;
+  border-radius: 30px;
+}
+
+.fa-times {
+  margin-left: 10px;
+  color: grey;
+}
+.fa-times:hover {
+  color: rgb(229, 114, 120);
+}
+
+.todos-counter {
+  margin-top: 5px;
+  font-size: 12px;
+  color: grey;
+}
+
+.clear {
+  background-color: rgb(229, 114, 120);
+}
+
+.item-lista {
+  display: flex;
+  align-items: center;
+}
+
+.volver {
+  background-color: rgb(103, 155, 200);
+}

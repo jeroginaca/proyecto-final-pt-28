@@ -1,0 +1,44 @@
+.login-bg-image {
+  height: 100vh;
+  background-image: url("https://i.ibb.co/tbJM7dP/login-signup.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-container-1 {
+  background-color: #d9d9d9e5;
+  height: 450px;
+  width: 400px;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.login-container-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+}
+
+.login-input {
+  border-radius: 20px;
+  width: 300px;
+  height: 40px;
+  border: 2px solid rgb(26, 26, 26);
+  padding-left: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.login-button {
+  background-color: #555a6c;
+  border-color: #555a6c;
+  color: white;
+  border-radius: 20px;
+}
+
+.signup-button {
+  background-color: #d9d9d9e5;
+  color: #555a6c;
+  border: 2px solid #555a6c;
+  border-radius: 20px;
+}
