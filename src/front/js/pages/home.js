@@ -54,6 +54,12 @@ export const Home = () => {
         </button>
       </Link>
 
+      <Link to={"/appjournal"}>
+        <button style={meditar}>
+          <img src={editImageUrl} width="75%" />
+        </button>
+      </Link>
+
       <Calendario />
 
       <div className="alert alert-info">
