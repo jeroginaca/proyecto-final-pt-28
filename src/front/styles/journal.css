@@ -1,6 +1,6 @@
-footer, .navbar {
+/* footer, .navbar {
   display: none;
-}
+} */
 
 .journal-entry input:focus::placeholder {
     color: transparent;
