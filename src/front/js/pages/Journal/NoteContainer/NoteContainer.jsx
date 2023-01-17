@@ -1,7 +1,5 @@
 import React from "react";
-
 import Note from "../Note/Note.jsx";
-
 import "./NoteContainer.css";
 
 function NoteContainer(props) {

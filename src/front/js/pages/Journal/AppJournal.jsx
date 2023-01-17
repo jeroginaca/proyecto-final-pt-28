@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NoteContainer from "./NoteContainer/NoteContainer.jsx";
-import Sidebar from "./Sidebar/Sidebar";
+import Sidebar from "./Sidebar/Sidebar.jsx";
 import "./AppJournal.css";
 
 function AppJournal() {
