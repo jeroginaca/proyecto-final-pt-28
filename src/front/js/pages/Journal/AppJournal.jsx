@@ -45,7 +45,7 @@ function AppJournal() {
   }, [notes]);
 
   return (
-    <div className="AppJournal">
+    <div className="AppJournal px-3 py-5">
       <Sidebar addNote={addNote} />
       <NoteContainer
         notes={notes}
