@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import NoteContainer from "./NoteContainer/NoteContainer.jsx";
 import Sidebar from "./Sidebar/Sidebar.jsx";
 import "./AppJournal.css";
+import { Context } from "../../store/appContext.js";
 
 function AppJournal() {
 const [notes, setNotes] = useState(
 JSON.parse(localStorage.getItem("notes-app")) || []
 );
+const { store, actions } = useContext(Context);
+    useEffect(() => {
+      actions.getNotes();
+    }, []);
 
 const addNote = (color) => {
   const tempNotes = [...notes];
@@ -40,9 +45,9 @@ const addNote = (color) => {
     setNotes(tempNotes);
   };
 
-  useEffect(() => {
+/*   useEffect(() => {
     localStorage.setItem("notes-app", JSON.stringify(notes));
-  }, [notes]);
+  }, [notes]); */
 
   return (
     <div className="AppJournal px-3 py-5">
