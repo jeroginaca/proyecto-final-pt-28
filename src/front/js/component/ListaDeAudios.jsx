@@ -2,35 +2,19 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-const ListaDeAudios = () => {
+const ListaDeAudios = (props) => {
   const { store, actions } = useContext(Context);
 
-  const buttons = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    margin: "2rem 0",
-  };
-
-  const button = {
-    padding: "0.7rem",
-    borderRadius: "15px",
-    margin: "0.5rem",
-    backgroundColor: "#754942",
-    border: "none",
-    color: "#FBF7F1",
-  };
-
   useEffect(() => {
-    actions.getAudios();
+    actions.getAudios(props.id);
   }, []);
 
-  return store.audiosTest.map((audiosTest) => {
+  return store.audios.map((audios) => {
     return (
       <div>
-        <div className="buttons" style={buttons}>
-          <Link to={`/meditacion/${audiosTest.id}`}>
-            <button style={button}>{audiosTest.title}</button>
+        <div className="meditacion-botones">
+          <Link to={`/meditacion/${audios.id}`}>
+            <button className="meditacion-boton">{audios.title}</button>
           </Link>
         </div>
       </div>

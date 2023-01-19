@@ -1,14 +1,22 @@
+<<<<<<< HEAD
 import React, { useContext, useEffect } from "react";
+=======
+import React, { useContext, useEffect, useState } from "react";
+>>>>>>> development
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import targetImageUrl from "../../img/target.png";
 import editImageUrl from "../../img/edit.png";
+<<<<<<< HEAD
 import { Calendario } from "../component/Calendario.jsx";
 
 
 // <img src="https://i.ibb.co/v1f1GGr/Group-2.png" /> <---- IMAGEN DEL CEREBRO
+=======
+import journalImageUrl from "../../img/journal.png";
+>>>>>>> development
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -32,6 +40,7 @@ export const Home = () => {
             </div>
           </div>
 
+<<<<<<< HEAD
           <div className="col d-flex justify-content-center">
             <div className="buttons-container row row-cols-2">
               <Link to={"/tiempos"} >
@@ -39,6 +48,15 @@ export const Home = () => {
                   <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
                 </button>
               </Link>
+=======
+      <Link to={"/appjournal"}>
+        <button style={meditar}>
+          <img src={journalImageUrl} width="75%" />
+        </button>
+      </Link>
+
+      <Calendario />
+>>>>>>> development
 
               <Link to={"/tiempos"}>
                 <button className="home-buttons">

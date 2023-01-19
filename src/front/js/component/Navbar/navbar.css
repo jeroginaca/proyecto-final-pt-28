@@ -1,0 +1,34 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 80px;
+  padding-left: 50px;
+  font-size: 20px;
+  z-index: 1;
+}
+
+.scrolling {
+  background-color: #754942;
+  transition: all 0.5s ease;
+}
+
+.navbar-logo {
+  height: 80px;
+  line-height: 80px;
+  color: white;
+  cursor: pointer;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  margin-right: 2rem;
+  color: white;
+}
+
+.linksitos {
+  margin-right: 1.5rem;
+  list-style: none;
+}

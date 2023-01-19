@@ -48,7 +48,7 @@ const TodoList = () => {
           addTask();
           setTodos([]);
         }
-        new Error("Ocurrió un error eliminando User");
+        new Error("Ocurrió un error eliminando la tarea");
       })
       .then((json) => console.log(json))
       .catch((error) => console.log(error));

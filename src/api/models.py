@@ -44,16 +44,14 @@ class Journal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     user= db.relationship('User', backref='journal', lazy=True) 
-    title = db.Column(db.String(120), nullable=False)
     notes = db.Column(db.String(120), nullable=False)
     color = db.Column(db.String(120), nullable=False)
     date = db.Column(db.DateTime, nullable=False)
-    
+
     def serialize(self):
         return{
             "id": self.id,
             "user_id": self.user_id,
-            "title": self.title,
             "notes": self.notes,
             "color": self.color,
             "date": self.date
@@ -76,7 +74,6 @@ class Objetivos(db.Model):
             "date": self.date
         }    
 
-
 class Meditacion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
@@ -92,8 +89,6 @@ class Meditacion(db.Model):
             "id_audio": self.id_audio
         }
 
-
-
 class Audio(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     url = db.Column(db.String(250), nullable=False)
@@ -106,12 +101,15 @@ class Audio(db.Model):
             "id": self.id,
             "url": self.url,
             "title": self.title,
-            "meditation_type": self.meditation_type
+            "meditation_type": self.meditation_type.serialize()
         }
 
 class Tipo_de_meditacion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
+
+    def __repr__(self):
+        return self.name
     
     def serialize(self):
         return{

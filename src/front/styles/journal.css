@@ -1,0 +1,129 @@
+footer, .navbar {
+  display: none;
+}
+
+.journal-entry input:focus::placeholder {
+    color: transparent;
+  }
+  
+.journal-entry {
+    margin:0;
+    padding:0;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 10px;
+    height: 80vh;
+  }
+  
+input {
+    background: none;
+    border: none;
+    width: 100%;
+    outline: none;
+    padding:10px;
+  }
+  input:active {
+    background: white;
+    border-radius: 30px;
+  }
+  input:focus {
+    background: white;
+    border-radius: 30px;
+  }
+  
+  .todo-list {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    
+  .todo-container {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border-radius: 7px;
+      -webkit-box-shadow: 0px 0px 14px -9px rgba(0,0,0,0.51);
+      -moz-box-shadow: 0px 0px 14px -9px rgba(0,0,0,0.51);
+      box-shadow: 0px 0px 14px -9px rgba(0,0,0,0.51);
+  }
+  
+.fecha-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .fecha {
+    margin-top: 10px;
+    font-size: 12px;
+    color: grey;
+  }
+
+  .tarea-container {
+    margin-left: 1%;
+    width: 98%;
+  }
+  
+  .botones {
+      display: flex;
+      justify-content: flex-end;
+      white-space: nowrap;
+  }
+  
+  .boton {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: transparent;
+  }
+  .boton:hover {
+    -webkit-transition: 200ms linear;
+    -ms-transition: 200ms linear;
+    transition: 200ms linear;
+  }
+  
+  .borrar-entrada {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  }
+    .borrar-entrada:hover {
+    background-color: #ffffff;
+    color:black;
+  }
+
+  .guardar-entrada, .pantalla-completa {
+    border: 2px solid #000000;
+    color: #000000;
+  }
+    .guardar-entrada:hover, .pantalla-completa:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .boton-limpiar {
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #D7D7D7;
+    color: #D7D7D7;
+    height: 35px;
+    padding: 0px 10px 0px 10px;
+  }
+    .boton-limpiar:hover {
+      background-color: white;
+      border-radius: 10px;
+      border: 2px solid #CD6C51;
+      color: #CD6C51;
+  }
+  
+  .container-lista {
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+  }
+  
+  .todos-counter {
+    margin-top: 5px;
+    font-size: 12px;
+    color: grey;
+  }
+  
+  .counter-container {
+     bottom: 0;
+     width: 100%;
+  }
