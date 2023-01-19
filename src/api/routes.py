@@ -31,7 +31,6 @@ def insert_note():
         db.session.commit()
         return jsonify({"new_note": new_note.serialize()}), 200
 
-
 @api.route('/update_note', methods=['POST'])
 def update_note():       
         note_id = request.json.get("note_id", None)
@@ -70,7 +69,6 @@ def guardar_meditacion():
         db.sesion.commit()
         return jsonify({"new_audio": "new_audio"}), 200
 
-
 @api.route('/recibir_meditacion', methods=['GET'])
 def recibir_meditacion():
         all_meditation_type = Tipo_de_meditacion.query.all()
@@ -78,12 +76,12 @@ def recibir_meditacion():
         response_body = all_meditation_type
         return jsonify(response_body), 200
 
-
 @api.route('/audios-by-type/<id>', methods=['GET'])
 def get_audios_by_type(id):
         audios = Audio.query.filter_by(meditation_type_id=id)
         data = list(map(lambda x: x.serialize(), audios))
         return jsonify(data), 200
+
 
 @api.route('/signup', methods=['POST'])
 def create_user():    
@@ -95,7 +93,6 @@ def create_user():
 
     return jsonify({"message":"el usuario se ha creado con exito", "user": user.serialize(), "token": token}), 200
 
- 
 @api.route('/login', methods=['POST'])
 def login_user():
     data = request.get_json()
@@ -103,7 +100,6 @@ def login_user():
     token = create_access_token(identity=user.id)
 
     return jsonify({"message":"el usuario se ha logeado con exito", "user": user.serialize(), "token": token}), 200
-
 
 @api.route('/private', methods=['POST'])
 @jwt_required()

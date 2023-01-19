@@ -46,52 +46,18 @@ class Journal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     user= db.relationship('User', backref='journal', lazy=True) 
-    title = db.Column(db.String(120), nullable=False)
     notes = db.Column(db.String(120), nullable=False)
     color = db.Column(db.String(120), nullable=False)
     date = db.Column(db.DateTime, nullable=False)
-    
+
     def serialize(self):
         return{
             "id": self.id,
             "user_id": self.user_id,
-            "title": self.title,
             "notes": self.notes,
             "color": self.color,
             "date": self.date
         }
-
-class Journal(db.Model): # // NUEVO //
-    def insert_note(user_id, title, notes, color):
-        new_note = Journal(user_id=user_id, title=title, notes=notes, color=color)
-        db.session.add(new_note)
-        db.session.commit()
-
-    def update_note(note_id, title, notes, color):
-        note = Journal.query.get(note_id)
-        note.title = title
-        note.notes = notes
-        note.color = color
-        db.session.commit()
-
-    def delete_note(note_id):
-        note = Journal.query.get(note_id)
-        db.session.delete(note)
-        db.session.commit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class Objetivos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -110,7 +76,6 @@ class Objetivos(db.Model):
             "date": self.date
         }    
 
-
 class Meditacion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
@@ -125,8 +90,6 @@ class Meditacion(db.Model):
             "user_id": self.user_id,
             "id_audio": self.id_audio
         }
-
-
 
 class Audio(db.Model):
     id = db.Column(db.Integer, primary_key=True)

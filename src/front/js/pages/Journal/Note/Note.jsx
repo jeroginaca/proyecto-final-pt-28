@@ -43,9 +43,9 @@ function Note(props) {
     timeout = setTimeout(func, timer);
   };
 
-  const updateText = (text, id) => {
+ /*  const updateText = (text, id) => {
     debounce(() => props.updateText(text, id));
-  };
+  }; */
   
   const handleFullScreen = (event) => {
     const note = event.currentTarget.parentNode.parentNode;
@@ -54,7 +54,49 @@ function Note(props) {
     } else {
         note.requestFullscreen();
     }
-};
+  };
+
+  const updateText = (text, id) => {
+    debounce(() => {
+      fetch('/update_note', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          note_id: id,
+          text: text
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  };
+  
+  const deleteNote = (id) => {
+    fetch('/delete_note', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        note_id: id
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  };
+  
 
   return (
     <div className="note">
