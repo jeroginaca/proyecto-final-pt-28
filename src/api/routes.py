@@ -44,7 +44,7 @@ def update_note():
         db.session.commit()
         return jsonify({"note": note.serialize()}), 200
 
-@api.route('/delete_note', methods=['POST'])
+@api.route('/delete_note', methods=['DELETE'])
 def delete_note():       
         note_id = request.json.get("note_id", None)
 
