@@ -18,8 +18,6 @@ export const Login = () => {
         };
     }
 
-
-
     return (
         <div className="login-bg-image pt-5">
 

@@ -1,78 +1,66 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
-import Calendario from "../component/Calendario.jsx";
 import targetImageUrl from "../../img/target.png";
 import editImageUrl from "../../img/edit.png";
+import { Calendario } from "../component/Calendario.jsx";
 import journalImageUrl from "../../img/journal.png";
+
+
+// <img src="https://i.ibb.co/v1f1GGr/Group-2.png" /> <---- IMAGEN DEL CEREBRO
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
-  const handleClick = async () => {
-    const login = await actions.login(email, password)
-    console.log(login)
-    if (login) {
-      navigate("/demo")
-    };
-  }
-  const meditar = {
-    padding: "1rem 2.6rem",
-    borderRadius: "15px",
-    margin: "0.5rem",
-    backgroundColor: "#7286E9",
-    border: "none",
-    color: "#FBF7F1",
-  };
+  useEffect(() => {
+    if (!store.token) {
+      navigate("/login")
+    }
+  }, [store.token])
 
   return (
-    <div className="text-center mt-5">
-      <h1>Mindful Me</h1>
-      <p>
-        <img src="https://i.ibb.co/v1f1GGr/Group-2.png" />
-      </p>
-      <Link to={"/tiempos"}>
-        <button style={meditar}>
-          <img src="https://i.ibb.co/rs9ZX4X/Vector.png" width="75%" />
-        </button>
-      </Link>
+    <div className="home-bg-image text-center pt-5">
 
-      <Link to={"/tareas"}>
-        <button style={meditar}>
-          <img src={targetImageUrl} width="75%" />
-        </button>
-      </Link>
+      <h1 className="title">Mindful Me</h1>
 
-      <Link to={"/journal"}>
-        <button style={meditar}>
-          <img src={editImageUrl} width="75%" />
-        </button>
-      </Link>
+      <div className="container my-5">
+        <div className="row">
+          <div className="col my-2">
+            <div className="d-flex justify-content-center">
+              <Calendario />
+            </div>
+          </div>
 
-      <Link to={"/appjournal"}>
-        <button style={meditar}>
-          <img src={journalImageUrl} width="75%" />
-        </button>
-      </Link>
+          <div className="col d-flex justify-content-center">
+            <div className="buttons-container row row-cols-2">
+              <Link to={"/tiempos"} >
+                <button className="home-buttons">
+                  <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
+                </button>
+              </Link>
+              <Link to={"/appjournal"}>
+                <button className="home-buttons">
+                  <img src={journalImageUrl} />
+                </button>
+              </Link>
 
-      <Calendario />
+              <Link to={"/tiempos"}>
+                <button className="home-buttons">
+                  <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
+                </button>
+              </Link>
 
-      <div className="alert alert-info">
-        {store.message ||
-          "Loading message from the backend (make sure your python backend is running)..."}
+              <Link to={"/tareas"}>
+                <button className="home-buttons">
+                  <img src={targetImageUrl} />
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-      <p>
-        This boilerplate comes with lots of documentation:{" "}
-        <a href="https://start.4geeksacademy.com/starters/react-flask">
-          Read documentation
-        </a>
-      </p>
     </div>
   );
 
