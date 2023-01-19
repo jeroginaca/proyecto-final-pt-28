@@ -8,10 +8,6 @@ let timer = 500,
   timeout;
 function Note(props) {
   const { store, actions } = useContext(Context);
-    useEffect(() => {
-      actions.getNotes(props.id);
-    }, []);
-
   const formatDate = (value) => {
     if (!value) return "";
 

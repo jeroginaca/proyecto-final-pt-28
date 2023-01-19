@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Audio, Tipo_de_meditacion
+from api.models import db, User, Audio, Tipo_de_meditacion, Journal
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 import datetime
@@ -19,8 +19,8 @@ def handle_hello():
     return jsonify(response_body), 200
 
 @api.route('/get_note', methods=['GET'])
-def get_note(id):
-        notes = Note.query.filter_by(note_type_id=id)
+def get_note():
+        notes = Journal.query.all()
         data = list(map(lambda x: x.serialize(), notes))
         return jsonify(data), 200
 

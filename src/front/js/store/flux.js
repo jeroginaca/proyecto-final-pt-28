@@ -27,8 +27,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      getNotes: (id) => {
-        fetch(process.env.BACKEND_URL + `/api/get_note/${id}`)
+      getNotes: () => {
+        fetch(process.env.BACKEND_URL + `/api/get_note`)
           .then((resp) => resp.json())
           .then((data) => {
             setStore({ notes: data });
