@@ -61,6 +61,38 @@ class Journal(db.Model):
             "date": self.date
         }
 
+class Journal(db.Model): # // NUEVO //
+    def insert_note(user_id, title, notes, color):
+        new_note = Journal(user_id=user_id, title=title, notes=notes, color=color)
+        db.session.add(new_note)
+        db.session.commit()
+
+    def update_note(note_id, title, notes, color):
+        note = Journal.query.get(note_id)
+        note.title = title
+        note.notes = notes
+        note.color = color
+        db.session.commit()
+
+    def delete_note(note_id):
+        note = Journal.query.get(note_id)
+        db.session.delete(note)
+        db.session.commit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Objetivos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
