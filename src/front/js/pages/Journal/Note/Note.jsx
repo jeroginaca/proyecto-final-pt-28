@@ -57,7 +57,8 @@ function Note(props) {
 };
 
   return (
-    <div className="note" style={{ backgroundColor: props.note.color }}>
+    <div className="note">
+        <div className="note-color" style={{ backgroundColor: props.note.color }}></div>
       <textarea
         className="note_text"
         defaultValue={props.note.text}
