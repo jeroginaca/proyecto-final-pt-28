@@ -1,10 +1,17 @@
 import React from "react";
+import { useContext, useEffect } from "react";
+import { Context } from "../../../store/appContext";
 import "./Note.css";
 import "../../../../styles/journal.css";
 
 let timer = 500,
   timeout;
 function Note(props) {
+  const { store, actions } = useContext(Context);
+    useEffect(() => {
+      actions.getNotes(props.id);
+    }, []);
+
   const formatDate = (value) => {
     if (!value) return "";
 
@@ -96,8 +103,8 @@ function Note(props) {
       console.error('Error:', error);
     });
   };
-  
 
+  return store.notes.map((notes) => {
   return (
     <div className="note">
         <div className="note-color" style={{ backgroundColor: props.note.color }}></div>
@@ -117,6 +124,7 @@ function Note(props) {
       </div>
     </div>
   );
-}
+});
+};
 
 export default Note;
