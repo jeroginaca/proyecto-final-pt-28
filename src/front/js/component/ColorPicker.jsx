@@ -1,85 +1,63 @@
-import React, { useState } from "react";
+import React from "react";
 
-const ColorPicker = () => {
+const ColorPicker = (props) => {
   const container = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    margin: "2rem auto",
-    padding: "1rem",
-    borderRadius: "0 20px 20px 20px",
+    padding: "0.5rem",
+    borderRadius: "20px",
     boxShadow: "-1px 1px 20px rgba(0, 0, 0, 0.49)",
-    width: "600px",
+    width: "350px",
   };
 
   const color1 = {
-    width: "40px",
-    height: "40px",
-    backgroundColor: "#CD6C51",
+    width: "30px",
+    height: "30px",
+    backgroundColor: "red",
     borderRadius: "100%",
-    margin: "1rem",
+    margin: "0.5rem",
   };
   const color2 = {
-    width: "40px",
-    height: "40px",
-    backgroundColor: "#EA9042",
+    width: "30px",
+    height: "30px",
+    backgroundColor: "blue",
     borderRadius: "100%",
-    margin: "1rem",
+    margin: "0.5rem",
   };
   const color3 = {
-    width: "40px",
-    height: "40px",
-    backgroundColor: "#E8B8A4",
+    width: "30px",
+    height: "30px",
+    backgroundColor: "green",
     borderRadius: "100%",
-    margin: "1rem",
+    margin: "0.5rem",
   };
   const color4 = {
-    width: "40px",
-    height: "40px",
-    backgroundColor: "#E6E8A7",
+    width: "30px",
+    height: "30px",
+    backgroundColor: "yellow",
     borderRadius: "100%",
-    margin: "1rem",
+    margin: "0.5rem",
   };
   const color5 = {
-    width: "40px",
-    height: "40px",
-    backgroundColor: "#85B5B5",
+    width: "30px",
+    height: "30px",
+    backgroundColor: "purple",
     borderRadius: "100%",
-    margin: "1rem",
-  };
-  const color6 = {
-    width: "40px",
-    height: "40px",
-    backgroundColor: "#5C7F7E",
-    borderRadius: "100%",
-    margin: "1rem",
-  };
-  const color7 = {
-    width: "40px",
-    height: "40px",
-    backgroundColor: "#9AA162",
-    borderRadius: "100%",
-    margin: "1rem",
+    margin: "0.5rem",
   };
 
-  const [selectedDay, setSelectedDay] = useState(null);
-
-  function handleDayClick(value) {
-    setSelectedDay(value);
+  function handleClick(e) {
+    props.setSaveColor(e.target.id);
   }
-  const selectedDayStyle = {
-    backgroundColor: "red",
-  };
 
   return (
     <div style={container}>
-      <div onClick={handleDayClick} style={color1}></div>
-      <div style={color2}></div>
-      <div style={color3}></div>
-      <div style={color4}></div>
-      <div style={color5}></div>
-      <div style={color6}></div>
-      <div style={color7}></div>
+      <div id="red" onClick={handleClick} style={color1}></div>
+      <div id="blue" onClick={handleClick} style={color2}></div>
+      <div id="green" onClick={handleClick} style={color3}></div>
+      <div id="yellow" onClick={handleClick} style={color4}></div>
+      <div id="purple" onClick={handleClick} style={color5}></div>
     </div>
   );
 };

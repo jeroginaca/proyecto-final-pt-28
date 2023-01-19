@@ -8,7 +8,7 @@ export const Demo = () => {
 	const navigate = useNavigate()
 	useEffect(() => {
 		if (!store.token) {
-			navigate("/")
+			navigate("/login")
 		}
 	}, [store.token])
 
