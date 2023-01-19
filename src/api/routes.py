@@ -12,12 +12,48 @@ api = Blueprint('api', __name__)
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
-
     response_body = {
         "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
     }
 
     return jsonify(response_body), 200
+
+
+@api.route('/insert_note', methods=['POST'])
+def insert_note():       
+        user_id = request.json.get("user_id", None)
+        notes = request.json.get("notes", None)
+        color = request.json.get("color", None)
+
+        new_note = Journal(user_id=user_id, notes=notes, color=color)
+       
+        db.session.add(new_note)
+        db.session.commit()
+        return jsonify({"new_note": new_note.serialize()}), 200
+
+
+@api.route('/update_note', methods=['POST'])
+def update_note():       
+        note_id = request.json.get("note_id", None)
+        notes = request.json.get("notes", None)
+        color = request.json.get("color", None)
+
+        note = Journal.query.get(note_id)
+        note.notes = notes
+        note.color = color
+       
+        db.session.commit()
+        return jsonify({"note": note.serialize()}), 200
+
+@api.route('/delete_note', methods=['POST'])
+def delete_note():       
+        note_id = request.json.get("note_id", None)
+
+        note = Journal.query.get(note_id)
+       
+        db.session.delete(note)
+        db.session.commit()
+        return jsonify({"message": "Nota eliminada"}), 200
 
 
 @api.route('/guardar_meditacion', methods=['POST'])
@@ -48,9 +84,9 @@ def get_audios_by_type(id):
         audios = Audio.query.filter_by(meditation_type_id=id)
         data = list(map(lambda x: x.serialize(), audios))
         return jsonify(data), 200
+
 @api.route('/signup', methods=['POST'])
-def create_user():
-    
+def create_user():    
     data = request.get_json()
     user = User(email_address=data['email_address'],password=data['password'],name=data['first_name'],last_name=data['last_name'],birth_date=data['birth_date'], date=datetime.datetime.today())
     db.session.add(user)
