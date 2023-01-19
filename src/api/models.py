@@ -12,8 +12,6 @@ class User(db.Model):
     birth_date = db.Column(db.DateTime, nullable=False)
     password = db.Column(db.String(120), nullable=False)
     
-    def __repr__(self):
-        return f'<User {self.email}>'
 
     def serialize(self):
         return{
@@ -32,7 +30,7 @@ class Calendar(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     user= db.relationship('User', backref='calendar', lazy=True) 
     feeling = db.Column(db.String(120), nullable=False)
-    date = db.Column(db.DateTime, nullable=False)
+    date = db.Column(db.DateTime(timezone=False), nullable=False)
     
     def serialize(self):
         return{
