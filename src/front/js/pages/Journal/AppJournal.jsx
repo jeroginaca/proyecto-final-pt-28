@@ -45,9 +45,9 @@ const addNote = (color) => {
     setNotes(tempNotes);
   };
 
-  useEffect(() => {
+/*   useEffect(() => {
     localStorage.setItem("notes-app", JSON.stringify(notes));
-  }, [notes]);
+  }, [notes]); */
 
   return (
     <div className="AppJournal px-3 py-5">
