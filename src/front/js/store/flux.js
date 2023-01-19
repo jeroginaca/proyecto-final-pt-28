@@ -26,6 +26,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
+      getNotes: (id) => {
+        fetch(process.env.BACKEND_URL + `/api/notes/${id}`)
+          .then((resp) => resp.json())
+          .then((data) => {
+            setStore({ audios: data });
+          });
+      },
+
       getInspiration: () => {
         fetch("https://api.quotable.io/random")
           .then((response) => response.json())

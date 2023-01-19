@@ -18,6 +18,17 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+@api.route('/get_note', methods=['GET'])
+def get_note():       
+        user_id = request.json.get("user_id", None)
+        notes = request.json.get("notes", None)
+        color = request.json.get("color", None)
+
+        new_note = Journal(user_id=user_id, notes=notes, color=color)
+       
+        db.session.add(new_note)
+        db.session.commit()
+        return jsonify({"new_note": new_note.serialize()}), 200
 
 @api.route('/insert_note', methods=['POST'])
 def insert_note():       
