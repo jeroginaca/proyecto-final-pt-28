@@ -48,6 +48,14 @@
   font-size: 2.5rem;
   font-weight: 600;
 }
+.meditacion-beneficios {
+  text-align: center;
+  color: #754942;
+  text-decoration: none;
+  margin: 1rem 0 1.5rem 0;
+  font-size: 3rem;
+  font-weight: 600;
+}
 .motivate-titulo {
   text-align: left;
   color: #754942;
@@ -137,6 +145,28 @@
   background-color: #5c7f7e;
 }
 
+.texto {
+  color: #754942;
+  text-align: center;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+
+.funcion {
+  width: 250px;
+  color: white;
+  margin: 2rem;
+  padding: 2rem;
+  font-size: 2rem;
+}
+
+.testimonio {
+  width: 250px;
+  color: white;
+  margin: 2rem;
+  padding: 2rem;
+}
+
 @media only screen and (max-width: 600px) {
   .meditacion-background {
     width: 100%;
@@ -164,7 +194,7 @@
   }
 }
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 ul li {
@@ -177,8 +207,8 @@ ul li {
 }
 
 .question {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   border: 1px solid rgb(225, 225, 225);
   border-radius: 30px;
 }
@@ -191,7 +221,7 @@ input {
   border: none;
   width: 100%;
   outline: none;
-  padding:10px;
+  padding: 10px;
 }
 input:active {
   background: white;

@@ -88,19 +88,19 @@ const Landing = () => {
           textAlign: "center",
         }}
       >
-        <div className="funcion" style={funcion}>
+        <div className="funcion">
           <img src=" https://i.ibb.co/rs9ZX4X/Vector.png" alt="" />
           <p>Meditar</p>
         </div>
-        <div className="funcion" style={funcion}>
+        <div className="funcion">
           <img src=" https://i.ibb.co/rs9ZX4X/Vector.png" alt="" />
           <p>Journal</p>
         </div>
-        <div className="funcion" style={funcion}>
+        <div className="funcion">
           <img src=" https://i.ibb.co/rs9ZX4X/Vector.png" alt="" />
           <p>Objetivos</p>
         </div>
-        <div className="funcion" style={funcion}>
+        <div className="funcion">
           <img src=" https://i.ibb.co/rs9ZX4X/Vector.png" alt="" />
           <p>Esutdio</p>
         </div>
@@ -115,8 +115,12 @@ const Landing = () => {
           padding: "4rem",
         }}
       >
+        {/* https://i.postimg.cc/X7BcdY2Z/Motivate.png */}
         <div style={{ width: "40%" }}>
-          <img src="https://i.postimg.cc/KzhzhXp9/Meditar.png" width={"70%"} />
+          <img
+            src="https://i.postimg.cc/fbVHLQ3Z/Motivate-2.png"
+            width={"70%"}
+          />
         </div>
         <div style={{ width: "40%" }}>
           <h2 className="motivate-titulo">Motivate</h2>
@@ -139,7 +143,7 @@ const Landing = () => {
         }}
       >
         <div style={{ width: "40%" }}>
-          <h2 className="motivate-titulo">Motivate</h2>
+          <h2 className="motivate-titulo">Se Constante</h2>
           <p style={{ color: "#754942" }}>
             Motivate a ser Mindfulnes y se consiente, la constancia es buena.
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
@@ -149,12 +153,228 @@ const Landing = () => {
         </div>
         <div style={{ width: "40%" }}>
           <img
-            src="https://i.postimg.cc/KzhzhXp9/Meditar.png"
+            src="https://i.postimg.cc/qBw29ZRG/muchachitos.png"
             width={"70%"}
             style={{ marginLeft: "4rem" }}
           />
         </div>
       </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#FEE6D6",
+          padding: "4rem",
+        }}
+      >
+        <h2 className="meditacion-beneficios">
+          Obten Beneicios <br /> Personales
+        </h2>
+        <p className="texto">
+          Con nuestra app Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Assumenda esse fuga earum illum, illo repellendus totam tempore
+          non, molestias est dolore quo id tenetur ad quod iste hic.
+          Repellendus, nobis?
+        </p>
+        <img src="https://i.postimg.cc/HnwW15Yc/Cerebro.png" width={"45%"} />
+        <div style={{ display: "flex", margin: "2rem 0 3rem 0" }}>
+          <button style={button}>Registrarte Gratis</button>
+          <button style={button2}>Iniciar Sesión</button>
+        </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#FEE6D6",
+          padding: "4rem",
+        }}
+      >
+        <div style={{ width: "40%" }}>
+          <img src="https://i.postimg.cc/28qtXm5v/Meditar.png" width={"70%"} />
+        </div>
+        <div style={{ width: "40%" }}>
+          <h2 className="motivate-titulo">Medita</h2>
+          <p style={{ color: "#754942" }}>
+            Motivate a ser Mindfulnes y se consiente, la constancia es buena.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+            porro aliquam, possimus ea necessitatibus ipsam!
+          </p>
+          <button style={button}>Ver Más</button>
+        </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#FEE6D6",
+          padding: "4rem",
+        }}
+      >
+        <div style={{ width: "40%" }}>
+          <h2 className="motivate-titulo">Escribí tu Journal</h2>
+          <p style={{ color: "#754942" }}>
+            Motivate a ser Mindfulnes y se consiente, la constancia es buena.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+            porro aliquam, possimus ea necessitatibus ipsam!
+          </p>
+          <button style={button}>Ver Más</button>
+        </div>
+        <div style={{ width: "40%" }}>
+          <img
+            src="https://i.postimg.cc/Yq3x3s6g/Notas.png"
+            width={"70%"}
+            style={{ marginLeft: "4rem" }}
+          />
+        </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#FEE6D6",
+          padding: "4rem",
+        }}
+      >
+        <div style={{ width: "40%" }}>
+          <img
+            src="https://i.postimg.cc/RZ7PJLdp/Objetivos.png"
+            width={"70%"}
+          />
+        </div>
+        <div style={{ width: "40%" }}>
+          <h2 className="motivate-titulo">Establece tus Objetivos</h2>
+          <p style={{ color: "#754942" }}>
+            Motivate a ser Mindfulnes y se consiente, la constancia es buena.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+            porro aliquam, possimus ea necessitatibus ipsam!
+          </p>
+          <button style={button}>Ver Más</button>
+        </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#FEE6D6",
+          padding: "4rem",
+        }}
+      >
+        <div style={{ width: "40%" }}>
+          <h2 className="motivate-titulo">Programa tus tiempos de estudio</h2>
+          <p style={{ color: "#754942" }}>
+            Motivate a ser Mindfulnes y se consiente, la constancia es buena.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+            porro aliquam, possimus ea necessitatibus ipsam!
+          </p>
+          <button style={button}>Ver Más</button>
+        </div>
+        <div style={{ width: "40%" }}>
+          <img
+            src="https://i.postimg.cc/rySsRdWZ/Estudia3.png"
+            width={"70%"}
+            style={{ marginLeft: "4rem" }}
+          />
+        </div>
+      </div>
+
+      <div className="banner-funciones">
+        <p
+          style={{
+            textAlign: "center",
+            color: "#ffffff",
+            fontSize: "2rem",
+            paddingTop: "4rem",
+          }}
+        >
+          Lo que dicen nuestros usuarios
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          <div className="testimonio">
+            <img src=" https://i.ibb.co/rs9ZX4X/Vector.png" alt="" />
+            <h3>Juansito</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+              qui vitae pariatur alias perferendis quaerat.
+            </p>
+          </div>
+          <div className="testimonio">
+            <img src=" https://i.ibb.co/rs9ZX4X/Vector.png" alt="" />
+            <h3>Pedrito</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+              qui vitae pariatur alias perferendis quaerat.
+            </p>
+          </div>
+          <div className="testimonio">
+            <img src=" https://i.ibb.co/rs9ZX4X/Vector.png" alt="" />
+            <h3>Laurita</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+              qui vitae pariatur alias perferendis quaerat.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#FEE6D6",
+          padding: "4rem",
+        }}
+      >
+        <h2 className="meditacion-beneficios">
+          Comenza hoy con <br /> Mindful Me
+        </h2>
+        <p className="texto">
+          Con nuestra app Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Assumenda esse fuga earum illum, illo repellendus totam tempore
+          non, molestias est dolore quo id tenetur ad quod iste hic.
+          Repellendus, nobis?
+        </p>
+        <img
+          src="https://i.postimg.cc/qqkNv0mv/Chica-meditando.png"
+          width={"45%"}
+        />
+        <div style={{ display: "flex", margin: "2rem 0 3rem 0" }}>
+          <button style={button}>Registrarte Gratis</button>
+          <button style={button2}>Iniciar Sesión</button>
+        </div>
+      </div>
+
+      {/*<div className="footer">
+        <h3>Seguinos en Las Redes</h3>
+        <div className="redes">
+          <ul>
+            <li>
+              <i class="fa-brands fa-instagram"></i>
+            </li>
+          </ul>
+        </div>
+      </div>*/}
     </>
   );
 };
