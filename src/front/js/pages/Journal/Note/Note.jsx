@@ -46,64 +46,88 @@ function Note(props) {
     timeout = setTimeout(func, timer);
   };
 
- /*  const updateText = (text, id) => {
+  /*  const updateText = (text, id) => {
     debounce(() => props.updateText(text, id));
   }; */
-  
+
   const handleFullScreen = (event) => {
     const note = event.currentTarget.parentNode.parentNode;
     if (document.fullscreenElement === note) {
-        document.exitFullscreen();
+      document.exitFullscreen();
     } else {
-        note.requestFullscreen();
+      note.requestFullscreen();
     }
+  };
+
+  const getNote = () => {
+    debounce(() => {
+      fetch(
+        "https://3001-jeroginaca-proyectofina-u55rmn1n529.ws-eu83.gitpod.io/api/get_note",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data[0]);
+          localStorage.setItem("notes-app", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
   };
 
   const updateText = (text, id) => {
     debounce(() => {
-      fetch('/update_note', {
-        method: 'POST',
+      fetch("/update_note", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           note_id: id,
-          text: text
+          text: text,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
         })
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-    });
-  };
-  
-  const deleteNote = (id) => {
-    fetch('/delete_note', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        note_id: id
-      })
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     });
   };
 
-  return store.notes.map((notes) => {
+  const deleteNote = (id) => {
+    fetch("/delete_note", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        note_id: id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
     <div className="note">
-        <div className="note-color" style={{ backgroundColor: props.note.color }}></div>
+      <div
+        className="note-color"
+        style={{ backgroundColor: props.note.color }}
+      ></div>
       <textarea
         className="note_text"
         defaultValue={props.note.text}
@@ -111,16 +135,25 @@ function Note(props) {
       />
       <div className="note_footer">
         <p className="fecha-nota">{formatDate(props.note.time)}</p>
-        <button className="boton borrar-entrada"><i onClick={() => {
-          props.deleteNote(props.note.id)
-          deleteNote(props.note.id)
-          }} class="fa" aria-hidden="true"></i></button>
-        <button className="boton pantalla-completa" onClick={handleFullScreen}><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>
-        <button className="boton guardar-entrada"><i class="fa" aria-hidden="true"></i></button>
+        <button className="boton borrar-entrada">
+          <i
+            onClick={() => {
+              props.deleteNote(props.note.id);
+              deleteNote(props.note.id);
+            }}
+            class="fa"
+            aria-hidden="true"
+          >
+            
+          </i>
+        </button>
+        <button onClick={getNote}>Get Note</button>
+        <button className="boton pantalla-completa" onClick={handleFullScreen}>
+          <i class="fa fa-expand" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   );
-});
-};
+}
 
 export default Note;
