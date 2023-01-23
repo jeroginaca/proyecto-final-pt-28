@@ -1,0 +1,92 @@
+.hero-container {
+  height: 100vh;
+  width: 100%;
+  object-fit: contain;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.video {
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+
+.hero-container-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 75vh;
+  color: #754942;
+}
+
+.hero-title {
+  font-size: 8rem;
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeIn 3s;
+  animation-fill-mode: forwards;
+}
+
+.hero-text {
+  font-size: 2.2rem;
+  opacity: 0;
+  animation: fadeIn 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .hero-container {
+    height: 75vh;
+  }
+
+  .hero-container-text {
+    height: 55vh;
+  }
+
+  .hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+  }
+
+  .hero-text {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-container {
+    height: 80vh;
+  }
+
+  .hero-container-text {
+    height: 65vh;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+  }
+
+  .hero-text {
+    font-size: 1.3rem;
+  }
+}

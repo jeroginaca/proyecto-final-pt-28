@@ -1,0 +1,19 @@
+body {
+  background-color: #fee9dc;
+}
+
+.video-meditando {
+  width: 100%;
+  position: center;
+}
+
+.video-container {
+  height: 100vh;
+  width: 100%;
+  object-fit: contain;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

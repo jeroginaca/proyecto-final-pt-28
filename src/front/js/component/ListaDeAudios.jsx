@@ -9,6 +9,8 @@ const ListaDeAudios = (props) => {
     actions.getAudios(props.id);
   }, []);
 
+  
+
   return store.audios.map((audios) => {
     return (
       <div>

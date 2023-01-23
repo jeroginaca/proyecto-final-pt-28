@@ -17,7 +17,7 @@ import AppJournal from "./pages/Journal/AppJournal.jsx";
 import SeleccionDeAudios from "./pages/Meditacion/SeleccionDeAudio.jsx";
 import Meditacion from "./pages/Meditacion/Meditacion.jsx";
 import Felicitaciones from "./pages/Meditacion/Felicitaciones.jsx";
-import Landing from "./pages/Landing.jsx";
+import Landing from "./pages/Landing/Landing.jsx";
 
 //create your first component
 const Layout = () => {

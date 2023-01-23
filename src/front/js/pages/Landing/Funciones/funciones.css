@@ -1,0 +1,115 @@
+.funcion {
+  width: 250px;
+  height: 250px;
+  color: white;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: #85b5b54d;
+
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-funciones-1 {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-funciones-1 p {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.landing-funciones-1:hover,
+.funcion:hover {
+  color: #e8e8e8;
+  background-color: #85b5b5;
+}
+
+.banner-funciones {
+  background-color: #5c7f7e;
+}
+
+@media only screen and (max-width: 1200px) {
+  .funcion {
+    width: 400px;
+    height: 100px;
+
+    font-size: 1.6rem;
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .landing-funciones-1 {
+    flex-direction: row;
+  }
+  .landing-funciones-1 p {
+    margin: 0 0 0 1.5rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .funcion {
+    width: 350px;
+    height: 100px;
+
+    font-size: 1.6rem;
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .landing-funciones-1 {
+    flex-direction: row;
+  }
+  .landing-funciones-1 p {
+    margin: 0 0 0 1.5rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .funcion {
+    width: 300px;
+    height: 100px;
+
+    font-size: 1.6rem;
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .landing-funciones-1 {
+    flex-direction: row;
+  }
+  .landing-funciones-1 p {
+    margin: 0 0 0 1.5rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .funcion {
+    width: 250px;
+    height: 100px;
+
+    font-size: 1.6rem;
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .landing-funciones-1 {
+    flex-direction: row;
+  }
+  .landing-funciones-1 p {
+    margin: 0 0 0 1.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .funcion {
+    width: 130px;
+    font-size: 1.6rem;
+    background-color: transparent;
+  }
+  .landing-funciones-1 {
+    flex-direction: column;
+  }
+  .landing-funciones-1 p {
+    margin: 0.5rem 0 0 0;
+  }
+}

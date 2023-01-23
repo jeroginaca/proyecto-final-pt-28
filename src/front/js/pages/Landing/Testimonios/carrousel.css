@@ -1,0 +1,59 @@
+.big {
+  width: 350px;
+  color: white;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.big img {
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.small {
+  width: 150px;
+  color: white;
+  margin: 0.5rem;
+  padding: 0.2rem;
+  font-size: 0.1rem;
+}
+
+.small img {
+  border-radius: 50%;
+  margin-bottom: 0.1rem;
+}
+
+.carrousel {
+  display: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .testimonio {
+    width: 200px;
+    color: white;
+    margin: 2rem;
+    padding: 1rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .testimonio {
+    width: 90%;
+    color: white;
+    margin: 0.3rem;
+    padding: 1rem;
+  }
+
+  .small {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .testimonio {
+    width: 90%;
+    color: white;
+    margin: 0.3rem;
+    padding: 1rem;
+  }
+}
