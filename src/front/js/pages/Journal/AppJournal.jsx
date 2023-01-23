@@ -5,24 +5,24 @@ import "./AppJournal.css";
 import { Context } from "../../store/appContext.js";
 
 function AppJournal() {
-const [notes, setNotes] = useState(
-JSON.parse(localStorage.getItem("notes-app")) || []
-);
-const { store, actions } = useContext(Context);
-    useEffect(() => {
-      actions.getNotes();
-    }, []);
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes-app-2")) || []
+  );
+  const { store, actions } = useContext(Context);
+  useEffect(() => {
+    actions.getNotes();
+  }, []);
 
-const addNote = (color) => {
-  const tempNotes = [...notes];
+  const addNote = (color) => {
+    const tempNotes = [...notes];
 
-  tempNotes.push({
-    id: Date.now() + "" + Math.floor(Math.random() * 78),
-    text: "",
-    time: Date.now(),
-    color,
-  });
-  setNotes(tempNotes);
+    tempNotes.push({
+      id: Date.now() + "" + Math.floor(Math.random() * 78),
+      text: localStorage.getItem("notes-app"),
+      time: Date.now(),
+      color,
+    });
+    setNotes(tempNotes);
   };
 
   const deleteNote = (id) => {
@@ -45,7 +45,7 @@ const addNote = (color) => {
     setNotes(tempNotes);
   };
 
-/*   useEffect(() => {
+  /*   useEffect(() => {
     localStorage.setItem("notes-app", JSON.stringify(notes));
   }, [notes]); */
 
