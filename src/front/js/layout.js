@@ -32,13 +32,8 @@ const Layout = () => {
         <ScrollToTop>
           <Navbar />
           <Routes>
-<<<<<<< HEAD
-            <Route element={<Landing />} path="/" />
-            <Route element={<Home />} path="/dashboard" />
-=======
             <Route element={<Home />} path="/" />
             <Route element={<Dashboard />} path="/dashboard" />
->>>>>>> development
             <Route element={<Signup />} path="/signup" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Login />} path="/login" />
