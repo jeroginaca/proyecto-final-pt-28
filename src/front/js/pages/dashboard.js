@@ -13,12 +13,12 @@ import journalImageUrl from "../../img/journal.png";
 
 export const Dashboard = () => {
   const { store, actions } = useContext(Context);
-  /* const navigate = useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     if (!store.token) {
-      navigate("/login")
+      navigate("/")
     }
-  }, [store.token]) */
+  }, [store.token])
 
   return (
     <div className="home-bg-image text-center pt-5">
@@ -33,31 +33,38 @@ export const Dashboard = () => {
             </div>
           </div>
 
-          <div className="col d-flex justify-content-center">
-            <div className="buttons-container row row-cols-2">
-              <Link to={"/tiempos"} >
-                <button className="home-buttons">
-                  <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
-                </button>
-              </Link>
-              <Link to={"/appjournal"}>
-                <button className="home-buttons">
-                  <img src={journalImageUrl} />
-                </button>
-              </Link>
+          <div className="col my-2">
+            <div className="buttons-container">
 
-              <Link to={"/tiempos"}>
-                <button className="home-buttons">
-                  <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
-                </button>
-              </Link>
+              <button className="home-buttons" onClick={() => {
+                navigate("/tiempos")
+              }}>
+                <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
+              </button>
 
-              <Link to={"/tareas"}>
-                <button className="home-buttons">
-                  <img src={targetImageUrl} />
-                </button>
-              </Link>
+              <button className="home-buttons" onClick={() => {
+                navigate("/tiempos")
+              }}>
+                <img src={journalImageUrl} />
+              </button>
+
+
+              <button className="home-buttons" onClick={() => {
+                navigate("/appjournal")
+              }}>
+                <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
+              </button>
+
+
+
+              <button className="home-buttons" onClick={() => {
+                navigate("/tareas")
+              }}>
+                <img src={targetImageUrl} />
+              </button>
             </div>
+
+
           </div>
         </div>
       </div>

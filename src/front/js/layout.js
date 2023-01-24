@@ -8,7 +8,7 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 
 import { Login } from "./pages/login";
-import { Navbar } from "./component/Navbar/Navbar.jsx";
+import Navbar from "./component/Navbar/Navbar.jsx";
 import { Footer } from "./component/footer";
 import { Signup } from "./pages/signup";
 import Tiempos from "./pages/Meditacion/Tiempos.jsx";
@@ -30,6 +30,7 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
+          <Navbar />
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Dashboard />} path="/dashboard" />
@@ -46,6 +47,7 @@ const Layout = () => {
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
+          <Footer />
         </ScrollToTop>
       </BrowserRouter>
     </div>
