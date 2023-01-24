@@ -11,7 +11,7 @@ import journalImageUrl from "../../img/journal.png";
 
 // <img src="https://i.ibb.co/v1f1GGr/Group-2.png" /> <---- IMAGEN DEL CEREBRO
 
-export const Home = () => {
+export const Dashboard = () => {
   const { store, actions } = useContext(Context);
   /* const navigate = useNavigate();
   useEffect(() => {

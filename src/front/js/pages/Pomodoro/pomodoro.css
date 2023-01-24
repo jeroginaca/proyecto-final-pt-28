@@ -1,0 +1,285 @@
+p {
+  margin: 0;
+}
+
+.pomodoro-background {
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674482247/fondo_bosque_cjmogg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.pomodoro-container {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #555a6c;
+}
+
+.background {
+  background-color: #d9d9d9d1;
+  padding: 4rem;
+  border-radius: 50px;
+}
+
+.pomodoro-title {
+  text-align: center;
+  text-decoration: none;
+  font-size: 3rem;
+}
+
+.duracion-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.tiempo-restante {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tiempo-restante-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+}
+
+.timer-container {
+  display: flex;
+  align-items: flex-end;
+  margin: 2rem 2rem 1rem 2rem;
+}
+
+.timer {
+  font-size: 9rem;
+  margin: 0;
+  line-height: 1;
+  font-weight: 500;
+  color: #5c7f7e;
+}
+
+.buttons-iniciar-reiniciar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0.5rem 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.button {
+  padding: 0.7rem;
+  border-radius: 15px;
+  margin: 0.5rem;
+  background-color: #85b5b5;
+  border: none;
+  color: #fbf7f1;
+}
+.button:hover {
+  background-color: #5c7f7e;
+}
+
+.duracion-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2rem;
+}
+
+.duracion-button {
+  width: 7rem;
+  text-align: center;
+
+  border-radius: 15px;
+
+  background-color: #85b5b5;
+  border: none;
+  color: #fbf7f1;
+  margin-top: 1rem;
+}
+.duracion-button:hover {
+  width: 7rem;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #85b5b5;
+  border: none;
+  color: #fbf7f1;
+}
+.duracion-button:active {
+  width: 7rem;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #85b5b5;
+  border: none;
+  color: #fbf7f1;
+}
+
+.text {
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+}
+.pomodoro {
+  width: 150px;
+  font-size: 1.6rem;
+  margin: 0 auto;
+  object-fit: contain;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #555a6c;
+}
+
+.volver {
+  position: absolute;
+  bottom: 1rem;
+  left: 48%;
+  right: 52%;
+  text-decoration: none;
+  color: #754942;
+}
+
+.volver:hover {
+  color: #5c7f7e;
+}
+
+@media only screen and (max-width: 600px) {
+  .background {
+    background-color: #d9d9d9d1;
+    width: 90%;
+    padding: 3rem 1rem;
+    border-radius: 20px;
+  }
+
+  .pomodoro-title {
+    font-size: 1.5rem;
+  }
+
+  .duracion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .tiempo-restante {
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tiempo-restante-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+  }
+
+  .timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 2rem 1rem 2rem;
+  }
+
+  .timer {
+    font-size: 7rem;
+    margin: 0;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  .buttons-iniciar-reiniciar {
+    display: flex;
+    flex-direction: row;
+
+    align-items: flex-start;
+
+    margin: 0.5rem 0;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5rem 0;
+  }
+
+  .button {
+    padding: 0.7rem;
+    border-radius: 15px;
+    margin: 0.5rem;
+
+    border: none;
+    color: #fbf7f1;
+  }
+
+  .duracion-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2rem;
+  }
+
+  .duracion-button {
+    width: 7rem;
+    text-align: center;
+
+    border-radius: 15px;
+
+    border: none;
+    color: #fbf7f1;
+    margin-top: 1rem;
+  }
+  .duracion-button:hover {
+    width: 7rem;
+    text-align: center;
+    border-radius: 15px;
+
+    border: none;
+    color: #fbf7f1;
+  }
+  .duracion-button:active {
+    width: 7rem;
+    text-align: center;
+    border-radius: 15px;
+
+    border: none;
+    color: #fbf7f1;
+  }
+
+  .text {
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+  }
+  .pomodoro {
+    font-size: 1.6rem;
+    margin-top: 0.1rem;
+  }
+
+  .estamos-en {
+    margin-top: 1.8rem;
+  }
+
+  .volver {
+    left: 45%;
+    right: 55%;
+  }
+}
