@@ -12,7 +12,6 @@ export const Login = () => {
 
     const handleClick = async () => {
         const login = await actions.login(email, password)
-        console.log(login)
         if (login) {
             navigate("/")
         };

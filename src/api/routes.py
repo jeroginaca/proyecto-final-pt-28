@@ -111,12 +111,13 @@ def handle_private():
 
 
 @api.route('/feeling', methods=['GET'])
+@jwt_required()
 def get_feeling():
-    all_meditation_type = Calendar.query.all()
-    all_meditation_type = list(map(lambda x: x.serialize(), all_meditation_type))
-    response_body = all_meditation_type
+    user_id = get_jwt_identity()
+    get_all_colors = Calendar.query.filter_by(user_id=user_id).all()
+    get_all_colors = list(map(lambda x: x.serialize(), get_all_colors))
+    response_body = get_all_colors
     return jsonify(response_body), 200
-
 
 @api.route('/feeling', methods=['POST'])
 @jwt_required()
@@ -124,9 +125,15 @@ def post_feeling():
     user_id = get_jwt_identity()
     data = request.get_json()
     user = User.query.filter_by(id=user_id).first()
-    calendar = Calendar(user_id=user.id,feeling=data['feeling'],date=data['date'])
-    db.session.add(calendar)
-    db.session.commit()
+    calendar = Calendar.query.filter_by(user_id=user.id,date=data['date']).first()
+    if calendar:
+        calendar.feeling = data['feeling']
+        db.session.commit()
+    else:
+        calendar = Calendar(user_id=user.id,feeling=data['feeling'],date=data['date'])
+        db.session.add(calendar)
+        db.session.commit()
+   
 
     return jsonify({}), 200
 
