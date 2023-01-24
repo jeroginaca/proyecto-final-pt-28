@@ -19,12 +19,14 @@ def handle_hello():
     return jsonify(response_body), 200
 
 @api.route('/get_note', methods=['GET'])
+@jwt_required()
 def get_note():
         notes = Journal.query.all()
         data = list(map(lambda x: x.serialize(), notes))
         return jsonify(data), 200
 
 @api.route('/insert_note', methods=['POST'])
+@jwt_required()
 def insert_note():       
         user_id = request.json.get("user_id", None)
         notes = request.json.get("notes", None)
@@ -37,6 +39,7 @@ def insert_note():
         return jsonify({"new_note": new_note.serialize()}), 200
 
 @api.route('/update_note', methods=['POST'])
+@jwt_required()
 def update_note():       
         note_id = request.json.get("note_id", None)
         notes = request.json.get("notes", None)
@@ -50,6 +53,7 @@ def update_note():
         return jsonify({"note": note.serialize()}), 200
 
 @api.route('/delete_note', methods=['DELETE'])
+@jwt_required()
 def delete_note():       
         note_id = request.json.get("note_id", None)
 
