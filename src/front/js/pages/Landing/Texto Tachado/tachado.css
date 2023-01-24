@@ -1,0 +1,31 @@
+.tachado-container {
+  padding: 4rem 0 2rem 0;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #754942;
+}
+
+.tachado-texto span {
+  text-decoration: line-through;
+  font-weight: 400;
+  color: #997d79;
+}
+
+@media only screen and (max-width: 1200px) {
+  .tachado-container {
+    width: 75%;
+
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .tachado-container {
+    width: 90%;
+
+    font-size: 1.1rem;
+  }
+}

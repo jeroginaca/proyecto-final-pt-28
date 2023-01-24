@@ -1,6 +1,8 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
 
 * {
   box-sizing: border-box;
@@ -14,11 +16,223 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+.meditacion-background {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://i.ibb.co/fC5gdT2/Background-2-01.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.meditacion-background-noche {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://i.ibb.co/b2WYZ2p/background-noche.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.meditacion-titulo {
+  text-align: center;
+  color: #754942;
+  text-decoration: none;
+  margin: 1rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.meditacion-beneficios {
+  text-align: center;
+  color: #754942;
+  text-decoration: none;
+  margin: 1rem 0 1.5rem 0;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.meditacion-terminar {
+  font-family: "Amatic SC", cursive;
+
+  text-align: center;
+  color: #fa7a81;
+  text-decoration: none;
+
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.meditacion-terminar:hover {
+  color: #b8697f;
+}
+
+.meditacion-botones {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meditacion-boton {
+  padding: 0.7rem;
+  border-radius: 15px;
+  margin: 0.5rem;
+  background-color: #85b5b5;
+  border: none;
+  color: #fbf7f1;
+  width: 300px;
+  height: 100px;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.extra-estilo-boton {
+  margin: 1rem 8rem 1rem 8rem;
+}
+
+.meditacion-boton:hover {
+  background-color: #5c7f7e;
+}
+
+.meditacion-personaje-noche {
+  width: 30%;
+  padding-top: 7rem;
+  animation: moverArribaAbajo 2s linear infinite;
+}
+
+@keyframes moverArribaAbajo {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.quote {
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  width: 60%;
+  margin: 0 auto;
+  color: #754942;
+}
+
+.author {
+  font-family: "Amatic SC", cursive;
+  font-size: 2rem;
+  color: #754942;
+}
+
+.siguiente {
+  font-size: 0.8rem;
+  color: #754942;
+}
+.siguiente:hover {
+  color: #da7869;
+}
+
+@media only screen and (max-width: 600px) {
+  .meditacion-background {
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://i.ibb.co/r4hs29j/bg-meditacion-mobile.png");
+  }
+
+  .meditacion-personaje-noche {
+    width: 50%;
+    padding-top: 7rem;
+  }
+
+  .quote {
+    font-family: "Dancing Script", cursive;
+    font-size: 2rem;
+    width: 90%;
+    margin: 0 auto;
+    color: #754942;
+  }
+
+  .author {
+    font-family: "Amatic SC", cursive;
+    font-size: 1.7rem;
+    color: #754942;
+  }
+  .extra-estilo-boton {
+    margin: 1rem 0;
+  }
+}
+body {
+  font-family: "Montserrat", sans-serif;
 }
 
 ul li {
   list-style: none;
+}
+
+.container-lista {
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+}
+
+.question {
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 30px;
+}
+.question input:focus::placeholder {
+  color: transparent;
+}
+
+input {
+  background: none;
+  border: none;
+  width: 100%;
+  outline: none;
+  padding: 10px;
+}
+input:active {
+  background: white;
+  border-radius: 30px;
+}
+input:focus {
+  background: white;
+  border-radius: 30px;
+}
+
+.fa-times {
+  margin-left: 10px;
+  color: grey;
+}
+.fa-times:hover {
+  color: rgb(229, 114, 120);
+}
+
+.todos-counter {
+  margin-top: 5px;
+  font-size: 12px;
+  color: grey;
+}
+
+.clear {
+  background-color: rgb(229, 114, 120);
+}
+
+.item-lista {
+  display: flex;
+  align-items: center;
 }
 
 .volver {

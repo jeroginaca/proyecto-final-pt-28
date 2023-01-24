@@ -1,0 +1,59 @@
+.display {
+  padding: 0;
+}
+
+.texto {
+  color: #754942;
+  text-align: center;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+
+.beneficios-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fee9dc;
+  padding: 2rem 0 5rem 0;
+}
+
+.beneficios-container img {
+  width: 30%;
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .beneficios-container h2 {
+    font-size: 40px;
+    text-align: center;
+  }
+  .texto {
+    width: 90%;
+    text-align: left;
+  }
+
+  .beneficios-container img {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .beneficios-container img {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .beneficios-container h2 {
+    font-size: 40px;
+    text-align: left;
+  }
+  .texto {
+    width: 90%;
+    text-align: left;
+  }
+
+  .beneficios-container img {
+    width: 90%;
+  }
+}
