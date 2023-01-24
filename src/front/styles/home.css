@@ -22,5 +22,7 @@
 }
 
 .buttons-container {
-  width: 300px;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: center;
 }

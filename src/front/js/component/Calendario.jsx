@@ -20,6 +20,7 @@ export const Calendario = () => {
   const updateDates = () => {
     fetch(process.env.BACKEND_URL + "/api/feeling", {
       method: "GET",
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((resp) => {
         return resp.json();
@@ -28,9 +29,9 @@ export const Calendario = () => {
         setPaintTile(resp);
       });
   };
+
   function tileClassName(data) {
     // Add class to tiles in month view only
-
     if (data.view === "month") {
       // Check if a date React-Calendar wants to check is on the list of dates to add class to
       const date = paintTile.find(
@@ -44,7 +45,6 @@ export const Calendario = () => {
 
   useEffect(() => {
     if (saveColor != undefined) {
-      console.log(value.getTime(), "\n", saveColor);
       fetch(process.env.BACKEND_URL + "/api/feeling", {
         method: "POST",
 
@@ -83,15 +83,3 @@ export const Calendario = () => {
     </div>
   );
 };
-
-// function tileClassName({ date, view }) {
-//   // Add class to tiles in month view only
-//   if (view === "month") {
-//     // Check if a date React-Calendar wants to check is on the list of dates to add class to
-//     for (let i = 0; i < datesToAddClassTo.length; i++) {
-//       if (isSameDay(datesToAddClassTo[i].fecha, date)) {
-//         return datesToAddClassTo[i].color;
-//       }
-//     }
-//   }
-// }

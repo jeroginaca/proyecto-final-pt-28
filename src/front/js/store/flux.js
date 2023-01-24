@@ -1,4 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
+
   return {
     store: {
       frases: "",
@@ -96,7 +97,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             ? localStorage.getItem("token")
             : null,
         });
-        // condicion ? valor si se cumple : valor si no se cumple
       },
 
       private: async () => {

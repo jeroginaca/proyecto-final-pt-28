@@ -13,7 +13,16 @@ const Meditacion = () => {
   const params = useParams();
 
   return (
-    <div className="meditacion-background-noche">
+    <div className="video-container">
+      <video
+        className="video"
+        src={
+          "https://res.cloudinary.com/dgn3hxolh/video/upload/v1674419369/Meditacion_Nocturna_2_dlel8j.mp4"
+        }
+        autoPlay
+        loop
+        muted
+      ></video>
       <div style={buttons}>
         <img
           src="https://i.ibb.co/8K4RWxc/Personaje-noche.png"
