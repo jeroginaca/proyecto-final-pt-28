@@ -14,11 +14,18 @@ import journalImageUrl from "../../img/journal.png";
 export const Dashboard = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+
   useEffect(() => {
-    if (!store.token) {
+    if (!localStorage.getItem("token")) {
       navigate("/")
     }
   }, [store.token])
+
+  // useEffect(() => {
+  //   if (!store.token) {
+  //     navigate("/")
+  //   }
+  // }, [store.token])
 
   return (
     <div className="home-bg-image text-center pt-5">

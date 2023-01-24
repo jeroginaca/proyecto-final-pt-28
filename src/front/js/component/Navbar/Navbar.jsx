@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
 import "./navbar.css";
+import { Context } from "../../store/appContext";
+
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ isScrolling }) => {
+  const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
+
   const toTheTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
@@ -20,6 +25,21 @@ const Navbar = ({ isScrolling }) => {
           <li className="linksitos">Nosotros</li>
         </ul>
       </div>
+      {store.token ? (
+        <button
+          className="btn btn-danger"
+          onClick={() => {
+            actions.logout();
+            navigate("/dashboard");
+          }}
+        >
+          Logout
+        </button>
+      ) : (
+        <Link to="/login">
+          <span className="btn btn-success">Login</span>
+        </Link>
+      )}
     </div>
   );
 };
