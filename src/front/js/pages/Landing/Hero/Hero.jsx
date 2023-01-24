@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import BtnsSignupLogin from "../BTN-Sign-Log/BtnsSignupLogin.jsx";
+import { Context } from "../../../store/appContext.js";
 
 import "../landing.css";
 import "./hero.css";
 
 const Hero = () => {
+  const { store, actions } = useContext(Context);
+
   return (
     <div className="hero-container">
       <video
@@ -18,8 +21,11 @@ const Hero = () => {
       ></video>
       <div className="hero-container-text">
         <h1 className="hero-title">Mindful Me</h1>
-
-        <p className="hero-text">Medita con nosotros en 3, 2, 1</p>
+        {store.token ? (
+          <p className="hero-text">Hola Juan, listo para meditar?</p>
+        ) : (
+          <p className="hero-text">Medita con nosotros en 3, 2, 1</p>
+        )}
 
         <BtnsSignupLogin />
       </div>
