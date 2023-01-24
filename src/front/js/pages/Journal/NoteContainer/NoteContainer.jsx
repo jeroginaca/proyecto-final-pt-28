@@ -3,7 +3,7 @@ import Note from "../Note/Note.jsx";
 import "./NoteContainer.css";
 
 function NoteContainer(props) {
-  const reverArray = (arr) => {
+  /* const reverArray = (arr) => {
     const array = [];
 
     for (let i = arr.length - 1; i >= 0; --i) {
@@ -13,14 +13,14 @@ function NoteContainer(props) {
     return array;
   };
 
-  const notes = reverArray(props.notes);
+  // const notes = reverArray(props.notes); */
 
   return (
     <div className="note-container">
       <h1 className="mb-4">Entradas</h1>
       <div className="note-container_notes custom-scroll">
-        {notes?.length > 0 ? (
-          notes.map((item) => (
+        {props.notes?.length > 0 ? (
+          props.notes.map((item) => (
             <Note
               key={item.id}
               note={item}

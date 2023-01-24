@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       frases: "",
       audios: [],
+      notes: [],
       message: null,
       demo: [
         {
@@ -24,6 +25,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((resp) => resp.json())
           .then((data) => {
             setStore({ audios: data });
+          });
+      },
+
+      getNotes: () => {
+        fetch(process.env.BACKEND_URL + `/api/get_note`)
+          .then((resp) => resp.json())
+          .then((data) => {
+            setStore({ notes: data });
           });
       },
 

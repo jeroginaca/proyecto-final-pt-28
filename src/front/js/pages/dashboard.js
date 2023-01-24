@@ -11,9 +11,14 @@ import journalImageUrl from "../../img/journal.png";
 
 // <img src="https://i.ibb.co/v1f1GGr/Group-2.png" /> <---- IMAGEN DEL CEREBRO
 
-export const Home = () => {
+export const Dashboard = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+  useEffect(() => {
+    if (!store.token) {
+      navigate("/")
+    }
+  }, [store.token])
 
   return (
     <div className="home-bg-image text-center pt-5">
