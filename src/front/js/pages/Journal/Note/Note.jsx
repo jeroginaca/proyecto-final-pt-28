@@ -61,15 +61,12 @@ function Note(props) {
 
   const getNote = () => {
     debounce(() => {
-      fetch(
-        "https://3001-jeroginaca-proyectofina-u55rmn1n529.ws-eu83.gitpod.io/api/get_note",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
+      fetch(process.env.BACKEND_URL + "/api/get_note", {
+        method: "GET",
+        headers: {
+          "Content-Type" : "application/json",
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data[0]);

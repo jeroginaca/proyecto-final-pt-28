@@ -1,127 +1,152 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import "../../../styles/todolist.css";
+import TodoForm from "./TodoForm.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
-const TodoList = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [todos, setTodos] = useState([]);
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    getList();
-  }, []);
+function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
+const [isEditing, setIsEditing] = React.useState(false);
+const [newText, setNewText] = React.useState(todo.text);
 
-  const getList = () => {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/mindfulme")
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        setList(result);
-      })
-      .catch((error) => console.log(error));
-  };
+const handleEdit = (index) => {
+setIsEditing(true);
+}
 
-  const addTask = (myTask) => {
-    var newList = [...list, { label: myTask, done: false }];
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/mindfulme", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newList),
-      redirect: "follow",
-    })
-      .then((response) => {
-        response.status === 200 ? setList(newList) : "";
-      })
-      .then((result) => getList())
-      .catch((error) => console.log(error));
-  };
+const handleSave = (index) => {
+setIsEditing(false);
+editTodo(index, newText);
+}
 
-  const deleteTask = async () => {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/mindfulme", {
-      method: "DELETE",
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => {
-        console.log(response);
-        if (response.ok) {
-          response.json();
-          addTask();
-          setTodos([]);
-        }
-        new Error("Ocurrió un error eliminando la tarea");
-      })
-      .then((json) => console.log(json))
-      .catch((error) => console.log(error));
-  };
-
-  return (
-    <div className="container-fluid container-lista">
-      <div className="p-5">
-      <h1>Objetivos</h1>
-      <ul>
-        <li className="question">
-          <input
-            type="text"
-            onChange={(e) => setInputValue(e.target.value)}
-            value={inputValue}
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                setTodos(todos.concat(inputValue));
-                setInputValue("");
-              }
-            }}
-            placeholder="¿Qué quieres hacer?"
-          ></input>
-        </li>
-        {todos.map((t, index) => (
-          <li className="item-lista" key={index} style={{ backgroundColor: "light-blue" }}>
-          <input
-            type="text"
-            value={t}
-            onChange={(e) => {
-              const newTodos = [...todos];
-              newTodos[index] = e.target.value;
-              setTodos(newTodos);
-            }}
-            style={{ backgroundColor: "transparent" }}
-          />
-          <i
-            class="fa fa-times"
-            onClick={() =>
-              setTodos(
-                todos.filter((t, currentIndex) => index != currentIndex)
-              )
+return (
+  <div className="todo-container" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+    <button className="btn boton-completar" onClick={() => completeTodo(index)}>
+      <FontAwesomeIcon icon={todo.isCompleted ? faCircleCheck : faCheckCircle} />
+    </button>
+    <div className="task-container">
+      {isEditing ? (
+        <input
+          type="text"
+          value={newText}
+          onChange={e => setNewText(e.target.value)}
+          onKeyPress={e => {
+            if (e.key === "Enter") {
+              handleSave(index);
             }
-          ></i>
-        </li>
-              
-        ))}
-      </ul>
-      <div className="todos-counter">
-        {todos.length === 0 ? "Ninguna tarea" : 
-        todos.length === 1 ? `${todos.length} tarea` : 
-        `${todos.length} tareas`}
+          }}
+        />
+      ) : (
+        <span>{todo.text}</span>
+      )}
     </div>
-      <button
-        className="clear btn btn-danger mt-3 border-0"
-        onClick={() =>
-          setTodos(
-            todos.filter((t, currentIndex) => {
-              return (t = 0);
-            })
-          )
-        }
-      >
-        Limpiar
-      </button>
-      <Link to="/">
-          <button className="volver btn btn-primary mt-3 border-0">
-            Volver
-          </button>
-        </Link>
-      </div> 
+    <div className="botones">
+      {isEditing ? (
+        <button className="boton boton-guardar" onClick={() => handleSave(index)}>
+          <FontAwesomeIcon icon={faFloppyDisk} />
+        </button>
+      ) : (
+        <button className="boton boton-editar" onClick={() => handleEdit(index)}>
+          <FontAwesomeIcon icon={faPencil} />
+        </button>
+      )}
+      {!isEditing && (
+        <button className="boton boton-basura" onClick={() => removeTodo(index)}>
+          <FontAwesomeIcon icon={faTrashCan} />
+        </button>
+      )}
     </div>
-  );
+  </div>
+);
+}
+
+function ListaTareas() {
+  const [todos, setTodos] = React.useState([]);
+
+  const addTodo = (text) => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
+
+  const completeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    setTodos(newTodos);
+  };
+
+const editTodo = (index, text) => {
+const newTodos = [...todos];
+newTodos[index].text = text;
+setTodos(newTodos);
+};
+const removeTodo = (index) => {
+const newTodos = [...todos];
+newTodos.splice(index, 1);
+setTodos(newTodos);
 };
 
-export default TodoList;
+return (
+<div className="container-fluid container-lista">
+<div className="p-5">
+<h1>Objetivos</h1>
+<div className="ListaTareas">
+<div className="todo-list">
+<TodoForm addTodo={addTodo} />
+{todos.map((todo, index) => (
+  <Todo
+  key={index}
+  index={index}
+  todo={todo}
+  completeTodo={completeTodo}
+  removeTodo={removeTodo}
+  editTodo={editTodo}
+/>
+))}
+</div>
+<div className="counter-container pb-5">
+  {todos.length > 0 && 
+    <div className="todos-counter">
+      {
+        todos.filter(todo => !todo.isCompleted).length === 0
+        ? "¡No tienes tareas pendientes! 🥳"
+        : todos.filter(todo => !todo.isCompleted).length === 1
+          ? `Tienes ${todos.filter(todo => !todo.isCompleted).length} tarea pendiente⚡`
+          : `Tienes ${todos.filter(todo => !todo.isCompleted).length} tareas pendientes⚡`
+      }
+    </div>
+  }
+  {todos.length > 0 && 
+    <div className="todos-counter">
+      {
+        todos.filter(todo => todo.isCompleted).length === 0
+        ? "No tienes tareas completadas"
+        : todos.filter(todo => todo.isCompleted).length === 1
+          ? `Has completado ${todos.filter(todo => todo.isCompleted).length} tarea ✅`
+          : `Has completado  ${todos.filter(todo => todo.isCompleted).length} tareas ✅`
+      }
+    </div>
+  }
+  <div className="todos-counter">
+    {todos.length === 0 
+      ? "No tienes ninguna tarea 🏝️" 
+      : todos.length === 1 
+        ? `${todos.length} tarea en total` 
+        : `${todos.length} tareas en total`
+    }
+  </div>
+</div>
+
+</div>
+{todos.length > 0 && 
+  <button className="boton-limpiar" onClick={() => setTodos( todos.filter((t, currentIndex) => { return (t = 0);}))}>
+    Limpiar
+  </button>
+}
+</div>
+</div>
+);
+}
+export default ListaTareas;
