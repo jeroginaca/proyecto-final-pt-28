@@ -8,7 +8,7 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 
 import { Login } from "./pages/login";
-import { Navbar } from "./component/navbar";
+import Navbar from "./component/Navbar/Navbar.jsx";
 import { Footer } from "./component/footer";
 import { Signup } from "./pages/signup";
 import Tiempos from "./pages/Meditacion/Tiempos.jsx";
