@@ -18,7 +18,7 @@ export const Navbar = () => {
 						store.token
 							? <button className="btn btn-danger" onClick={() => {
 								actions.logout()
-								navigate("/landing")
+								navigate("/dashboard")
 							}
 							}>Logout</button>
 							: <Link to="/login">
