@@ -15,7 +15,7 @@
 .scrolling {
   background-color: #754942;
   transition: all 0.5s ease;
-  color: white;
+  color: #e8e8e8;
 }
 
 .navbar-container {

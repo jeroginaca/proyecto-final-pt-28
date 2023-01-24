@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import injectContext from "./store/appContext";
 
-import { Home } from "./pages/home";
+import { Dashboard } from "./pages/dashboard";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 
@@ -17,7 +17,7 @@ import AppJournal from "./pages/Journal/AppJournal.jsx";
 import SeleccionDeAudios from "./pages/Meditacion/SeleccionDeAudio.jsx";
 import Meditacion from "./pages/Meditacion/Meditacion.jsx";
 import Felicitaciones from "./pages/Meditacion/Felicitaciones.jsx";
-import Landing from "./pages/Landing/Landing.jsx";
+import Home from "./pages/Landing/Home.jsx";
 import Pomodoro from "./pages/Pomodoro/Pomodoro.jsx";
 
 //create your first component
@@ -31,8 +31,8 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <ScrollToTop>
           <Routes>
-            <Route element={<Landing />} path="/landing" />
             <Route element={<Home />} path="/" />
+            <Route element={<Dashboard />} path="/dashboard" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Login />} path="/login" />

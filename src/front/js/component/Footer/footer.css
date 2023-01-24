@@ -1,6 +1,6 @@
 .footer {
   background-color: #5c7f7e;
-  color: white;
+  color: #e8e8e8;
   padding: 2rem 6rem 2rem 6rem;
   text-align: center;
   margin-top: 5rem;
@@ -26,8 +26,6 @@
 .footer p {
   margin: 0.5rem 0 0 0;
 }
-
-
 
 @media only screen and (max-width: 600px) {
   .footer {
@@ -61,5 +59,3 @@
     margin-top: 1.5rem;
   }
 }
-
-

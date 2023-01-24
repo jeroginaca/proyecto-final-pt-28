@@ -1,7 +1,7 @@
 .funcion {
   width: 250px;
   height: 250px;
-  color: white;
+  color: #e8e8e8;
   margin: 1rem;
   padding: 1rem;
   font-size: 2rem;
@@ -15,7 +15,7 @@
 }
 
 .landing-funciones-1 {
-  color: white;
+  color: #e8e8e8;
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -28,12 +28,27 @@
 
 .landing-funciones-1:hover,
 .funcion:hover {
-  color: #e8e8e8;
+  color: #d4d4d4;
   background-color: #85b5b5;
 }
 
-.banner-funciones {
+.funciones-container {
   background-color: #5c7f7e;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.funciones-container h2 {
+  margin-bottom: 2rem;
+  color: #e8e8e8;
+}
+
+.banner-funciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1200px) {

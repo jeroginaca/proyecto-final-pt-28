@@ -3,8 +3,7 @@
   background-color: #fee9dc;
 }
 
-.display-container,
-.display-container-reverse {
+.display-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +39,24 @@
   width: 90%;
   margin-bottom: 2rem;
   border-radius: 20px;
+}
+
+.motivate-titulo {
+  text-align: left;
+  color: #754942;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.margin-top {
+  margin-top: 1.5rem;
+}
+
+.text-display {
+  color: #754942;
+  font-size: 1.1rem;
 }
 
 @media only screen and (max-width: 1200px) {

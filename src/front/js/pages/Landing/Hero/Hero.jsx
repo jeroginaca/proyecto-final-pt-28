@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="hero-container-text">
         <h1 className="hero-title">Mindful Me</h1>
 
-        <p className="hero-text">Medita con nosotros en un 1, 2, 3</p>
+        <p className="hero-text">Medita con nosotros en 3, 2, 1</p>
 
         <BtnsSignupLogin />
       </div>

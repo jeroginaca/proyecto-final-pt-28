@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
 
           <div className="footer-column">
-            <h3>Seguínos</h3>
+            <h3>Seguinos</h3>
             <p>Instagram</p>
             <p>Facebook</p>
             <p>Tik Tok</p>
@@ -30,7 +30,6 @@ const Footer = () => {
             <p>telefono</p>
             <p>Whatsapp</p>
             <p>Chat</p>
-            
           </div>
         </div>
 

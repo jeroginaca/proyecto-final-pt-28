@@ -7,6 +7,8 @@ import Footer from "../../component/Footer/Footer.jsx";
 import Carrousel from "./Testimonios/Carrousel.jsx";
 import Hero from "./Hero/Hero.jsx";
 import Funciones from "./Funciones/Funciones.jsx";
+import Fade from "react-reveal/Fade";
+import Reveal from "react-reveal/Reveal";
 
 import FuncionesDisplay from "./Funciones Display/FuncionesDisplay.jsx";
 
@@ -15,8 +17,10 @@ import TextoTachado from "./Texto Tachado/TextoTachado.jsx";
 import Motivate from "./Motivate/Motivate.jsx";
 import Beneficios from "./Beneficios/Beneficios.jsx";
 import Banner from "./Banner/Banner.jsx";
+import TiemposDeMeditacion from "../../component/TiemposDeMeditacion.jsx";
+import Redes from "./Redes/Redes.jsx";
 
-const Landing = () => {
+const Home = () => {
   const [scroll, setScroll] = useState(0);
 
   const handleScroll = () => {
@@ -35,14 +39,14 @@ const Landing = () => {
       <Hero />
 
       <Funciones />
-
-      <TextoTachado />
-
+      <Fade>
+        <TextoTachado />
+      </Fade>
       <Motivate />
 
       <Beneficios />
 
-      <Banner />
+      <Redes />
 
       <FuncionesDisplay />
 
@@ -50,9 +54,11 @@ const Landing = () => {
 
       <Comenza />
 
+      <Banner />
+
       <Footer />
     </>
   );
 };
 
-export default Landing;
+export default Home;

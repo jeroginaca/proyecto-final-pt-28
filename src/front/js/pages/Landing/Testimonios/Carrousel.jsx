@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./carrousel.css";
 
+import Fade from "react-reveal/Fade";
+
 const Carrousel = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const testimonials = [
@@ -42,44 +44,47 @@ const Carrousel = () => {
   }, []);
 
   return (
-    <div className="banner-funciones">
-      <p
-        style={{
-          textAlign: "center",
-          color: "#ffffff",
-          fontSize: "2rem",
-          paddingTop: "4rem",
-          marginTop: "3rem",
-        }}
-      >
-        Lo que dicen nuestros usuarios
-      </p>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          flexDirection: "row",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <div className={currentTestimonial === 0 ? "big" : "small"}>
-          <img src={testimonials[0].image} alt={testimonials[0].name} />
-          <h3>{testimonials[0].name}</h3>
-          <p>{testimonials[0].text}</p>
-        </div>
-        <div className={currentTestimonial === 1 ? "big" : "small"}>
-          <img src={testimonials[1].image} alt={testimonials[1].name} />
-          <h3>{testimonials[1].name}</h3>
-          <p>{testimonials[1].text}</p>
-        </div>
-        <div className={currentTestimonial === 2 ? "big" : "small"}>
-          <img src={testimonials[2].image} alt={testimonials[2].name} />
-          <h3>{testimonials[2].name}</h3>
-          <p>{testimonials[2].text}</p>
-        </div>
-        {/*
+    <div className="carrousel-container">
+      <Fade bottom cascade>
+        <p
+          style={{
+            textAlign: "center",
+            color: "#ffffff",
+            fontSize: "2rem",
+
+            marginTop: "3rem",
+          }}
+        >
+          Lo que dicen nuestros usuarios
+        </p>
+      </Fade>
+      <Fade>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            flexDirection: "row",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          <div className={currentTestimonial === 0 ? "big" : "small"}>
+            <img src={testimonials[0].image} alt={testimonials[0].name} />
+            <h3>{testimonials[0].name}</h3>
+            <p>{testimonials[0].text}</p>
+          </div>
+          <div className={currentTestimonial === 1 ? "big" : "small"}>
+            <img src={testimonials[1].image} alt={testimonials[1].name} />
+            <h3>{testimonials[1].name}</h3>
+            <p>{testimonials[1].text}</p>
+          </div>
+          <div className={currentTestimonial === 2 ? "big" : "small"}>
+            <img src={testimonials[2].image} alt={testimonials[2].name} />
+            <h3>{testimonials[2].name}</h3>
+            <p>{testimonials[2].text}</p>
+          </div>
+          {/*
                   <div className="testimonio">
                     <img
                       src={testimonials[currentTestimonial].image}
@@ -88,41 +93,43 @@ const Carrousel = () => {
                     <h3>{testimonials[currentTestimonial].name}</h3>
                     <p>{testimonials[currentTestimonial].text}</p>
                   </div>*/}
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <button
+        </div>
+        <div
           style={{
-            color: "white",
-            backgroundColor: "transparent",
-            border: "none",
-            margin: "0 1rem",
-            fontSize: "2rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
-          onClick={handlePrev}
         >
-          {" "}
-          &lt;{" "}
-        </button>
-        <button
-          style={{
-            color: "white",
-            backgroundColor: "transparent",
-            border: "none",
-            margin: "0 1rem",
-            fontSize: "2rem",
-          }}
-          onClick={handleNext}
-        >
-          {" "}
-          &gt;{" "}
-        </button>
-      </div>
+          <button
+            style={{
+              color: "#e8e8e8",
+              backgroundColor: "transparent",
+              border: "none",
+              margin: "0 1rem 2rem 1rem",
+
+              fontSize: "2rem",
+            }}
+            onClick={handlePrev}
+          >
+            {" "}
+            &lt;{" "}
+          </button>
+          <button
+            style={{
+              color: "#e8e8e8",
+              backgroundColor: "transparent",
+              border: "none",
+              margin: "0 1rem 2rem 1rem",
+              fontSize: "2rem",
+            }}
+            onClick={handleNext}
+          >
+            {" "}
+            &gt;{" "}
+          </button>
+        </div>
+      </Fade>
     </div>
   );
 };
