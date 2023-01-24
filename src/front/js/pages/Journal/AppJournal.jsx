@@ -5,9 +5,7 @@ import "./AppJournal.css";
 import { Context } from "../../store/appContext.js";
 
 function AppJournal() {
-  const [notes, setNotes] = useState(
-    JSON.parse(localStorage.getItem("notes-app-2")) || []
-  );
+  const [notes, setNotes] = useState([]);
   const { store, actions } = useContext(Context);
   useEffect(() => {
     actions.getNotes();
@@ -53,7 +51,7 @@ function AppJournal() {
     <div className="AppJournal px-3 py-5">
       <Sidebar addNote={addNote} />
       <NoteContainer
-        notes={notes}
+        notes={store.notes}
         deleteNote={deleteNote}
         updateText={updateText}
       />
