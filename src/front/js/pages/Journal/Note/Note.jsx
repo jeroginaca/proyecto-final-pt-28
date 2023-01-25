@@ -64,7 +64,7 @@ function Note(props) {
       fetch(process.env.BACKEND_URL + "/api/get_note", {
         method: "GET",
         headers: {
-          "Content-Type" : "application/json",
+          "Content-Type": "application/json",
         },
       })
         .then((res) => res.json())
@@ -80,10 +80,11 @@ function Note(props) {
 
   const updateText = (text, id) => {
     debounce(() => {
-      fetch("/update_note", {
+      fetch(process.env.BACKEND_URL + "/api/update_note", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
           note_id: id,
@@ -100,9 +101,27 @@ function Note(props) {
     });
   };
 
+  const saveNotes = (notes, color) => {
+    fetch(process.env.BACKEND_URL + `/api/insert_note`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        body: JSON.stringify({
+          user_id: store.user,
+          notes: notes,
+          color: color,
+        }),
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        // setStore({ notes: data });
+      });
+  };
+
   const deleteNote = (id) => {
-    fetch("/delete_note", {
-      method: "POST",
+    fetch("/api/delete_note", {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
@@ -144,7 +163,16 @@ function Note(props) {
             
           </i>
         </button>
-        <button onClick={getNote}>Get Note</button>
+        <button
+          className="boton guardar-entrada"
+          onClick={() => {
+            saveNotes(props.note.text, props.note.color);
+          }}
+          class="fa"
+          aria-hidden="true"
+        >
+          Guardar
+        </button>
         <button className="boton pantalla-completa" onClick={handleFullScreen}>
           <i class="fa fa-expand" aria-hidden="true"></i>
         </button>
