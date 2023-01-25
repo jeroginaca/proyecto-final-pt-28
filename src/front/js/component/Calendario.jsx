@@ -1,87 +1,85 @@
-import React, { useState } from "react";
-import { Calendar } from "react-calendar";
+import React, { useState, useEffect, useContext } from "react";
+import Calendar from "react-calendar";
+import "../../styles/calendario.css";
+import "../../styles/calendario-original.css";
 import ColorPicker from "./ColorPicker.jsx";
-import "react-calendar/dist/Calendar.css";
-/*
-import "./calendario.css";
-*/
-const Calendario = () => {
-  const button = {
-    backgroundColor: "#85B5B5",
-    padding: "2rem",
-    borderRadius: "15px",
-    margin: "0.5rem",
-    border: "none",
-    color: "#ffffff",
-    fontWeight: "600",
-  };
+import { Context } from "../store/appContext";
 
-  const container = {
-    maxWidth: "600px",
-    margin: "0 auto",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  };
-
+export const Calendario = () => {
+  const { store, actions } = useContext(Context);
   const [openColorPicker, setOpenColorPicker] = useState(false);
+  const [value, onChange] = useState(new Date());
+  const [saveColor, setSaveColor] = useState();
 
-  function handleDateChange(date) {
-    console.log(date);
-  }
+  const [paintTile, setPaintTile] = useState([]);
 
-  const curentDate = new Date();
+  useEffect(() => {
+    updateDates();
+  }, []);
 
-  function formatDate(date) {
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-
-    return `${day}/${month}/${year}`;
-  }
-
-  const currentDateString = formatDate(curentDate);
-
-  const [tgl, setTgl] = useState(new Date());
-  const events = ["13-01-2023", "12-01-2023"];
-
-  const [selectedDay, setSelectedDay] = useState(null);
-
-  function handleDayClick(value) {
-    setSelectedDay(value);
-  }
-
-  const selectedDayStyle = {
-    backgroundColor: "red",
-    position: "absonlute",
-    zIndex: "1",
+  const updateDates = () => {
+    fetch(process.env.BACKEND_URL + "/api/feeling", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    })
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((resp) => {
+        setPaintTile(resp);
+      });
   };
+
+  function tileClassName(data) {
+    // Add class to tiles in month view only
+    if (data.view === "month") {
+      // Check if a date React-Calendar wants to check is on the list of dates to add class to
+      const date = paintTile.find(
+        (element) =>
+          new Date(element.date).toLocaleDateString() ==
+          data.date.toLocaleDateString()
+      );
+      return date ? date.feeling : null;
+    }
+  }
+
+  useEffect(() => {
+    if (saveColor != undefined) {
+      fetch(process.env.BACKEND_URL + "/api/feeling", {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${store.token}`,
+        },
+        body: JSON.stringify({
+          date: new Date(value.getTime() + value.getTimezoneOffset() * -60000),
+          feeling: saveColor,
+        }),
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((response) => {
+          updateDates();
+          console.log(response);
+        });
+      setOpenColorPicker(false);
+      setSaveColor(undefined);
+    }
+  }, [saveColor]);
 
   return (
-    <div style={container}>
-      <button
-        style={button}
-        onClick={() => setOpenColorPicker(!openColorPicker)}
-      >
-        {/*currentDateString*/} ¿Cómo te sients hoy?
-      </button>
-
-      {openColorPicker && <ColorPicker />}
-
-      <div className="w-full h-full p-10">
-        <Calendar
-          onClickDay={handleDayClick}
-          tileContent={({ date, view }) =>
-            selectedDay &&
-            date.getTime() === selectedDay.getTime() &&
-            view === "month" ? (
-              <div style={selectedDayStyle}>{date.getDate()}</div>
-            ) : undefined
-          }
-        />
-      </div>
+    <div className="calendar-container">
+      <Calendar
+        onChange={onChange}
+        value={value}
+        tileClassName={tileClassName}
+        onClickDay={() => {
+          setOpenColorPicker(true);
+        }}
+      />
+      {openColorPicker && <ColorPicker setSaveColor={setSaveColor} />}
     </div>
   );
 };
-
-export default Calendario;
