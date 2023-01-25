@@ -35,6 +35,7 @@ def insert_note():
         new_note = Journal(user_id=user_id, notes=notes, color=color)
        
         db.session.add(new_note)
+        print(new_note)
         db.session.commit()
         return jsonify({"new_note": new_note.serialize()}), 200
 
