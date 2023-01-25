@@ -102,6 +102,12 @@ function Note(props) {
   };
 
   const saveNotes = (notes, color) => {
+    var json = JSON.stringify({
+      user_id: store.user,
+      notes: notes,
+      color: color,
+    });
+    console.log(json);
     fetch(process.env.BACKEND_URL + `/api/insert_note`, {
       headers: {
         "Content-Type": "application/json",
@@ -113,7 +119,10 @@ function Note(props) {
         }),
       },
     })
-      .then((resp) => resp.json())
+      .then((resp) => {
+        console.log(resp);
+        resp.json();
+      })
       .then((data) => {
         // setStore({ notes: data });
       });
@@ -157,7 +166,7 @@ function Note(props) {
               props.deleteNote(props.note.id);
               deleteNote(props.note.id);
             }}
-            class="fa"
+            className="fa"
             aria-hidden="true"
           >
             
@@ -168,13 +177,13 @@ function Note(props) {
           onClick={() => {
             saveNotes(props.note.text, props.note.color);
           }}
-          class="fa"
+          className="fa"
           aria-hidden="true"
         >
           Guardar
         </button>
         <button className="boton pantalla-completa" onClick={handleFullScreen}>
-          <i class="fa fa-expand" aria-hidden="true"></i>
+          <i className="fa fa-expand" aria-hidden="true"></i>
         </button>
       </div>
     </div>

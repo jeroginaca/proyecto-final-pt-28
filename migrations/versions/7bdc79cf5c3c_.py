@@ -52,9 +52,8 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('journal',
-    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('id', sa.String(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.String(length=120), nullable=False),
     sa.Column('notes', sa.String(length=120), nullable=False),
     sa.Column('color', sa.String(length=120), nullable=False),
     sa.Column('date', sa.DateTime(), nullable=False),
