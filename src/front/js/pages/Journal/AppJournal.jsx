@@ -8,7 +8,20 @@ function AppJournal() {
   const [notes, setNotes] = useState([]);
   const { store, actions } = useContext(Context);
   useEffect(() => {
-    actions.getNotes();
+    fetch(process.env.BACKEND_URL + `/api/get_note`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setNotes(data);
+      });
   }, []);
 
   const addNote = (color) => {
@@ -63,11 +76,11 @@ function AppJournal() {
         deleteNote={deleteNote}
         updateText={updateText}
       />
-      <NoteContainer
+      {/* <NoteContainer
         notes={store.notes}
         deleteNote={deleteNote}
         updateText={updateText}
-      />
+      /> */}
     </div>
   );
 }

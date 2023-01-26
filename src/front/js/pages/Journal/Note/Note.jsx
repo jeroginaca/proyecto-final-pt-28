@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../../../store/appContext";
 import "./Note.css";
 import "../../../../styles/journal.css";
@@ -8,6 +8,9 @@ let timer = 500,
   timeout;
 function Note(props) {
   const { store, actions } = useContext(Context);
+
+  const [content, setContent] = useState(props.note)
+
   const formatDate = (value) => {
     if (!value) return "";
 
@@ -59,25 +62,6 @@ function Note(props) {
     }
   };
 
-  const getNote = () => {
-    debounce(() => {
-      fetch(process.env.BACKEND_URL + "/api/get_note", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data[0]);
-          localStorage.setItem("notes-app", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  };
-
   const updateText = (text, id) => {
     debounce(() => {
       fetch(process.env.BACKEND_URL + "/api/update_note", {
@@ -101,21 +85,16 @@ function Note(props) {
     });
   };
 
-  const saveNotes = (notes, color) => {
-    var json = JSON.stringify({
-      user_id: store.user,
-      notes: notes,
-      color: color,
-    });
-    console.log(json);
+  const saveNotes = (content, id) => {
+
+    console.log(content, id);
     fetch(process.env.BACKEND_URL + `/api/insert_note`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
         body: JSON.stringify({
-          user_id: store.user,
-          notes: notes,
-          color: color,
+          note: content,
+        id: id,
         }),
       },
     })
@@ -151,20 +130,20 @@ function Note(props) {
     <div className="note">
       <div
         className="note-color"
-        style={{ backgroundColor: props.note.color }}
+        style={{ backgroundColor: props.color }}
       ></div>
       <textarea
         className="note_text"
-        defaultValue={props.note.text}
-        onChange={(event) => updateText(event.target.value, props.note.id)}
-      />
+        onChange={(event) => setContent(event.target.value)}
+      >
+        {props.note}
+      </textarea>
       <div className="note_footer">
-        <p className="fecha-nota">{formatDate(props.note.time)}</p>
+        <p className="fecha-nota">{formatDate(props.date)}</p>
         <button className="boton borrar-entrada">
           <i
             onClick={() => {
-              props.deleteNote(props.note.id);
-              deleteNote(props.note.id);
+              deleteNote(props.id);
             }}
             className="fa"
             aria-hidden="true"
@@ -175,12 +154,11 @@ function Note(props) {
         <button
           className="boton guardar-entrada"
           onClick={() => {
-            saveNotes(props.note.text, props.note.color);
+            saveNotes(content, props.id);
           }}
-          className="fa"
-          aria-hidden="true"
         >
-          Guardar
+          <i className="fa" aria-hidden="true">G
+          </i>
         </button>
         <button className="boton pantalla-completa" onClick={handleFullScreen}>
           <i className="fa fa-expand" aria-hidden="true"></i>
