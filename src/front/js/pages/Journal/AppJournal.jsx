@@ -16,11 +16,18 @@ function AppJournal() {
 
     tempNotes.push({
       id: Date.now() + "" + Math.floor(Math.random() * 78),
-      text: localStorage.getItem("notes-app"),
+      text: "hola",
       time: Date.now(),
       color,
     });
     setNotes(tempNotes);
+  };
+
+  const saveNote = (id) => {
+    const tempNotes = [...notes];
+
+    const note = tempNotes.find((item) => item.id === id);
+    store.saveNotes(note.id, note.text, note.color);
   };
 
   const deleteNote = (id) => {
@@ -50,6 +57,12 @@ function AppJournal() {
   return (
     <div className="AppJournal px-3 py-5">
       <Sidebar addNote={addNote} />
+      <NoteContainer
+        notes={notes}
+        saveNote={saveNote}
+        deleteNote={deleteNote}
+        updateText={updateText}
+      />
       <NoteContainer
         notes={store.notes}
         deleteNote={deleteNote}

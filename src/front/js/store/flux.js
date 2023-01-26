@@ -42,6 +42,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
+      
+
       getInspiration: () => {
         fetch("https://api.quotable.io/random")
           .then((response) => response.json())
