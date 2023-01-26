@@ -3,18 +3,6 @@ import Note from "../Note/Note.jsx";
 import "./NoteContainer.css";
 
 function NoteContainer(props) {
-  /* const reverArray = (arr) => {
-    const array = [];
-
-    for (let i = arr.length - 1; i >= 0; --i) {
-      array.push(arr[i]);
-    }
-
-    return array;
-  };
-
-  // const notes = reverArray(props.notes); */
-  console.log("hola");
   console.log(props.notes);
   return (
     <div className="note-container">
@@ -33,7 +21,7 @@ function NoteContainer(props) {
             />
           ))
         ) : (
-          <h3>No tienes ninguna entrada</h3>
+          <p>No tienes ninguna entrada.</p>
         )}
       </div>
     </div>
