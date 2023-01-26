@@ -1,12 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
-import "../../styles/home.css";
-import { Link } from "react-router-dom";
-import targetImageUrl from "../../img/target.png";
-import editImageUrl from "../../img/edit.png";
+import "../../styles/dashboard.css";
 import { Calendario } from "../component/Calendario.jsx";
-import journalImageUrl from "../../img/journal.png";
 
 
 // <img src="https://i.ibb.co/v1f1GGr/Group-2.png" /> <---- IMAGEN DEL CEREBRO
@@ -46,28 +42,28 @@ export const Dashboard = () => {
               <button className="home-buttons" onClick={() => {
                 navigate("/tiempos")
               }}>
-                <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
+                <img src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674671803/Vector_jkhjri.png" width={"50px"} />
               </button>
-
-              <button className="home-buttons" onClick={() => {
-                navigate("/tiempos")
-              }}>
-                <img src={journalImageUrl} />
-              </button>
-
 
               <button className="home-buttons" onClick={() => {
                 navigate("/appjournal")
               }}>
-                <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
+                <img src="https://i.ibb.co/bNc8Csv/icon-pencil.png" width={"40px"} />
               </button>
-
 
 
               <button className="home-buttons" onClick={() => {
                 navigate("/tareas")
               }}>
-                <img src={targetImageUrl} />
+                <img src="https://i.ibb.co/HFcg5xV/icon-list.png" width={"40px"} />
+              </button>
+
+
+
+              <button className="home-buttons" onClick={() => {
+                navigate("/pomodoro")
+              }}>
+                <img src="https://i.ibb.co/rsxMFZy/icon-timer.png" width={"40px"} />
               </button>
             </div>
 

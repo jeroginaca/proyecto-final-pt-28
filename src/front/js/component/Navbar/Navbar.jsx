@@ -22,24 +22,25 @@ const Navbar = ({ isScrolling }) => {
             <li className="linksitos">Home</li>
           </Link>
           <li className="linksitos">Funciones</li>
-          <li className="linksitos">Nosotros</li>
+          <li className="linksitos">
+            {store.token ? (
+              <button
+                className="btn btn-danger"
+                onClick={() => {
+                  actions.logout();
+                  navigate("/dashboard");
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <Link to="/login">
+                <span className="btn btn-success">Login</span>
+              </Link>
+            )}
+          </li>
         </ul>
       </div>
-      {store.token ? (
-        <button
-          className="btn btn-danger"
-          onClick={() => {
-            actions.logout();
-            navigate("/dashboard");
-          }}
-        >
-          Logout
-        </button>
-      ) : (
-        <Link to="/login">
-          <span className="btn btn-success">Login</span>
-        </Link>
-      )}
     </div>
   );
 };
