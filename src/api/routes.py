@@ -21,14 +21,16 @@ def handle_hello():
 @api.route('/get_note', methods=['GET'])
 @jwt_required()
 def get_note():
-        notes = Journal.query.all()
-        data = list(map(lambda x: x.serialize(), notes))
-        return jsonify(data), 200
+        user_id = get_jwt_identity()
+        get_all_notes = Journal.query.filter_by(user_id=user_id).all()
+        get_all_notes = list(map(lambda x: x.serialize(), get_all_notes))
+        response_body = get_all_notes
+        return jsonify(response_body), 200
 
 @api.route('/insert_note', methods=['POST'])
 @jwt_required()
 def insert_note():       
-        user_id = request.json.get("user_id", None)
+        user_id = get_jwt_identity()
         notes = request.json.get("notes", None)
         color = request.json.get("color", None)
 

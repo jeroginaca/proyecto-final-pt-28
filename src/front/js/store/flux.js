@@ -31,13 +31,17 @@ const getState = ({ getStore, getActions, setStore }) => {
       getNotes: () => {
         const store = getStore();
         fetch(process.env.BACKEND_URL + `/api/get_note`, {
+          method: "GET",
           headers: {
-            "Content-Type": "application/json",
+            // "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         })
-          .then((resp) => resp.json())
+          .then((resp) => {
+            console.log(resp)
+            resp.json()})
           .then((data) => {
+            console.log(data)
             setStore({ notes: data });
           });
       },
