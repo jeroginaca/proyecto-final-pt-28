@@ -19,7 +19,6 @@ function AppJournal() {
         return resp.json();
       })
       .then((data) => {
-        console.log(data);
         setNotes(data);
       });
   }, []);
@@ -28,8 +27,9 @@ function AppJournal() {
     const tempNotes = [...notes];
 
     tempNotes.push({
-      id: Date.now() + "" + Math.floor(Math.random() * 78),
-      time: Date.now(),
+      id: "",
+      notes: "",
+      date: Date.now(),
       color,
     });
     // tempNotes.reverse(); <----------------- Para que salgan las nuevas por arriba
@@ -65,15 +65,16 @@ function AppJournal() {
 
   return (
     <div className="appjournal-container">
-    <div className="AppJournal px-3 py-5">
-      <Sidebar addNote={addNote} />
-      <NoteContainer
-        notes={notes}
-        saveNote={saveNote}
-        deleteNote={deleteNote}
-        updateText={updateText}
-      />
-    </div></div>
+      <div className="AppJournal px-3 py-5">
+        <Sidebar addNote={addNote} />
+        <NoteContainer
+          notes={notes}
+          saveNote={saveNote}
+          deleteNote={deleteNote}
+          updateText={updateText}
+        />
+      </div>
+    </div>
   );
 }
 

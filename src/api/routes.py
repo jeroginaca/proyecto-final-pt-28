@@ -21,44 +21,48 @@ def handle_hello():
 @api.route('/get_note', methods=['GET'])
 @jwt_required()
 def get_note():
-        user_id = get_jwt_identity()
-        get_all_notes = Journal.query.filter_by(user_id=user_id).all()
-        get_all_notes = list(map(lambda x: x.serialize(), get_all_notes))
-        response_body = get_all_notes
-        return jsonify(response_body), 200
+    user_id = get_jwt_identity()
+    get_all_notes = Journal.query.filter_by(user_id=user_id).all()
+    get_all_notes = list(map(lambda x: x.serialize(), get_all_notes))
+    response_body = get_all_notes
+    return jsonify(response_body), 200
 
 @api.route('/insert_note', methods=['POST'])
 @jwt_required()
 def insert_note():       
-        user_id = get_jwt_identity()
-        notes = request.json.get("notes", None)
-        color = request.json.get("color", None)
+    user_id = get_jwt_identity()
+    data = request.get_json()
+    note_body = data(["notes"])
+    color_body = data(["color"])
 
-        new_note = Journal(user_id=user_id, notes=notes, color=color)
-       
-        db.session.add(new_note)
-        print(new_note)
-        db.session.commit()
-        return jsonify({"new_note": new_note.serialize()}), 200
+    new_note = Journal(user_id=user_id, notes=note_body, color=color_body)
+    
+    db.session.add(new_note)
 
-@api.route('/update_note', methods=['POST'])
+    db.session.commit()
+    return jsonify({"new_note": new_note.serialize()}), 200
+
+@api.route('/update_note', methods=['PUT'])
 @jwt_required()
-def update_note():       
-        note_id = request.json.get("note_id", None)
-        notes = request.json.get("notes", None)
-        color = request.json.get("color", None)
-
+def update_note():
+        user_id = get_jwt_identity()       
+        data = request.get_json()
+        note_id = data["note_id"]
+        note_body = data["notes"]
+        color_body = data["color"]
         note = Journal.query.get(note_id)
-        note.notes = notes
-        note.color = color
+        note.notes = note_body
+        note.color = color_body
+    
        
         db.session.commit()
         return jsonify({"note": note.serialize()}), 200
 
 @api.route('/delete_note', methods=['DELETE'])
 @jwt_required()
-def delete_note():       
-        note_id = request.json.get("note_id", None)
+def delete_note():
+        data = request.get_json()       
+        note_id = data["note_id"]
 
         note = Journal.query.get(note_id)
        

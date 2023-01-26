@@ -9,7 +9,7 @@ let timer = 500,
 function Note(props) {
   const { store, actions } = useContext(Context);
 
-  const [content, setContent] = useState(props.note)
+  const [content, setContent] = useState(props.note);
 
   const formatDate = (value) => {
     if (!value) return "";
@@ -53,32 +53,57 @@ function Note(props) {
     }
   };
 
-  const saveNotes = (content, id) => {
-
+  const saveNotes = (content, id, color_param) => {
     console.log(content, id);
-    fetch(process.env.BACKEND_URL + `/api/insert_note`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+
+    if ("" === id) {
+      fetch(process.env.BACKEND_URL + `/api/insert_note`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
         body: JSON.stringify({
-        note: content,
-        id: id,
+          notes: content,
+          color: color_param,
         }),
-      },
-    })
-      .then((resp) => {
-        console.log(resp);
-        resp.json();
       })
-      .then((data) => {
-      });
+        .then((resp) => {
+          console.log(resp);
+          resp.json();
+        })
+        .then((data) => {
+          // setStore({ notes: data });
+        });
+    } else {
+      fetch(process.env.BACKEND_URL + `/api/update_note`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          notes: content,
+          note_id: id,
+          color: color_param,
+        }),
+      })
+        .then((resp) => {
+          console.log(resp);
+          resp.json();
+        })
+        .then((data) => {
+          // setStore({ notes: data });
+        });
+    }
   };
 
   const deleteNote = (id) => {
-    fetch("/api/delete_note", {
+    fetch(process.env.BACKEND_URL + "/api/delete_note", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({
         note_id: id,
@@ -102,9 +127,8 @@ function Note(props) {
       <textarea
         className="note_text"
         onChange={(event) => setContent(event.target.value)}
-      >
-        {props.note}
-      </textarea>
+        defaultValue={props.note}
+      ></textarea>
       <div className="note_footer">
         <p className="fecha-nota">{formatDate(props.date)}</p>
         <button className="boton borrar-entrada">
@@ -121,14 +145,17 @@ function Note(props) {
         <button
           className="boton guardar-entrada"
           onClick={() => {
-            saveNotes(content, props.id);
+            saveNotes(content, props.id, props.color);
           }}
         >
-          <i className="fa-solid fa-floppy-disk" aria-hidden="true">
+          <i className="fa" aria-hidden="true">
+            G
           </i>
         </button>
         <button className="boton pantalla-completa" onClick={handleFullScreen}>
-          <i className="fa" aria-hidden="true"></i>
+          <i className="fa" aria-hidden="true">
+            
+          </i>
         </button>
       </div>
     </div>
