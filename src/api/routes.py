@@ -92,6 +92,19 @@ def get_audios_by_type(id):
         return jsonify(data), 200
 
 
+@api.route('/usuario', methods=['GET'])
+@jwt_required
+def get_user():
+    user_id = get_jwt_identity()
+    if user_id:
+        user = User.query.filter_by(id=user_id).first()
+        return jsonify(user.serialize()), 200
+    else:
+        return jsonify({"msg": "Token inválido"}), 401
+
+
+
+
 @api.route('/signup', methods=['POST'])
 def create_user():    
     data = request.get_json()

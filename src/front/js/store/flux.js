@@ -1,10 +1,10 @@
 const getState = ({ getStore, getActions, setStore }) => {
-
   return {
     store: {
       frases: "",
       audios: [],
       notes: [],
+      user: [],
       message: null,
       demo: [
         {
@@ -20,6 +20,17 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
     },
     actions: {
+      getUser: () => {
+        fetch(process.env.BACKEND_URL + `/api/usuario`, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            setStore({ user: data });
+          });
+      },
       getAudios: (id) => {
         fetch(process.env.BACKEND_URL + `/api/audios-by-type/${id}`)
           .then((resp) => resp.json())
