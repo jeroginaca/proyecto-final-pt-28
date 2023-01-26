@@ -30,7 +30,7 @@ def get_note():
 @api.route('/insert_note', methods=['POST'])
 @jwt_required()
 def insert_note():       
-        user_id = request.json.get("user_id", None)
+        user_id = get_jwt_identity()
         notes = request.json.get("notes", None)
         color = request.json.get("color", None)
 

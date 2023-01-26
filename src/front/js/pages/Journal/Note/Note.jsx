@@ -62,29 +62,6 @@ function Note(props) {
     }
   };
 
-  const updateText = (text, id) => {
-    debounce(() => {
-      fetch(process.env.BACKEND_URL + "/api/update_note", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({
-          note_id: id,
-          text: text,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  };
-
   const saveNotes = (content, id) => {
 
     console.log(content, id);
@@ -93,7 +70,7 @@ function Note(props) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
         body: JSON.stringify({
-          note: content,
+        note: content,
         id: id,
         }),
       },
