@@ -32,6 +32,7 @@ function AppJournal() {
       date: Date.now(),
       color,
     });
+    // tempNotes.reverse(); <----------------- Para que salgan las nuevas por arriba
     setNotes(tempNotes);
   };
 
@@ -62,24 +63,17 @@ function AppJournal() {
     setNotes(tempNotes);
   };
 
-  /*   useEffect(() => {
-    localStorage.setItem("notes-app", JSON.stringify(notes));
-  }, [notes]); */
-
   return (
-    <div className="AppJournal px-3 py-5">
-      <Sidebar addNote={addNote} />
-      <NoteContainer
-        notes={notes}
-        saveNote={saveNote}
-        deleteNote={deleteNote}
-        updateText={updateText}
-      />
-      {/* <NoteContainer
-        notes={store.notes}
-        deleteNote={deleteNote}
-        updateText={updateText}
-      /> */}
+    <div className="appjournal-container">
+      <div className="AppJournal px-3 py-5">
+        <Sidebar addNote={addNote} />
+        <NoteContainer
+          notes={notes}
+          saveNote={saveNote}
+          deleteNote={deleteNote}
+          updateText={updateText}
+        />
+      </div>
     </div>
   );
 }

@@ -31,7 +31,7 @@ function NoteContainer(props) {
             />
           ))
         ) : (
-          <h3>No tienes ninguna entrada</h3>
+          <p>No tienes ninguna entrada.</p>
         )}
       </div>
     </div>

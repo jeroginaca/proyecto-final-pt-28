@@ -44,15 +44,6 @@ function Note(props) {
     return `${day} ${month} | ${hrs}:${min} ${amPm}`;
   };
 
-  const debounce = (func) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(func, timer);
-  };
-
-  /*  const updateText = (text, id) => {
-    debounce(() => props.updateText(text, id));
-  }; */
-
   const handleFullScreen = (event) => {
     const note = event.currentTarget.parentNode.parentNode;
     if (document.fullscreenElement === note) {
@@ -162,7 +153,9 @@ function Note(props) {
           </i>
         </button>
         <button className="boton pantalla-completa" onClick={handleFullScreen}>
-          <i className="fa fa-expand" aria-hidden="true"></i>
+          <i className="fa" aria-hidden="true">
+            
+          </i>
         </button>
       </div>
     </div>
