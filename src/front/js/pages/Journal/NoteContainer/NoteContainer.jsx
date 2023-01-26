@@ -14,8 +14,6 @@ function NoteContainer(props) {
   };
 
   // const notes = reverArray(props.notes); */
-  console.log("hola");
-  console.log(props.notes);
   return (
     <div className="note-container">
       <h1 className="mb-4">Entradas</h1>

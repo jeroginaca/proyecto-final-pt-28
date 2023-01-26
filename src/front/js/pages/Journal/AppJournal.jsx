@@ -19,7 +19,6 @@ function AppJournal() {
         return resp.json();
       })
       .then((data) => {
-        console.log(data);
         setNotes(data);
       });
   }, []);
@@ -28,9 +27,9 @@ function AppJournal() {
     const tempNotes = [...notes];
 
     tempNotes.push({
-      id: Date.now() + "" + Math.floor(Math.random() * 78),
-      text: "hola",
-      time: Date.now(),
+      id: "",
+      notes: "",
+      date: Date.now(),
       color,
     });
     setNotes(tempNotes);
