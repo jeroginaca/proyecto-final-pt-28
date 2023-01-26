@@ -41,7 +41,7 @@ class Calendar(db.Model):
         }
 
 class Journal(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     user= db.relationship('User', backref='journal', lazy=True) 
     notes = db.Column(db.String(120), nullable=False)
