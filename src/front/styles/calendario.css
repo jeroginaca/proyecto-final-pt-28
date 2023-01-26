@@ -1,29 +1,29 @@
 .red {
-  background-color: red !important;
-  border-radius: 20px;
+  background-color: #cd6c51 !important;
+  /* border-radius: 20px; */
   color: black !important;
 }
 
 .blue {
-  background-color: blue !important;
-  border-radius: 20px;
+  background-color: #5c7f7e !important;
+  /* border-radius: 20px; */
   color: black !important;
 }
 
 .green {
-  background-color: green !important;
-  border-radius: 20px;
+  background-color: #9aa162 !important;
+  /* border-radius: 20px; */
   color: black !important;
 }
 
 .yellow {
-  background-color: yellow !important;
-  border-radius: 20px;
+  background-color: #e6e8a7 !important;
+  /* border-radius: 20px; */
   color: black !important;
 }
 
 .purple {
-  background-color: purple !important;
-  border-radius: 20px;
+  background-color: #e8b8a4 !important;
+  /* border-radius: 20px; */
   color: black !important;
 }
