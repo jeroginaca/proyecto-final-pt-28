@@ -68,25 +68,25 @@ export const Dashboard = () => {
         <div className="home-buttons-mobile">
           <Link to={"/tiempos"}>
             <img
-              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674747833/funciones/Group_36_kuoff5.png"
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/meditaciones_ahwvs3.png"
               className="home-button"
             />
           </Link>
           <Link to={"/appjournal"}>
             <img
-              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674747833/funciones/Group_30_yvkcru.png"
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/entradas_fmwso1.png"
               className="home-button"
             />
           </Link>
           <Link to={"/tareas"}>
             <img
-              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674747833/funciones/Group_34_xfutj7.png"
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/mis-objetivos_gnrjcl.png"
               className="home-button"
             />
           </Link>
           <Link to={"/pomodoro"}>
             <img
-              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674748871/funciones/Group_40_a77kdt.png"
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/zona-de-estudio_gxf0ea.png"
               className="home-button"
             />
           </Link>
@@ -98,25 +98,25 @@ export const Dashboard = () => {
         <div className="home-buttons">
           <Link to={"/tiempos"}>
             <img
-              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674747833/funciones/Group_36_kuoff5.png"
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/meditaciones_ahwvs3.png"
               className="home-button"
             />
           </Link>
           <Link to={"/appjournal"}>
             <img
-              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674747833/funciones/Group_30_yvkcru.png"
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/entradas_fmwso1.png"
               className="home-button"
             />
           </Link>
           <Link to={"/tareas"}>
             <img
-              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674747833/funciones/Group_34_xfutj7.png"
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/mis-objetivos_gnrjcl.png"
               className="home-button"
             />
           </Link>
           <Link to={"/pomodoro"}>
             <img
-              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674748871/funciones/Group_40_a77kdt.png"
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/zona-de-estudio_gxf0ea.png"
               className="home-button"
             />
           </Link>

@@ -49,8 +49,8 @@ const Preview = () => {
           <div className="blog-width">
             <h2 className="motivate-titulo">Escribe tu journal</h2>
             <p className="text-display">
-              Con nuestra herramienta de diario, podrás llevar un registro de
-              tus pensamientos, lo que te permitirá trabajar en ellos de manera
+              Con nuestra herramienta de diario, podrás llevar un registro
+              de tus pensamientos, lo que te permitirá trabajar en ellos de manera
               más consciente y efectiva. Comienza a experimentar los beneficios
               de la atención plena en tu vida cotidiana.
             </p>
