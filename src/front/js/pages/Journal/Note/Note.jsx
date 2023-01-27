@@ -148,8 +148,7 @@ function Note(props) {
             saveNotes(content, props.id, props.color);
           }}
         >
-          <i className="fa" aria-hidden="true">
-            G
+          <i className="fa-solid fa-floppy-disk" aria-hidden="true">
           </i>
         </button>
         <button className="boton pantalla-completa" onClick={handleFullScreen}>

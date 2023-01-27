@@ -1,13 +1,12 @@
 .appjournal-container {
   padding-top: 60px;
-  background-color: white;
 }
 
 .AppJournal {
     height: 100vh;
     display: flex;
     gap: 20px;
-    background-color: white;
+    /* background-color: white; */
   }
   
 .custom-scroll::-webkit-scrollbar {
