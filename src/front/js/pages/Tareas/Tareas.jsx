@@ -22,7 +22,7 @@ editTodo(index, newText);
 }
 
 return (
-  <div className="todo-container" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+  <div className="todo-container py-2" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
     <button className="btn boton-completar" onClick={() => completeTodo(index)}>
       <FontAwesomeIcon icon={todo.isCompleted ? faCircleCheck : faCheckCircle} />
     </button>
@@ -107,32 +107,32 @@ return (
 <div className="counter-container pb-5">
   {todos.length > 0 && 
     <div className="todos-counter">
-      {
-        todos.filter(todo => !todo.isCompleted).length === 0
-        ? "¡No tienes tareas pendientes! 🥳"
-        : todos.filter(todo => !todo.isCompleted).length === 1
-          ? `Tienes ${todos.filter(todo => !todo.isCompleted).length} tarea pendiente⚡`
-          : `Tienes ${todos.filter(todo => !todo.isCompleted).length} tareas pendientes⚡`
-      }
-    </div>
+    {
+      todos.filter(todo => !todo.isCompleted).length === 0
+      ? "¡No tienes tareas pendientes! 🥳"
+      : todos.filter(todo => !todo.isCompleted).length === 1
+        ? <><span>Tienes </span><strong>{todos.filter(todo => !todo.isCompleted).length}</strong><span> tarea pendiente⚡</span></>
+        : <><span>Tienes </span><strong>{todos.filter(todo => !todo.isCompleted).length}</strong><span> tareas pendientes⚡</span></>
+    }
+  </div>
   }
   {todos.length > 0 && 
     <div className="todos-counter">
-      {
-        todos.filter(todo => todo.isCompleted).length === 0
-        ? "No tienes tareas completadas"
-        : todos.filter(todo => todo.isCompleted).length === 1
-          ? `Has completado ${todos.filter(todo => todo.isCompleted).length} tarea ✅`
-          : `Has completado  ${todos.filter(todo => todo.isCompleted).length} tareas ✅`
-      }
-    </div>
+    {
+      todos.filter(todo => todo.isCompleted).length === 0
+      ? "No tienes tareas completadas"
+      : todos.filter(todo => todo.isCompleted).length === 1
+        ? <span>Has completado <strong>{todos.filter(todo => todo.isCompleted).length}</strong> tarea ✅</span>
+        : <span>Has completado  <strong>{todos.filter(todo => todo.isCompleted).length}</strong> tareas ✅</span>
+    }
+  </div>
   }
   <div className="todos-counter">
     {todos.length === 0 
       ? "No tienes ninguna tarea 🏝️" 
       : todos.length === 1 
-        ? `${todos.length} tarea en total` 
-        : `${todos.length} tareas en total`
+        ? <><strong>1</strong> tarea en total</> 
+        : <><strong>{todos.length}</strong> tareas en total</>
     }
   </div>
 </div>

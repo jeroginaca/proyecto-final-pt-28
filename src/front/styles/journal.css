@@ -14,38 +14,6 @@ footer {
   height: 80vh;
 }
 
-input {
-  background: none;
-  border: none;
-  width: 100%;
-  outline: none;
-  padding: 10px;
-}
-input:active {
-  background: white;
-  border-radius: 30px;
-}
-input:focus {
-  background: white;
-  border-radius: 30px;
-}
-
-.todo-list {
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-.todo-container {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  border-radius: 7px;
-  -webkit-box-shadow: 0px 0px 14px -9px rgba(0, 0, 0, 0.51);
-  -moz-box-shadow: 0px 0px 14px -9px rgba(0, 0, 0, 0.51);
-  box-shadow: 0px 0px 14px -9px rgba(0, 0, 0, 0.51);
-}
-
 .fecha-container {
   display: flex;
   flex-direction: column;
@@ -99,35 +67,4 @@ input:focus {
 .pantalla-completa:hover {
   background-color: #000000;
   color: #ffffff;
-}
-
-.boton-limpiar {
-  background-color: white;
-  border-radius: 10px;
-  border: 2px solid #d7d7d7;
-  color: #d7d7d7;
-  height: 35px;
-  padding: 0px 10px 0px 10px;
-}
-.boton-limpiar:hover {
-  background-color: white;
-  border-radius: 10px;
-  border: 2px solid #cd6c51;
-  color: #cd6c51;
-}
-
-.container-lista {
-  background-color: rgb(255, 255, 255);
-  height: 100vh;
-}
-
-.todos-counter {
-  margin-top: 5px;
-  font-size: 12px;
-  color: grey;
-}
-
-.counter-container {
-  bottom: 0;
-  width: 100%;
 }
