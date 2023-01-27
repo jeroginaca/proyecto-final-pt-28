@@ -5,46 +5,54 @@
   padding: 0.5rem;
   border-radius: 20px;
   box-shadow: -1px 1px 20px rgba(0, 0, 0, 0.49);
-  width: 350px;
+  width: auto;
   background: rgba(255, 255, 255, 0.5);
 }
 
 #red {
-  width: 30px;
-  height: 30px;
-  background-color: lightcoral;
-  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/1_eybd9e.png");
+  background-size: cover;
   margin: 0.5rem;
 }
 
 #blue {
-  width: 30px;
-  height: 30px;
-  background-color: lightblue;
-  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/2_fop9lc.png");
+  background-size: cover;
   margin: 0.5rem;
 }
 
 #green {
-  width: 30px;
-  height: 30px;
-  background-color: lightgreen;
-  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/3_gkwcdy.png");
+  background-size: cover;
   margin: 0.5rem;
 }
 
 #yellow {
-  width: 30px;
-  height: 30px;
-  background-color: rgb(255, 255, 160);
-  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677191/emociones/4_vsqffy.png");
+  background-size: cover;
   margin: 0.5rem;
 }
 
 #purple {
-  width: 30px;
-  height: 30px;
-  background-color: violet;
-  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/5_f9wj1h.png");
+  background-size: cover;
+  margin: 0.5rem;
+}
+
+#white {
+  width: 50px;
+  height: 50px;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/6_kidmge.png");
+  background-size: cover;
   margin: 0.5rem;
 }
