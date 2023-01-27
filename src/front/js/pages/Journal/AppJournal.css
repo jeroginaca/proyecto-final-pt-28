@@ -1,12 +1,18 @@
-.appjournal-container {
+/* .appjournal-container {
   padding-top: 60px;
+} */
+
+.appjournal-container {
+  padding-bottom: 25px;
+  overflow: auto;
+  background-color: #DAD9D7 /* #D2E0E6 */;
 }
 
 .AppJournal {
     height: 100vh;
     display: flex;
     gap: 20px;
-    /* background-color: white; */
+    background-color: #DAD9D7 /* #D2E0E6 */;
   }
   
 .custom-scroll::-webkit-scrollbar {
