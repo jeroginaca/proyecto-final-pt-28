@@ -14,23 +14,24 @@ function NoteContainer(props) {
   };
 
   // const notes = reverArray(props.notes); */
-  console.log("hola");
-  console.log(props.notes);
   return (
     <div className="note-container">
       <h1 className="mb-4">Entradas</h1>
       <div className="note-container_notes custom-scroll">
-        {props.notes?.length > 0 ? (
+        {props.notes.length > 0 ? (
           props.notes.map((item) => (
             <Note
               key={item.id}
-              note={item}
+              id={item.id}
+              color={item.color}
+              date={item.date}
+              note={item.notes}
               deleteNote={props.deleteNote}
               updateText={props.updateText}
             />
           ))
         ) : (
-          <h3>No tienes ninguna entrada</h3>
+          <p>No tienes ninguna entrada.</p>
         )}
       </div>
     </div>

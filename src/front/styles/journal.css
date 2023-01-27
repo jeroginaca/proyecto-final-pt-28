@@ -1,3 +1,7 @@
+footer {
+  display: none;
+}
+
 .journal-entry input:focus::placeholder {
   color: transparent;
 }

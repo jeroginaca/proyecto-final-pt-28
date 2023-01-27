@@ -8,18 +8,31 @@ function AppJournal() {
   const [notes, setNotes] = useState([]);
   const { store, actions } = useContext(Context);
   useEffect(() => {
-    actions.getNotes();
+    fetch(process.env.BACKEND_URL + `/api/get_note`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        setNotes(data);
+      });
   }, []);
 
   const addNote = (color) => {
     const tempNotes = [...notes];
 
     tempNotes.push({
-      id: Date.now() + "" + Math.floor(Math.random() * 78),
-      text: "hola",
-      time: Date.now(),
+      id: "",
+      notes: "",
+      date: Date.now(),
       color,
     });
+    // tempNotes.reverse(); <----------------- Para que salgan las nuevas por arriba
     setNotes(tempNotes);
   };
 
@@ -50,24 +63,17 @@ function AppJournal() {
     setNotes(tempNotes);
   };
 
-  /*   useEffect(() => {
-    localStorage.setItem("notes-app", JSON.stringify(notes));
-  }, [notes]); */
-
   return (
-    <div className="AppJournal px-3 py-5">
-      <Sidebar addNote={addNote} />
-      <NoteContainer
-        notes={notes}
-        saveNote={saveNote}
-        deleteNote={deleteNote}
-        updateText={updateText}
-      />
-      <NoteContainer
-        notes={store.notes}
-        deleteNote={deleteNote}
-        updateText={updateText}
-      />
+    <div className="appjournal-container">
+      <div className="AppJournal px-3 py-5">
+        <Sidebar addNote={addNote} />
+        <NoteContainer
+          notes={notes}
+          saveNote={saveNote}
+          deleteNote={deleteNote}
+          updateText={updateText}
+        />
+      </div>
     </div>
   );
 }
