@@ -27,7 +27,7 @@ const Hero = () => {
         <h1 className="hero-title">Mindful Me</h1>
         {store.token && store.user_name ? (
           <p className="hero-text">
-            Hola <strong> {store.user_name}</strong>, listo para meditar?
+            Hola <strong> {store.user_name}</strong>, ¿empezamos a meditar?
           </p>
         ) : (
           <p className="hero-text">Medita con nosotros en 3, 2, 1</p>
