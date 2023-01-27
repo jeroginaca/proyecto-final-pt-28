@@ -53,7 +53,7 @@ const FuncionesDisplay = () => {
               más consciente y efectiva. Comienza a experimentar los beneficios
               de la atención plena en tu vida cotidiana.
             </p>
-            <Link to={"/journal"}>
+            <Link to={"/appjournal"}>
               <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
@@ -86,7 +86,7 @@ const FuncionesDisplay = () => {
               tus metas y avanzar en tu vida. Comienza tu viaje hacia una vida
               más equilibrada y consciente.
             </p>
-            <Link to={"/objetvicos"}>
+            <Link to={"/tareas"}>
               <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>

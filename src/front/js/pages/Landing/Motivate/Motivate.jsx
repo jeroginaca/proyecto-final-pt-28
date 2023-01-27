@@ -49,11 +49,11 @@ const Motivate = () => {
               y la constancia lograrás mejorar y verás los beneficios en tu vida
               cotidiana.
             </p>
-            <Pulse>
+            <Link to={"/tiempos"}>
               <button className="landing-button margin-top">
                 ¡Empieza ahora!
               </button>
-            </Pulse>
+            </Link>
           </div>
         </Fade>
         <Fade right>
