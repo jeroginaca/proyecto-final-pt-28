@@ -11,6 +11,13 @@
   margin-top: 4rem;
 }
 
+.lo-que-dicen {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2rem;
+  margin-top: 3rem;
+}
+
 .big {
   width: 350px;
   color: white;
@@ -63,6 +70,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .lo-que-dicen {
+    font-size: 1.5rem;
+  }
+
   .testimonio {
     width: 90%;
     color: #e8e8e8;
@@ -71,5 +82,9 @@
   }
   .big {
     width: 100%;
+  }
+
+  .big h3 {
+    font-size: 1rem;
   }
 }

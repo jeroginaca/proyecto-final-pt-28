@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 .landing-button {
@@ -53,7 +54,6 @@
 
   .botones-sign-log {
     flex-direction: row;
-    align-items: center;
   }
 }
 
@@ -67,7 +67,6 @@
 
   .botones-sign-log {
     flex-direction: row;
-    align-items: center;
   }
 }
 
@@ -81,6 +80,5 @@
 
   .botones-sign-log {
     flex-direction: column;
-    align-items: center;
   }
 }
