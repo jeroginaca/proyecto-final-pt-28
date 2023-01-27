@@ -25,9 +25,9 @@ const Hero = () => {
       ></video>
       <div className="hero-container-text">
         <h1 className="hero-title">Mindful Me</h1>
-        {store.token && store.user ? (
+        {store.token && store.user_name ? (
           <p className="hero-text">
-            Hola {store.user.name}, listo para meditar?
+            Hola <strong> {store.user_name}</strong>, listo para meditar?
           </p>
         ) : (
           <p className="hero-text">Medita con nosotros en 3, 2, 1</p>

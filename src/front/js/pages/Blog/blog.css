@@ -1,10 +1,9 @@
-.display {
+.blog-container {
   padding: 0;
   background-color: #fee9dc;
 }
 
-.display-container,
-.display-container-reverse {
+.blog-grid {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,64 +11,63 @@
   padding: 1rem 4rem;
 }
 
-.display-width {
+.blog-width {
   width: 40%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
 }
-.display-width-left {
+.blog-width-left {
   width: 40%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   flex-direction: column;
 }
-.display-width-left-hide {
+.blog-width-left-hide {
   width: 0%;
   display: none;
 }
 
-.img-width {
+.blog-img-width {
   width: 60%;
 
   margin-bottom: 2rem;
 }
 
-.img-width-banner {
+.blog-img-width-banner {
   width: 90%;
   margin-bottom: 2rem;
   border-radius: 20px;
 }
 
 @media only screen and (max-width: 1200px) {
-  .display {
+  .blog-container {
     padding: 1rem 0 6rem 0;
   }
 
-  .display-container,
-  .display-container-reverse {
+  .blog-grid {
     padding: 1rem 1rem 0 1rem;
   }
 
-  .display-width {
+  .blog-width {
     width: 45%;
   }
-  .display-width-left {
+  .blog-width-left {
     width: 45%;
   }
-  .display-width-left-hide {
+  .blog-width-left-hide {
     width: 0%;
     display: none;
   }
 
-  .img-width {
+  .blog-img-width {
     width: 60%;
 
     margin-bottom: 2rem;
   }
-  .img-width-banner {
+  .blog-img-width-banner {
     width: 90%;
     margin-bottom: 2rem;
     border-radius: 20px;
@@ -77,30 +75,30 @@
 }
 
 @media only screen and (max-width: 750px) {
-  .display {
+  .blog-container {
     padding: 0;
     background-color: #fee9dc;
   }
 
-  .display-container {
+  .blog-grid {
     flex-direction: column;
 
     padding: 3rem 0 0 0;
   }
 
-  .display-width {
+  .blog-width {
     width: 90%;
     align-items: center;
   }
-  .display-width-left {
+  .blog-width-left {
     display: none;
   }
 
-  .img-width {
+  .blog-img-width {
     width: 100%;
   }
 
-  .display-width-left-hide {
+  .blog-width-left-hide {
     width: 90%;
     display: flex;
     align-items: center;

@@ -1,0 +1,161 @@
+.yoga {
+  background-color: #fee9dc;
+
+  color: #754942;
+}
+
+.yoga-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.yoga h1 {
+  font-size: 3.3rem;
+  font-weight: 700;
+  margin: 4rem 0 1rem 0;
+}
+
+.yoga p {
+  color: #754942;
+  margin-bottom: 3rem;
+}
+
+.yoga-ultra {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+}
+
+.yoga-details {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.yoga-details-container {
+  background-color: #75494237;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.yoga-details-container-0 {
+  background-color: #85b5b5;
+}
+.yoga-details-container-1 {
+  background-color: #7286e9;
+}
+.yoga-details-container-2 {
+  background-color: #e37c7b;
+}
+.yoga-details-container-3 {
+  background-color: #cd6c51;
+}
+.yoga-details-container-4 {
+  background-color: #85b5b5;
+}
+.yoga-details-container-5 {
+  background-color: #7286e9;
+}
+.yoga-details-container-6 {
+  background-color: #e37c7b;
+}
+.yoga-details-container-7 {
+  background-color: #cd6c51;
+}
+.yoga-details-container-8 {
+  background-color: #85b5b5;
+}
+.yoga-details-container-9 {
+  background-color: #7286e9;
+}
+.yoga-details-container-10 {
+  background-color: #e37c7b;
+}
+.yoga-details-container-11 {
+  background-color: #cd6c51;
+}
+.yoga-details-container-12 {
+  background-color: #85b5b5;
+}
+.yoga-details-container-13 {
+  background-color: #7286e9;
+}
+.yoga-details-container-14 {
+  background-color: #e37c7b;
+}
+.yoga-details-container-15 {
+  background-color: #cd6c51;
+}
+.yoga-details-container-16 {
+  background-color: #85b5b5;
+}
+.yoga-details-container-17 {
+  background-color: #7286e9;
+}
+.yoga-details-container-18 {
+  background-color: #e37c7b;
+}
+.yoga-details-container-19 {
+  background-color: #cd6c51;
+}
+.yoga-details-container-20 {
+  background-color: #85b5b5;
+}
+.yoga-details-container-21 {
+  background-color: #7286e9;
+}
+.yoga-details-container-22 {
+  background-color: #e37c7b;
+}
+.yoga-details-container-23 {
+  background-color: #cd6c51;
+}
+.yoga-details-container-24 {
+  background-color: #85b5b5;
+}
+.yoga-details-container-25 {
+  background-color: #7286e9;
+}
+.yoga-details-container-26 {
+  background-color: #e37c7b;
+}
+.yoga-details-container-27 {
+  background-color: #cd6c51;
+}
+.yoga-details-container-28 {
+  background-color: #85b5b5;
+}
+.yoga-details-container-29 {
+  background-color: #7286e9;
+}
+.yoga-details-container-30 {
+  background-color: #e37c7b;
+}
+.yoga-details-container-31 {
+  background-color: #cd6c51;
+}
+.yoga-details img {
+  height: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+  .yoga h1 {
+    text-align: center;
+  }
+}

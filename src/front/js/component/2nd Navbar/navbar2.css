@@ -1,4 +1,4 @@
-.navbar {
+.navbar-2 {
   background: transparent;
   height: auto;
   width: 100%;
@@ -9,75 +9,73 @@
   top: 0;
   z-index: 999;
   padding: 1rem;
-  color: #ffffff;
+  color: #754942;
   text-decoration: none;
 }
 
-.scrolling {
-  background-color: #754942;
-  transition: all 0.5s ease;
-  color: #e8e8e8;
-}
-
-.navbar-container {
+.navbar-container-2 {
   display: flex;
   align-items: center;
   width: 1400px;
   justify-content: space-between;
 }
 
-.navbar-logo {
+.navbar-logo-2 {
   margin: 0 0 0 2rem;
   font-size: 24px;
   font-weight: 600;
   cursor: pointer;
 }
 
-.link {
+.link-2 {
   text-decoration: none;
-  color: #ffffff;
+  color: #754942;
 }
 
-.links {
+.links-2 {
   display: flex;
   flex-direction: row;
   margin: 0 2rem 0 0;
 }
 
-.linksitos {
+.linksitos-2 {
   margin-right: 1.5rem;
   list-style: none;
   cursor: pointer;
   text-decoration: none;
+  color: #754942;
 }
 
-.login {
+.login-2 {
   text-decoration: none;
-  color: white;
+  color: #754942;
 }
 
-.linksitos:hover,
-.navbar-logo:hover,
-.link:hover {
+.linksitos-2:hover,
+.navbar-logo-2:hover,
+.link-2:hover {
   color: #ea9042;
 }
 
 @media only screen and (max-width: 600px) {
-  .navbar-container {
+  .navbar-container-2 {
     flex-direction: column;
   }
-
-  .navbar-logo {
-    margin: 0 0 0.5rem 0;
-  }
-
-  .navbar-logo {
-    font-size: 20px;
-  }
-
-  .linksitos {
+  .linksitos-2 {
     font-size: 16px;
 
     margin: 0 0.5rem;
+  }
+
+  .navbar-logo-2 {
+    margin: 0;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .navbar-logo-2 {
+    font-size: 1.5rem;
   }
 }

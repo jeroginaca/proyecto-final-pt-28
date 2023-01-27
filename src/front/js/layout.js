@@ -19,6 +19,10 @@ import Meditacion from "./pages/Meditacion/Meditacion.jsx";
 import Felicitaciones from "./pages/Meditacion/Felicitaciones.jsx";
 import Home from "./pages/Landing/Home.jsx";
 import Pomodoro from "./pages/Pomodoro/Pomodoro.jsx";
+import Blog from "./pages/Blog/Blog.jsx";
+import Yoga from "./pages/Blog/BlogNotes/Yoga.jsx";
+import Note1 from "./pages/Blog/BlogNotes/Note 1/Note1.jsx";
+import Nosotros from "./pages/Nosotros/Nosotros.jsx";
 
 //create your first component
 const Layout = () => {
@@ -44,6 +48,10 @@ const Layout = () => {
             <Route element={<SeleccionDeAudios />} path="/audios/:id" />
             <Route element={<Pomodoro />} path="/pomodoro" />
             <Route element={<Single />} path="/single/:theid" />
+            <Route element={<Blog />} path="/blog" />
+            <Route element={<Yoga />} path="/blogyoga" />
+            <Route element={<Note1 />} path="/note1" />
+            <Route element={<Nosotros />} path="/nosotros" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
         </ScrollToTop>

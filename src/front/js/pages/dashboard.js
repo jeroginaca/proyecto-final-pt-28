@@ -3,6 +3,8 @@ import { Context } from "../store/appContext";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/dashboard.css";
 import { Calendario } from "../component/Calendario.jsx";
+import Navbar2 from "../component/2nd Navbar/Navbar2.jsx";
+import BottomBar from "../component/Bottom Bar/BottomBar.jsx";
 
 export const Dashboard = () => {
   const { store, actions } = useContext(Context);
@@ -22,8 +24,46 @@ export const Dashboard = () => {
 
   return (
     <div className="home-bg-image">
-      <h1 className="title">Mindful Me</h1>
+      <Navbar2 />
+      <video
+        className="dashboard-video"
+        src={
+          "https://res.cloudinary.com/dgn3hxolh/video/upload/v1674819155/background_1_notebook_1_u8aprv.mp4"
+        }
+        autoPlay
+        loop
+        muted
+      ></video>
+      <video
+        className="mobile-hide"
+        src={
+          "https://res.cloudinary.com/dgn3hxolh/video/upload/v1674814653/background_2_mobile_2_d3xqnv.mp4"
+        }
+        autoPlay
+        loop
+        muted
+      ></video>
+      <video
+        className="tablet-hide"
+        src={
+          "https://res.cloudinary.com/dgn3hxolh/video/upload/v1674815180/background_1_tablet_xkvy8m.mp4"
+        }
+        autoPlay
+        loop
+        muted
+      ></video>
 
+      {store.user_name ? (
+        <>
+          <div>
+            <h1 className="title">
+              Hola, <strong> {store.user_name}</strong>
+            </h1>
+          </div>
+        </>
+      ) : (
+        <p className="hero-text">Medita con nosotros en 3, 2, 1</p>
+      )}
       <div className="home-grid">
         <div className="home-buttons-mobile">
           <Link to={"/tiempos"}>
@@ -51,7 +91,10 @@ export const Dashboard = () => {
             />
           </Link>
         </div>
-        <Calendario />
+        <div>
+          <p className="dashboard-text">¿Cómo te sientes hoy?</p>
+          <Calendario />
+        </div>
         <div className="home-buttons">
           <Link to={"/tiempos"}>
             <img
@@ -79,6 +122,7 @@ export const Dashboard = () => {
           </Link>
         </div>
       </div>
+      <BottomBar />
     </div>
   );
 };

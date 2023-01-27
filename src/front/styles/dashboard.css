@@ -1,20 +1,45 @@
 .home-bg-image {
   height: 100vh;
-  background-image: url("https://i.ibb.co/kX1BB1H/background-home.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
+.dashboard-video {
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+
+.mobile-hide {
+  display: none;
+}
+
+.tablet-hide {
+  display: none;
+}
+
 .title {
   font-family: "Poppins", sans-serif;
   color: rgb(117, 73, 66);
-  font-size: 6rem;
-  font-weight: 700;
+  font-size: 5rem;
+}
+
+.dashboard-text {
+  color: rgb(117, 73, 66);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.dashboard-text-mobile {
+  display: none;
+  color: rgb(117, 73, 66);
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .home-grid {
@@ -48,22 +73,38 @@
   display: none;
 }
 
+@media only screen and (max-width: 1200px) {
+  .home-buttons {
+    margin-left: 3rem;
+  }
+}
 @media only screen and (max-width: 900px) {
+  .dashboard-video {
+    display: none;
+  }
+  .mobile-hide {
+    display: none;
+  }
+
+  .tablet-hide {
+    display: flex;
+    object-fit: cover;
+    background-position: top;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
   .home-grid {
     flex-direction: column;
   }
 
   .home-buttons {
-    display: none;
+    margin-left: 0;
   }
 
   .home-buttons-mobile {
-    display: flex;
-    flex-wrap: wrap;
-    width: 500px;
-    height: 500px;
-    justify-content: center;
-    margin-left: 0;
+    display: none;
   }
 
   .home-button {
@@ -73,11 +114,34 @@
   }
 }
 @media only screen and (max-width: 600px) {
+  .home-buttons {
+    display: none;
+  }
   .title {
-    font-family: "Poppins", sans-serif;
-    color: rgb(117, 73, 66);
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+  }
+
+  .dashboard-text {
+    text-align: left;
+    font-size: 1.5rem;
+  }
+
+  .dashboard-video {
+    display: none;
+  }
+
+  .mobile-hide {
+    display: flex;
+    object-fit: cover;
+    background-position: top;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .tablet-hide {
+    display: none;
   }
 
   .home-grid {
