@@ -14,7 +14,7 @@ const FuncionesDisplay = () => {
           <div className="display-width">
             <img
               src="https://i.postimg.cc/28qtXm5v/Meditar.png"
-              className="img-width"
+              className="img-width "
             />
           </div>
         </Fade>
@@ -40,7 +40,7 @@ const FuncionesDisplay = () => {
           <div className="display-width-left-hide">
             <img
               src="https://i.postimg.cc/Yq3x3s6g/Notas.png"
-              className="img-width"
+              className="img-width "
             />
           </div>
         </Fade>
@@ -62,7 +62,7 @@ const FuncionesDisplay = () => {
           <div className="display-width-left">
             <img
               src="https://i.postimg.cc/Yq3x3s6g/Notas.png"
-              className="img-width"
+              className="img-width "
             />
           </div>
         </Fade>
@@ -73,7 +73,7 @@ const FuncionesDisplay = () => {
           <div className="display-width">
             <img
               src="https://i.postimg.cc/RZ7PJLdp/Objetivos.png"
-              className="img-width"
+              className="img-width "
             />
           </div>
         </Fade>
@@ -98,7 +98,7 @@ const FuncionesDisplay = () => {
           <div className="display-width-left-hide">
             <img
               src="https://i.postimg.cc/rySsRdWZ/Estudia3.png"
-              className="img-width"
+              className="img-width "
             />
           </div>
         </Fade>
@@ -120,7 +120,7 @@ const FuncionesDisplay = () => {
           <div className="display-width-left">
             <img
               src="https://i.postimg.cc/rySsRdWZ/Estudia3.png"
-              className="img-width"
+              className="img-width "
             />
           </div>
         </Fade>

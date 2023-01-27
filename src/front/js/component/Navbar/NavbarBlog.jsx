@@ -4,7 +4,7 @@ import { Context } from "../../store/appContext";
 
 import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({ isScrolling }) => {
+const NavbarBlog = ({ isScrolling }) => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
@@ -15,12 +15,28 @@ const Navbar = ({ isScrolling }) => {
   return (
     <div className={`navbar ${isScrolling > 20 ? "scrolling" : null}`}>
       <div className="navbar-container" onClick={toTheTop}>
-        <div className="navbar-logo">Mindful Me</div>
-
+        <Link className="link linksitos" to={"/"}>
+          <div className="navbar-logo">Mindful Me</div>
+        </Link>
         <ul className="links">
-          <Link className="link linksitos" to={"/blog"}>
-            Blog
-          </Link>
+          {store.token ? (
+            <li
+              className="linksitos"
+              onClick={() => {
+                actions.logout();
+                navigate("/");
+              }}
+            >
+              <Link className="link linksitos" to={"/dashboard"}>
+                Dashboard
+              </Link>
+            </li>
+          ) : (
+            <Link className="link linksitos" to={"/"}>
+              Home
+            </Link>
+          )}
+
           <Link className="link linksitos" to={"/nosotros"}>
             Nosotros
           </Link>
@@ -46,4 +62,4 @@ const Navbar = ({ isScrolling }) => {
   );
 };
 
-export default Navbar;
+export default NavbarBlog;

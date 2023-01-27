@@ -13,6 +13,7 @@ const ColorPicker = (props) => {
       <div id="green" onClick={handleClick}></div>
       <div id="yellow" onClick={handleClick}></div>
       <div id="purple" onClick={handleClick}></div>
+      <div id="white" onClick={handleClick}></div>
     </div>
   );
 };

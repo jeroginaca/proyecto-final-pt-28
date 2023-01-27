@@ -1,33 +1,28 @@
 import React, { useState, useEffect, useContext } from "react";
-import "./navbar.css";
+import "./navbar2.css";
 import { Context } from "../../store/appContext";
 
 import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({ isScrolling }) => {
+const Navbar2 = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  const toTheTop = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  };
-
   return (
-    <div className={`navbar ${isScrolling > 20 ? "scrolling" : null}`}>
-      <div className="navbar-container" onClick={toTheTop}>
-        <div className="navbar-logo">Mindful Me</div>
+    <div className="navbar-2">
+      <div className="navbar-container-2">
+        <Link className="link-2" to={"/"}>
+          <div className="navbar-logo-2 linksitos-2">Mindful Me</div>
+        </Link>
 
-        <ul className="links">
-          <Link className="link linksitos" to={"/blog"}>
+        <ul className="links-2">
+          <Link className="link-2 linksitos-2 hide" to={"/blog"}>
             Blog
-          </Link>
-          <Link className="link linksitos" to={"/nosotros"}>
-            Nosotros
           </Link>
 
           {store.token ? (
             <li
-              className="linksitos"
+              className="linksitos-2 hide"
               onClick={() => {
                 actions.logout();
                 navigate("/");
@@ -37,7 +32,7 @@ const Navbar = ({ isScrolling }) => {
             </li>
           ) : (
             <Link to="/login" style={{ textDecoration: "none" }}>
-              <li className="linksitos login">Login</li>
+              <li className="linksitos-2 login-2 hide">Login</li>
             </Link>
           )}
         </ul>
@@ -46,4 +41,4 @@ const Navbar = ({ isScrolling }) => {
   );
 };
 
-export default Navbar;
+export default Navbar2;

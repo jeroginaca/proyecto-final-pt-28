@@ -5,25 +5,31 @@
 }
 
 .blue {
-  background-color: #5c7f7e !important;
+  background-color: #e8b8a4 !important;
   /* border-radius: 20px; */
   color: black !important;
 }
 
 .green {
-  background-color: #9aa162 !important;
-  /* border-radius: 20px; */
-  color: black !important;
-}
-
-.yellow {
   background-color: #e6e8a7 !important;
   /* border-radius: 20px; */
   color: black !important;
 }
 
+.yellow {
+  background-color: #9aa162 !important;
+  /* border-radius: 20px; */
+  color: black !important;
+}
+
 .purple {
-  background-color: #e8b8a4 !important;
+  background-color: #85b5b5 !important;
+  /* border-radius: 20px; */
+  color: black !important;
+}
+
+.white {
+  background-color: #5c7f7e !important;
   /* border-radius: 20px; */
   color: black !important;
 }

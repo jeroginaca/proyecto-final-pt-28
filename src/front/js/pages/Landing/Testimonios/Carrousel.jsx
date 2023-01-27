@@ -45,19 +45,11 @@ const Carrousel = () => {
 
   return (
     <div className="carrousel-container">
-      <Fade bottom cascade>
-        <p
-          style={{
-            textAlign: "center",
-            color: "#ffffff",
-            fontSize: "2rem",
-
-            marginTop: "3rem",
-          }}
-        >
-          Lo que dicen nuestros usuarios
-        </p>
-      </Fade>
+      <div clasName="carrousel-titulo">
+        <Fade bottom cascade>
+          <p className="lo-que-dicen">Lo que dicen nuestros usuarios</p>
+        </Fade>
+      </div>
       <Fade>
         <div
           style={{
