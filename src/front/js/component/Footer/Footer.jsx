@@ -10,25 +10,25 @@ const Footer = () => {
             <h3>Mindful Me</h3>
             <p>Meditación</p>
             <p>Journal</p>
-            <p>Tus Objetivos</p>
+            <p>Objetivos</p>
             <p>Estudio</p>
             <p>Yoga</p>
           </div>
 
           <div className="footer-column">
-            <h3>Seguinos</h3>
+            <h3>Síguenos</h3>
             <p>Instagram</p>
             <p>Facebook</p>
-            <p>Tik Tok</p>
-            <p>Youtube</p>
-            <p>Pinteres</p>
+            <p>TikTok</p>
+            <p>YouTube</p>
+            <p>Pinterest</p>
           </div>
 
           <div className="footer-column">
             <h3>Contacto</h3>
-            <p>email</p>
-            <p>telefono</p>
-            <p>Whatsapp</p>
+            <p>E-mail</p>
+            <p>Teléfono</p>
+            <p>WhatsApp</p>
             <p>Chat</p>
           </div>
         </div>
