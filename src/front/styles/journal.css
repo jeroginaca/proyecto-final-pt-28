@@ -80,12 +80,14 @@ input:focus {
 }
 
 .borrar-entrada {
-  border: 2px solid #ffffff;
-  color: #ffffff;
+  border: 2px solid #7e7e7e;
+  color: #7e7e7e;
+  margin-right: 15px;
 }
 .borrar-entrada:hover {
-  background-color: #ffffff;
-  color: black;
+  border: 2px solid #CE6C52;
+  background-color: #CE6C52;
+  color:white;
 }
 
 .guardar-entrada,
