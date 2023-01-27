@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../../../styles/todolist.css";
 import TodoForm from "./TodoForm.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -89,8 +88,7 @@ setTodos(newTodos);
 };
 
 return (
-<div className="container-fluid container-lista">
-<div className="p-5">
+<div className="container-lista p-5" style={{ backgroundColor: "#FAD7C6" }}>
 <h1>Objetivos</h1>
 <div className="ListaTareas">
 <div className="todo-list">
@@ -145,7 +143,6 @@ return (
     Limpiar
   </button>
 }
-</div>
 </div>
 );
 }
