@@ -57,6 +57,33 @@
   color: #ea9042;
 }
 
+.volver-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chevron::before {
+  border-style: solid;
+  border-width: 0.25em 0.25em 0 0;
+  content: "";
+  display: inline-block;
+  height: 0.45em;
+  left: 0.15em;
+  position: relative;
+  top: 0.15em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 0.45em;
+}
+
+.chevron.left:before {
+  left: 0.25em;
+  transform: rotate(-135deg);
+}
+
 @media only screen and (max-width: 600px) {
   .navbar-container-2 {
     flex-direction: column;
@@ -77,5 +104,9 @@
 
   .navbar-logo-2 {
     font-size: 1.5rem;
+  }
+
+  .volver-button p {
+    display: none;
   }
 }
