@@ -39,6 +39,11 @@
   opacity: 0;
   animation: fadeIn 5s;
   animation-fill-mode: forwards;
+  text-align: center;
+}
+
+.br-hide {
+  display: none;
 }
 
 @keyframes fadeIn {
@@ -88,5 +93,9 @@
 
   .hero-text {
     font-size: 1.3rem;
+  }
+
+  .br-hide {
+    display: block;
   }
 }

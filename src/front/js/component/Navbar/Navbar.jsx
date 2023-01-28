@@ -18,10 +18,20 @@ const Navbar = ({ isScrolling }) => {
         <div className="navbar-logo">Mindful Me</div>
 
         <ul className="links">
-          <Link className="link linksitos" to={"/blog"}>
+          <Link
+            className={`link linksitos ${
+              isScrolling > 20 ? "scroleando" : null
+            }`}
+            to={"/blog"}
+          >
             Blog
           </Link>
-          <Link className="link linksitos" to={"/nosotros"}>
+          <Link
+            className={`link linksitos ${
+              isScrolling > 20 ? "scroleando" : null
+            }`}
+            to={"/nosotros"}
+          >
             Quiénes somos
           </Link>
 

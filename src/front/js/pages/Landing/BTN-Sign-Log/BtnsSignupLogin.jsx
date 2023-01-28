@@ -7,9 +7,9 @@ import { Context } from "../../../store/appContext.js";
 const BtnsSignupLogin = () => {
   const { store, actions } = useContext(Context);
   return (
-    <div className="botones-sign-log">
+    <div>
       {!store.token ? (
-        <div>
+        <div className="botones-sign-log">
           <Link to={"/signup"}>
             <button className="landing-button">Registrarte Gratis</button>
           </Link>
@@ -18,7 +18,7 @@ const BtnsSignupLogin = () => {
           </Link>
         </div>
       ) : (
-        <div>
+        <div className="botones-sign-log">
           <Link to={"/dashboard"}>
             <button className="landing-button">Ir al Dashboard</button>
           </Link>

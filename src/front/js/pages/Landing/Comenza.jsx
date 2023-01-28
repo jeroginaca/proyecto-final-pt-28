@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Fade } from "react-reveal";
 import { Link } from "react-router-dom";
-import TiemposDeMeditacion from "../../component/TiemposDeMeditacion.jsx";
+import TiemposDeMeditacion2 from "../../component/TiemposDeMeditacion2.jsx";
 import BtnsSignupLogin from "./BTN-Sign-Log/BtnsSignupLogin.jsx";
 import "./landing.css";
 
@@ -29,8 +29,9 @@ const Comenza = () => {
             </h2>
             <p className="text-display">
               Con Mindful Me, podrás descubrir la paz y la tranquilidad a través
-              de la meditación diaria, el journaling y la consecución de objetivos.
-              Descarga nuestra app y vive una vida más consciente y equilibrada.
+              de la meditación diaria, el journaling y la consecución de
+              objetivos. Descarga nuestra app y vive una vida más consciente y
+              equilibrada.
             </p>
 
             <BtnsSignupLogin />
@@ -38,7 +39,7 @@ const Comenza = () => {
         </Fade>
       </div>
       <div className="display-container">
-        <TiemposDeMeditacion />
+        <TiemposDeMeditacion2 />
         <Fade right>
           <div
             className="display-width-left-hide"
@@ -54,9 +55,9 @@ const Comenza = () => {
           <div className="display-width" style={{ margin: "5rem 0 3rem 0" }}>
             <h2 className="motivate-titulo">Sé parte de nuestra comunidad</h2>
             <p className="text-display">
-              Con Mindful Me, encuentra la motivación diaria para alcanzar
-              tus objetivos y únete a nuestra comunidad de apoyo.
-              Descarga nuestra app hoy y comienza tu camino hacia el éxito
+              Con Mindful Me, encuentra la motivación diaria para alcanzar tus
+              objetivos y únete a nuestra comunidad de apoyo. Descarga nuestra
+              app hoy y comienza tu camino hacia el éxito
             </p>
             <button className="landing-button margin-top">Quiero unirme</button>
           </div>
