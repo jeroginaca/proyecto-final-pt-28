@@ -32,10 +32,11 @@ def get_note():
 def insert_note():       
     user_id = get_jwt_identity()
     data = request.get_json()
-    note_body = data(["notes"])
-    color_body = data(["color"])
+    note_body = data["notes"]
+    color_body = data["color"]
+    date = data["date"]
 
-    new_note = Journal(user_id=user_id, notes=note_body, color=color_body)
+    new_note = Journal(user_id=user_id, notes=note_body, color=color_body, date=date)
     
     db.session.add(new_note)
 
