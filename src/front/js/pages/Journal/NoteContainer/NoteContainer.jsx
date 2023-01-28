@@ -1,9 +1,6 @@
 import React from "react";
-import NavbarVolver from "../../../component/2nd Navbar/NavbarVolver.jsx";
-import BottomBar from "../../../component/Bottom Bar/BottomBar.jsx";
 import Note from "../Note/Note.jsx";
 import "./NoteContainer.css";
-import { BotonVolver } from "../../../component/BotonVolver.jsx";
 
 function NoteContainer(props) {
   return (
