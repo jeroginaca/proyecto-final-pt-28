@@ -5,21 +5,18 @@ import Note from "../Note/Note.jsx";
 import "./NoteContainer.css";
 
 function NoteContainer(props) {
-  /* const reverArray = (arr) => {
-    const array = [];
-
-    for (let i = arr.length - 1; i >= 0; --i) {
-      array.push(arr[i]);
-    }
-
-    return array;
-  };
-
-  // const notes = reverArray(props.notes); */
   return (
     <>
       <div className="note-container">
-        <h1 className="mb-4">Entradas</h1>
+        <div className="header-container">
+          <h1 className="mb-4">Entradas</h1>
+          <button
+            className="btn boton-volver-journal"
+            onClick={() => navigate(-1)}
+          >
+            Volver
+          </button>
+        </div>
         <div className="note-container_notes custom-scroll">
           {props.notes.length > 0 ? (
             props.notes.map((item, index) => (
