@@ -29,7 +29,7 @@ const Preview = () => {
               ¡No pierdas la oportunidad de aprender más sobre esta maravillosa
               práctica!
             </p>
-            <Link to={"/blogyoga"}>
+            <Link to={"/blog/yoga"}>
               <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>

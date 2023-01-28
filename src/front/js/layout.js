@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import injectContext from "./store/appContext";
+import { useHistory } from "react-router-dom";
 
 import { Dashboard } from "./pages/dashboard";
 import { Demo } from "./pages/demo";
@@ -51,7 +52,7 @@ const Layout = () => {
             <Route element={<Pomodoro />} path="/pomodoro" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<Blog />} path="/blog" />
-            <Route element={<Yoga />} path="/blogyoga" />
+            <Route element={<Yoga />} path="/blog/yoga" />
             <Route element={<Note1 />} path="/note1" />
             <Route element={<Note2 />} path="/note2" />
             <Route element={<Nosotros />} path="/nosotros" />
