@@ -21,16 +21,16 @@ const Preview = () => {
         </Fade>
         <Fade right>
           <div className="blog-width">
-            <h2 className="motivate-titulo">Todas las poses de Yoga</h2>
+            <h2 className="motivate-titulo">Todas las poses de yoga</h2>
             <p className="text-display">
-              Te mostramos todas las poses de yoga. Ya sea que seas principiante
+              Te mostramos todas las poses de yoga. Ya sea que eres principiante
               o experimentado, encontrarás una gran variedad de posturas para
               mejorar tu flexibilidad, fortalecer tu cuerpo y calmar tu mente.
               ¡No pierdas la oportunidad de aprender más sobre esta maravillosa
               práctica!
             </p>
             <Link to={"/blogyoga"}>
-              <button className="landing-button margin-top">Ver Más</button>
+              <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
         </Fade>
@@ -47,15 +47,15 @@ const Preview = () => {
         </Fade>
         <Fade left>
           <div className="blog-width">
-            <h2 className="motivate-titulo">Escribí tu Journal</h2>
+            <h2 className="motivate-titulo">Escribe tu journal</h2>
             <p className="text-display">
-              Con nuestra herramienta de diario, podrás llevar un registro de
-              tus pensamientos, lo que te permitirá trabajar en ellos de manera
+              Con nuestra herramienta de diario, podrás llevar un registro
+              de tus pensamientos, lo que te permitirá trabajar en ellos de manera
               más consciente y efectiva. Comienza a experimentar los beneficios
               de la atención plena en tu vida cotidiana.
             </p>
             <Link to={"/note1"}>
-              <button className="landing-button margin-top">Ver Más</button>
+              <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
         </Fade>

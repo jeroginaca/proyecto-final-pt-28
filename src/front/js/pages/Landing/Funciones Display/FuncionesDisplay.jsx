@@ -29,7 +29,7 @@ const FuncionesDisplay = () => {
               habilidades para manejar el estrés de manera efectiva.
             </p>
             <Link to={"/tiempos"}>
-              <button className="landing-button margin-top">Ver Más</button>
+              <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
         </Fade>
@@ -46,15 +46,15 @@ const FuncionesDisplay = () => {
         </Fade>
         <Fade left>
           <div className="display-width">
-            <h2 className="motivate-titulo">Escribí tu Journal</h2>
+            <h2 className="motivate-titulo">Escribe tu journal</h2>
             <p className="text-display">
               Con nuestra herramienta de diario, podrás llevar un registro de
               tus pensamientos, lo que te permitirá trabajar en ellos de manera
               más consciente y efectiva. Comienza a experimentar los beneficios
               de la atención plena en tu vida cotidiana.
             </p>
-            <Link to={"/journal"}>
-              <button className="landing-button margin-top">Ver Más</button>
+            <Link to={"/appjournal"}>
+              <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
         </Fade>
@@ -79,15 +79,15 @@ const FuncionesDisplay = () => {
         </Fade>
         <Fade right>
           <div className="display-width">
-            <h2 className="motivate-titulo">Establece tus Objetivos</h2>
+            <h2 className="motivate-titulo">Establece tus objetivos</h2>
             <p className="text-display">
               Establece tus objetivos y trabaja en ellos de manera consciente y
               efectiva. Utiliza nuestras herramientas y ejercicios para alcanzar
               tus metas y avanzar en tu vida. Comienza tu viaje hacia una vida
               más equilibrada y consciente.
             </p>
-            <Link to={"/objetvicos"}>
-              <button className="landing-button margin-top">Ver Más</button>
+            <Link to={"/tareas"}>
+              <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
         </Fade>
@@ -108,11 +108,11 @@ const FuncionesDisplay = () => {
             <p className="text-display">
               Controla tus tiempos de estudio de manera sana y equilibrada con
               nuestra herramienta de reloj pomodoro. Establece tiempos de
-              estudio y descanso para mantener enfoque y evitar el agotamiento
+              estudio y descanso para mantener el enfoque y evitar el agotamiento
               mental. Equilibra tu tiempo de estudio y libre.
             </p>
             <Link to={"/pomodoro"}>
-              <button className="landing-button margin-top">Ver Más</button>
+              <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
         </Fade>

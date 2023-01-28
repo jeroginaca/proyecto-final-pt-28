@@ -20,7 +20,7 @@ const Motivate = () => {
 
         <Fade right>
           <div className="display-width">
-            <h2 className="motivate-titulo">Motivate</h2>
+            <h2 className="motivate-titulo">Motívate</h2>
             <p className="text-display">
               La vida moderna puede ser estresante y caótica, pero la práctica
               diaria de meditaciones te ayudará a encontrar la calma en medio de
@@ -41,19 +41,19 @@ const Motivate = () => {
         </div>
         <Fade left>
           <div className="display-width">
-            <h2 className="motivate-titulo">Se Constante</h2>
+            <h2 className="motivate-titulo">Sé constante</h2>
             <p className="text-display">
-              Al meditar regularmente, aprenderás a manejar el estrés,
-              aumentarás tu concentración y claridad mental. No te desanimes si
+              Al meditar regularmente, aprenderás a manejar el estrés
+              y aumentarás tu concentración y claridad mental. No te desanimes si
               al principio te cuesta mantener la concentración, con la práctica
               y la constancia lograrás mejorar y verás los beneficios en tu vida
               cotidiana.
             </p>
-            <Pulse>
+            <Link to={"/tiempos"}>
               <button className="landing-button margin-top">
-                Empeza Ahora!
+                ¡Empieza ahora!
               </button>
-            </Pulse>
+            </Link>
           </div>
         </Fade>
         <Fade right>
