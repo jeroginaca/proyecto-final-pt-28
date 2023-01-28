@@ -22,7 +22,7 @@ const Navbar = ({ isScrolling }) => {
             Blog
           </Link>
           <Link className="link linksitos" to={"/nosotros"}>
-            Nosotros
+            Quiénes somos
           </Link>
 
           {store.token ? (

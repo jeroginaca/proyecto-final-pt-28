@@ -12,7 +12,7 @@ const Redes = () => {
   return (
     <div className="banner-container">
       <Fade bottom>
-        <h3>Seguinos en las redes</h3>
+        <h3>Síguenos en redes</h3>
       </Fade>
       <Zoom cascade>
         <div className="banner-extra">

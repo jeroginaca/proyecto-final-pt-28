@@ -20,7 +20,7 @@ const HeroBlog = () => {
       <div className="heroBlog-container-text">
         <h1 className="heroBlog-title">Mindful Me</h1>
 
-        <p className="heroBlog-text">Bienvenido a nuestro Blog</p>
+        <p className="heroBlog-text">Descubre nuestro blog</p>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const Beneficios = () => {
       <div className="beneficios-container">
         <Fade bottom>
           <h2 className="meditacion-beneficios">
-            Obten Beneficios <br /> Personales
+            Obtén beneficios <br /> personales
           </h2>
           <p className="texto text-display">
             Mindful Me te ofrece una variedad de ejercicios y herramientas para

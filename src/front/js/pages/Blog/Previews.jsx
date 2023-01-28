@@ -21,26 +21,26 @@ const Preview = () => {
         </Fade>
         <Fade right>
           <div className="blog-width">
-            <h2 className="motivate-titulo">Todas las poses de Yoga</h2>
+            <h2 className="motivate-titulo">Todas las poses de yoga</h2>
             <p className="text-display">
-              Te mostramos todas las poses de yoga. Ya sea que seas principiante
+              Te mostramos todas las poses de yoga. Ya sea que eres principiante
               o experimentado, encontrarás una gran variedad de posturas para
               mejorar tu flexibilidad, fortalecer tu cuerpo y calmar tu mente.
               ¡No pierdas la oportunidad de aprender más sobre esta maravillosa
               práctica!
             </p>
             <Link to={"/blogyoga"}>
-              <button className="landing-button margin-top">Ver Más</button>
+              <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
         </Fade>
       </div>
 
-      <div className="display-container">
+      <div className="blog-grid">
         <Fade right>
           <div className="blog-width-left-hide">
             <img
-              src="https://i.postimg.cc/Yq3x3s6g/Notas.png"
+              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674891747/Nota1_oeqmjf.png"
               className="blog-img-width"
             />
           </div>
@@ -56,14 +56,14 @@ const Preview = () => {
               y física.
             </p>
             <Link to={"/note1"}>
-              <button className="landing-button margin-top">Ver Más</button>
+              <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
         </Fade>
         <Fade right>
           <div className="blog-width-left">
             <img
-              src="https://i.postimg.cc/Yq3x3s6g/Notas.png"
+              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674891747/Nota1_oeqmjf.png"
               className="blog-img-width"
             />
           </div>

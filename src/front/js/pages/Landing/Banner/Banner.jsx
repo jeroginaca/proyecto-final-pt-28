@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div className="banner-container">
       <Fade bottom>
-        <h3>Explora Nuestras Funciones</h3>
+        <h3>Explora nestras funciones</h3>
       </Fade>
       <Zoom cascade>
         <div className="banner-extra">
@@ -19,7 +19,7 @@ const Banner = () => {
             </Link>
           </div>
           <div className="extra">
-            <Link className="extra-1" to={"/journal"}>
+            <Link className="extra-1" to={"/appjournal"}>
               <img
                 src="https://i.ibb.co/bNc8Csv/icon-pencil.png"
                 width={"40px"}
@@ -28,7 +28,7 @@ const Banner = () => {
             </Link>
           </div>
           <div className="extra">
-            <Link className="extra-1" to={"/objetivos"}>
+            <Link className="extra-1" to={"/tareas"}>
               <img
                 src="https://i.ibb.co/HFcg5xV/icon-list.png"
                 width={"40px"}
