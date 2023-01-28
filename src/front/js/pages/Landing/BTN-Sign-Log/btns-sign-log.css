@@ -71,14 +71,13 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .botones-sign-log {
+    flex-direction: column;
+  }
   .landing-button,
   .landing-button-2 {
     padding: 1rem 2.5rem;
 
     font-size: 1rem;
-  }
-
-  .botones-sign-log {
-    flex-direction: column;
   }
 }

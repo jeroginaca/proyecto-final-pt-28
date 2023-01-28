@@ -28,7 +28,8 @@ const Hero = () => {
         {store.token && store.user_name ? (
           <p className="hero-text">
             Hola{" "}
-            <strong> {actions.capitalizeFirstLetter(store.user_name)}</strong>,
+            <strong> {actions.capitalizeFirstLetter(store.user_name)}</strong>,{" "}
+            <br className="br-hide" />
             ¿empezamos a meditar?
           </p>
         ) : (
