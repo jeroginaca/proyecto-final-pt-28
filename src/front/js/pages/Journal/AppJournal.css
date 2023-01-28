@@ -3,7 +3,6 @@
 } */
 
 .appjournal-container {
-  padding-bottom: 25px;
   overflow: auto;
   background-color: #DAD9D7 /* #D2E0E6 */;
 }
