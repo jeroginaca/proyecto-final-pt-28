@@ -8,7 +8,8 @@
   
   .note-container_notes {
     margin: none;
-    height: 90%;
+    height: 100%;
+    overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     overflow-y: scroll;
