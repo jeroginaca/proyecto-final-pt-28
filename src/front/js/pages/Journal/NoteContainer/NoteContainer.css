@@ -8,9 +8,9 @@
   justify-content: space-between;
   align-items: flex-start;
 }
-.note-container h2 {
+/* .note-container h2 {
   margin-bottom: 20px;
-}
+} */
 .boton-volver-journal {
   margin-left: auto;
 }
@@ -19,7 +19,8 @@
   height: 90%;
   overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
   overflow-y: scroll;
   gap: 20px;
 }

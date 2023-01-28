@@ -4,6 +4,8 @@ import Sidebar from "./Sidebar/Sidebar.jsx";
 import "./AppJournal.css";
 import { Context } from "../../store/appContext.js";
 import { BotonVolver } from "../../component/BotonVolver.jsx";
+import NavbarVolver from "../../component/2nd Navbar/NavbarVolver.jsx";
+import BottomBar from "../../component/Bottom Bar/BottomBar.jsx";
 
 function AppJournal() {
   const [notes, setNotes] = useState([]);
@@ -71,7 +73,8 @@ function AppJournal() {
 
   return (
     <div className="appjournal-container">
-      <div className="AppJournal w-100 px-3 py-5">
+      <NavbarVolver />
+      <div className="AppJournal px-3 py-5">
         <Sidebar addNote={addNote} />
         <NoteContainer
           notes={notes}
@@ -81,6 +84,7 @@ function AppJournal() {
           updateNotes={updateNotes}
           setNotes={setNotes}
         />
+        <BottomBar />
       </div>
     </div>
   );

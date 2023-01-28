@@ -11,8 +11,7 @@ function NoteContainer(props) {
       <div className="note-container">
         <div className="header-container">
           <h1 className="mb-4">Entradas</h1>
-
-          <BotonVolver clase="btn boton-volver-journal" />
+          {/* <BotonVolver clase="btn boton-volver-journal" /> */}
         </div>
         <div className="note-container_notes custom-scroll">
           {props.notes.length > 0 ? (
@@ -34,7 +33,6 @@ function NoteContainer(props) {
           )}
         </div>
       </div>
-      <BottomBar />
     </>
   );
 }
