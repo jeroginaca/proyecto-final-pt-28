@@ -3,6 +3,7 @@ import NavbarVolver from "../../../component/2nd Navbar/NavbarVolver.jsx";
 import BottomBar from "../../../component/Bottom Bar/BottomBar.jsx";
 import Note from "../Note/Note.jsx";
 import "./NoteContainer.css";
+import { BotonVolver } from "../../../component/BotonVolver.jsx";
 
 function NoteContainer(props) {
   return (
@@ -10,12 +11,8 @@ function NoteContainer(props) {
       <div className="note-container">
         <div className="header-container">
           <h1 className="mb-4">Entradas</h1>
-          <button
-            className="btn boton-volver-journal"
-            onClick={() => navigate(-1)}
-          >
-            Volver
-          </button>
+
+          <BotonVolver clase="btn boton-volver-journal" />
         </div>
         <div className="note-container_notes custom-scroll">
           {props.notes.length > 0 ? (

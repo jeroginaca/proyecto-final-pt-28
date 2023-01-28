@@ -2,16 +2,16 @@
   height: 100%;
   width: 100%;
 }
-.header-container{
+.header-container {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-start;
 }
 .note-container h2 {
   margin-bottom: 20px;
 }
-.boton-volver-journal{
+.boton-volver-journal {
   margin-left: auto;
 }
 .note-container_notes {
