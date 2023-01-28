@@ -1,18 +1,25 @@
 .note-container {
-    height: 100%;
-  }
-  
-  .note-container h2 {
-    margin-bottom: 20px;
-  }
-  
-  .note-container_notes {
-    margin: none;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y: scroll;
-    gap: 20px;
-  }
-  
+  height: 100%;
+  width: 100%;
+}
+.header-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.note-container h2 {
+  margin-bottom: 20px;
+}
+.boton-volver-journal{
+  margin-left: auto;
+}
+.note-container_notes {
+  margin: none;
+  height: 90%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  gap: 20px;
+}
