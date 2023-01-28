@@ -45,7 +45,45 @@ const Preview = () => {
             />
           </div>
         </Fade>
+
         <Fade left>
+          <div className="blog-width">
+            <h2 className="motivate-titulo">
+              Desarrolla la constancia con técnicas orientales
+            </h2>
+            <p className="text-display">
+              ¿Tienes dificultades para mantenerte enfocado y motivado en tareas
+              a largo plazo? Descubre cómo la meditación y el yoga, técnicas
+              orientales antiguas, pueden ayudarte a desarrollar la constancia y
+              mejorar tu vida diaria. Aprende cómo estas prácticas pueden
+              ayudarte a concentrarte y reducir el estrés y la ansiedad.
+            </p>
+            <Link to={"/note2"}>
+              <button className="landing-button margin-top">Ver más</button>
+            </Link>
+          </div>
+        </Fade>
+
+        <Fade right>
+          <div className="blog-width-left">
+            <img
+              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674891747/Nota1_oeqmjf.png"
+              className="blog-img-width"
+            />
+          </div>
+        </Fade>
+      </div>
+
+      <div className="blog-grid">
+        <Fade left>
+          <div className="blog-width">
+            <img
+              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674834112/Poses_de_Yoga_feafng.png"
+              className="blog-img-width"
+            />
+          </div>
+        </Fade>
+        <Fade right>
           <div className="blog-width">
             <h2 className="motivate-titulo">Introducite en la Meditación</h2>
             <p className="text-display">
@@ -58,14 +96,6 @@ const Preview = () => {
             <Link to={"/note1"}>
               <button className="landing-button margin-top">Ver más</button>
             </Link>
-          </div>
-        </Fade>
-        <Fade right>
-          <div className="blog-width-left">
-            <img
-              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674891747/Nota1_oeqmjf.png"
-              className="blog-img-width"
-            />
           </div>
         </Fade>
       </div>

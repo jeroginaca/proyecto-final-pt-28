@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar2 from "../../../../component/2nd Navbar/Navbar2.jsx";
+import Footer from "../../../../component/Footer/Footer.jsx";
 import "./note1.css";
+import Sugerencias from "./Sugerencias.jsx";
 
 const Note1 = () => {
   return (
@@ -10,10 +12,9 @@ const Note1 = () => {
         <div className="blog-post-container">
           <div className="blog-post-banner">
             <h1>Meditación</h1>
-            <p>Subtitulo</p>
           </div>
           <div className="blog-post-body">
-            <h2>Titulo o algo</h2>
+            <h2>¿Por donde empezar?</h2>
             <p>
               En un mundo cada vez más acelerado y estresante, meditar se ha
               vuelto más importante que nunca. La meditación es una técnica
@@ -34,6 +35,7 @@ const Note1 = () => {
             <img
               src="https://images.unsplash.com/photo-1522075782449-e45a34f1ddfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
               alt=""
+              className="img-blog-note"
             />
             <br />
             <p>
@@ -65,6 +67,7 @@ const Note1 = () => {
             <img
               src="https://images.unsplash.com/photo-1489659639091-8b687bc4386e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1773&q=80"
               alt=""
+              className="img-blog-note"
             />
             <br />
             <p>
@@ -93,10 +96,12 @@ const Note1 = () => {
               exhalar). Puede que te sientas más tranquilo que nunca.
             </p>
           </div>
-
-          
         </div>
       </div>
+
+      <Sugerencias />
+
+      <Footer />
     </>
   );
 };
