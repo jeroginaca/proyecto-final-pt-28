@@ -29,42 +29,73 @@ const Preview = () => {
               ¡No pierdas la oportunidad de aprender más sobre esta maravillosa
               práctica!
             </p>
-            <Link to={"/blogyoga"}>
+            <Link to={"/blog/yoga"}>
               <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
         </Fade>
       </div>
 
-      <div className="display-container">
+      <div className="blog-grid">
         <Fade right>
           <div className="blog-width-left-hide">
             <img
-              src="https://i.postimg.cc/Yq3x3s6g/Notas.png"
+              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674891747/Nota1_oeqmjf.png"
               className="blog-img-width"
             />
           </div>
         </Fade>
+
         <Fade left>
           <div className="blog-width">
-            <h2 className="motivate-titulo">Escribe tu journal</h2>
+            <h2 className="motivate-titulo">
+              Desarrolla la constancia con técnicas orientales
+            </h2>
             <p className="text-display">
-              Con nuestra herramienta de diario, podrás llevar un registro
-              de tus pensamientos, lo que te permitirá trabajar en ellos de manera
-              más consciente y efectiva. Comienza a experimentar los beneficios
-              de la atención plena en tu vida cotidiana.
+              ¿Tienes dificultades para mantenerte enfocado y motivado en tareas
+              a largo plazo? Descubre cómo la meditación y el yoga, técnicas
+              orientales antiguas, pueden ayudarte a desarrollar la constancia y
+              mejorar tu vida diaria. Aprende cómo estas prácticas pueden
+              ayudarte a concentrarte y reducir el estrés y la ansiedad.
             </p>
-            <Link to={"/note1"}>
+            <Link to={"/note2"}>
               <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
         </Fade>
+
         <Fade right>
           <div className="blog-width-left">
             <img
-              src="https://i.postimg.cc/Yq3x3s6g/Notas.png"
+              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674891747/Nota1_oeqmjf.png"
               className="blog-img-width"
             />
+          </div>
+        </Fade>
+      </div>
+
+      <div className="blog-grid">
+        <Fade left>
+          <div className="blog-width">
+            <img
+              src="https://res.cloudinary.com/dgn3hxolh/image/upload/v1674834112/Poses_de_Yoga_feafng.png"
+              className="blog-img-width"
+            />
+          </div>
+        </Fade>
+        <Fade right>
+          <div className="blog-width">
+            <h2 className="motivate-titulo">Introducite en la Meditación</h2>
+            <p className="text-display">
+              En un mundo cada vez más acelerado y estresante, meditar se ha
+              vuelto más importante que nunca. La meditación es una técnica
+              antigua que ha sido utilizada durante siglos para ayudar a las
+              personas a relajarse, reducir el estrés y mejorar la salud mental
+              y física.
+            </p>
+            <Link to={"/note1"}>
+              <button className="landing-button margin-top">Ver más</button>
+            </Link>
           </div>
         </Fade>
       </div>
