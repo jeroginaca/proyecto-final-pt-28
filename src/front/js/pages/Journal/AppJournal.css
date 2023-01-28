@@ -13,7 +13,7 @@
     height: 100vh;
     display: flex;
     gap: 20px;
-    background-color: #DAD9D7;
+    /* background-color: #DAD9D7; */
   }
   
 .custom-scroll::-webkit-scrollbar {

@@ -3,7 +3,6 @@ import NoteContainer from "./NoteContainer/NoteContainer.jsx";
 import Sidebar from "./Sidebar/Sidebar.jsx";
 import "./AppJournal.css";
 import { Context } from "../../store/appContext.js";
-import { BotonVolver } from "../../component/BotonVolver.jsx";
 import NavbarVolver from "../../component/2nd Navbar/NavbarVolver.jsx";
 import BottomBar from "../../component/Bottom Bar/BottomBar.jsx";
 

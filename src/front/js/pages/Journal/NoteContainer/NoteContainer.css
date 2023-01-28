@@ -8,6 +8,9 @@
   justify-content: space-between;
   align-items: flex-start;
 }
+.header-container h1 {
+  color: #555A6C;
+}
 /* .note-container h2 {
   margin-bottom: 20px;
 } */
