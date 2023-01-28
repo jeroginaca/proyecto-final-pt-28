@@ -66,6 +66,7 @@ function Note(props) {
         body: JSON.stringify({
           notes: content,
           color: color_param,
+          date: new Date(),
         }),
       })
         .then((resp) => {
@@ -112,6 +113,7 @@ function Note(props) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        props.updateNotes();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -148,8 +150,7 @@ function Note(props) {
             saveNotes(content, props.id, props.color);
           }}
         >
-          <i className="fa-solid fa-floppy-disk" aria-hidden="true">
-          </i>
+          <i className="fa-solid fa-floppy-disk" aria-hidden="true"></i>
         </button>
         <button className="boton pantalla-completa" onClick={handleFullScreen}>
           <i className="fa" aria-hidden="true">
