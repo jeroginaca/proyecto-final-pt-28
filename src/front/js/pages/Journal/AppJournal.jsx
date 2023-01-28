@@ -7,20 +7,9 @@ import { Context } from "../../store/appContext.js";
 function AppJournal() {
   const [notes, setNotes] = useState([]);
   const { store, actions } = useContext(Context);
+
   useEffect(() => {
-    fetch(process.env.BACKEND_URL + `/api/get_note`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
-      .then((resp) => {
-        return resp.json();
-      })
-      .then((data) => {
-        setNotes(data);
-      });
+    updateNotes();
   }, []);
 
   const addNote = (color) => {
@@ -34,6 +23,22 @@ function AppJournal() {
     });
     // tempNotes.reverse(); <----------------- Para que salgan las nuevas por arriba
     setNotes(tempNotes);
+  };
+
+  const updateNotes = () => {
+    fetch(process.env.BACKEND_URL + `/api/get_note`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        setNotes(data);
+      });
   };
 
   const saveNote = (id) => {
@@ -72,6 +77,7 @@ function AppJournal() {
           saveNote={saveNote}
           deleteNote={deleteNote}
           updateText={updateText}
+          updateNotes={updateNotes}
         />
       </div>
     </div>

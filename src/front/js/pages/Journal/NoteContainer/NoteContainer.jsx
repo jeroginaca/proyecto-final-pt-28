@@ -28,6 +28,7 @@ function NoteContainer(props) {
               note={item.notes}
               deleteNote={props.deleteNote}
               updateText={props.updateText}
+              updateNotes={props.updateNotes}
             />
           ))
         ) : (
