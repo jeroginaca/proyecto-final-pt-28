@@ -1,0 +1,53 @@
+.blog-post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #754942;
+}
+
+.blog-post-banner {
+  height: 40vh;
+  width: 100%;
+  object-fit: contain;
+  background-image: linear-gradient(
+      180deg,
+      rgba(254, 233, 221, 0) 0%,
+      rgba(254, 233, 221, 1) 100%
+    ),
+    url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674833333/bannerBlog_Mesa_de_trabajo_1_fudn8g.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-post-banner h1 {
+  font-size: 8rem;
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeIn 3s;
+  animation-fill-mode: forwards;
+}
+
+.blog-post-body img {
+  width: 80%;
+  margin: 1rem 0;
+}
+
+.blog-post-body {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  margin-bottom: 6rem;
+}
+
+.blog-post-body h2 {
+  margin: 1rem 0;
+}

@@ -47,12 +47,13 @@ const Preview = () => {
         </Fade>
         <Fade left>
           <div className="blog-width">
-            <h2 className="motivate-titulo">Escribí tu Journal</h2>
+            <h2 className="motivate-titulo">Introducite en la Meditación</h2>
             <p className="text-display">
-              Con nuestra herramienta de diario, podrás llevar un registro de
-              tus pensamientos, lo que te permitirá trabajar en ellos de manera
-              más consciente y efectiva. Comienza a experimentar los beneficios
-              de la atención plena en tu vida cotidiana.
+              En un mundo cada vez más acelerado y estresante, meditar se ha
+              vuelto más importante que nunca. La meditación es una técnica
+              antigua que ha sido utilizada durante siglos para ayudar a las
+              personas a relajarse, reducir el estrés y mejorar la salud mental
+              y física.
             </p>
             <Link to={"/note1"}>
               <button className="landing-button margin-top">Ver Más</button>
