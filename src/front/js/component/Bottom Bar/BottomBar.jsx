@@ -12,6 +12,16 @@ const BottomBar = () => {
     <div className="navbar-3">
       <div className="navbar-container-3">
         <ul className="links-3">
+          {window.location.pathname === "/dashboard" ? (
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <li className="linksitos-3 login-3 ">Home</li>
+            </Link>
+          ) : (
+            <Link className="link-3 linksitos-3 " to={"/dashboard"}>
+              Dashboard
+            </Link>
+          )}
+
           <Link className="link-3 linksitos-3 " to={"/blog"}>
             Blog
           </Link>

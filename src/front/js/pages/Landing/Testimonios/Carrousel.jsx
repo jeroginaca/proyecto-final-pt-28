@@ -45,7 +45,7 @@ const Carrousel = () => {
 
   return (
     <div className="carrousel-container">
-      <div clasName="carrousel-titulo">
+      <div className="carrousel-titulo">
         <Fade bottom cascade>
           <p className="lo-que-dicen">Lo que dicen nuestros usuarios</p>
         </Fade>
