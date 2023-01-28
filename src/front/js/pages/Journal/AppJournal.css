@@ -9,7 +9,7 @@
 }
 
 .AppJournal {
-    /* height: 100vh; */
+    height: 100vh;
     display: flex;
     gap: 20px;
     background-color: #DAD9D7;
