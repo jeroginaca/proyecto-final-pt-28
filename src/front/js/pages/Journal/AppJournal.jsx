@@ -3,6 +3,7 @@ import NoteContainer from "./NoteContainer/NoteContainer.jsx";
 import Sidebar from "./Sidebar/Sidebar.jsx";
 import "./AppJournal.css";
 import { Context } from "../../store/appContext.js";
+import { BotonVolver } from "../../component/BotonVolver.jsx";
 
 function AppJournal() {
   const [notes, setNotes] = useState([]);
