@@ -133,14 +133,19 @@ function Note(props) {
       ></textarea>
       <div className="note_footer">
         <p className="fecha-nota">{formatDate(props.date)}</p>
-        <button className="boton borrar-entrada">
-          <i
-            onClick={() => {
+        <button
+          onClick={() => {
+            if (props.id) {
               deleteNote(props.id);
-            }}
-            className="fa"
-            aria-hidden="true"
-          >
+            } else {
+              props.setNotes((prev) => {
+                return prev.filter((element) => element.id != "");
+              });
+            }
+          }}
+          className="boton borrar-entrada"
+        >
+          <i className="fa" aria-hidden="true">
             
           </i>
         </button>

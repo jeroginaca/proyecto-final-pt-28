@@ -515,7 +515,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((resp) => {
             console.log(resp)
-            resp.json()})
+            resp.json()
+          })
           .then((data) => {
             console.log(data)
             setStore({ notes: data });
@@ -616,6 +617,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
         localStorage.removeItem("token");
       },
+
+      capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+      }
     },
   };
 };

@@ -79,6 +79,7 @@ function AppJournal() {
           deleteNote={deleteNote}
           updateText={updateText}
           updateNotes={updateNotes}
+          setNotes={setNotes}
         />
       </div>
     </div>

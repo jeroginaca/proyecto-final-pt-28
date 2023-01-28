@@ -19,9 +19,9 @@ function NoteContainer(props) {
       <h1 className="mb-4">Entradas</h1>
       <div className="note-container_notes custom-scroll">
         {props.notes.length > 0 ? (
-          props.notes.map((item) => (
+          props.notes.map((item, index) => (
             <Note
-              key={item.id}
+              key={index}
               id={item.id}
               color={item.color}
               date={item.date}
@@ -29,6 +29,7 @@ function NoteContainer(props) {
               deleteNote={props.deleteNote}
               updateText={props.updateText}
               updateNotes={props.updateNotes}
+              setNotes={props.setNotes}
             />
           ))
         ) : (

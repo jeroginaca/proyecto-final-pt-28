@@ -16,12 +16,6 @@ export const Dashboard = () => {
     }
   }, [store.token]);
 
-  // useEffect(() => {
-  //   if (!store.token) {
-  //     navigate("/")
-  //   }
-  // }, [store.token])
-
   return (
     <div className="home-bg-image">
       <Navbar2 />
@@ -57,7 +51,7 @@ export const Dashboard = () => {
         <>
           <div>
             <h1 className="title">
-              Hola, <strong> {store.user_name}</strong>
+              Hola, <strong> {actions.capitalizeFirstLetter(store.user_name)}</strong>
             </h1>
           </div>
         </>
