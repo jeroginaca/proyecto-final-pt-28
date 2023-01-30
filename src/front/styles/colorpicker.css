@@ -10,49 +10,43 @@
 }
 
 #red {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/1_eybd9e.png");
   background-size: cover;
-  margin: 0.5rem;
 }
 
 #blue {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/2_fop9lc.png");
   background-size: cover;
-  margin: 0.5rem;
 }
 
 #green {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/3_gkwcdy.png");
   background-size: cover;
-  margin: 0.5rem;
 }
 
 #yellow {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677191/emociones/4_vsqffy.png");
   background-size: cover;
-  margin: 0.5rem;
 }
 
 #purple {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/5_f9wj1h.png");
   background-size: cover;
-  margin: 0.5rem;
 }
 
 #white {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/6_kidmge.png");
   background-size: cover;
-  margin: 0.5rem;
 }

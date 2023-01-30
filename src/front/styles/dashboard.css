@@ -44,15 +44,21 @@
 
 .home-grid {
   display: flex;
-  align-items: center;
   justify-content: center;
+  height: 500px;
 }
 
 .home-buttons {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   width: 440px;
+  margin-left: 10rem; */
+
+  display: grid;
+  width: 440px;
   margin-left: 10rem;
+  grid-template-columns: auto auto;
+  align-content: baseline;
 }
 
 .home-button {
@@ -97,6 +103,7 @@
   }
   .home-grid {
     flex-direction: column;
+    height: auto;
   }
 
   .home-buttons {
@@ -122,7 +129,7 @@
   }
 
   .dashboard-text {
-    text-align: left;
+    text-align: center;
     font-size: 1.5rem;
   }
 
@@ -146,6 +153,8 @@
 
   .home-grid {
     width: 100%;
+    align-items: center;
+    height: auto;
   }
 
   .home-buttons-mobile {

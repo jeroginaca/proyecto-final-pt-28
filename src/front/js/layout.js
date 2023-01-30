@@ -52,10 +52,9 @@ const Layout = () => {
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<Blog />} path="/blog" />
             <Route element={<Yoga />} path="/blog/yoga" />
-            <Route element={<Note1 />} path="/note1" />
-            <Route element={<Note2 />} path="/note2" />
+            <Route element={<Note1 />} path="/blog/note1" />
+            <Route element={<Note2 />} path="/blog/note2" />
             <Route element={<Nosotros />} path="/nosotros" />
-            <Route element={<h1>Not found!</h1>} />
           </Routes>
         </ScrollToTop>
       </BrowserRouter>
