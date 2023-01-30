@@ -58,7 +58,7 @@ const Preview = () => {
               mejorar tu vida diaria. Aprende cómo estas prácticas pueden
               ayudarte a concentrarte y reducir el estrés y la ansiedad.
             </p>
-            <Link to={"/note2"}>
+            <Link to={"/blog/note2"}>
               <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
@@ -93,7 +93,7 @@ const Preview = () => {
               personas a relajarse, reducir el estrés y mejorar la salud mental
               y física.
             </p>
-            <Link to={"/note1"}>
+            <Link to={"/blog/note1"}>
               <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
