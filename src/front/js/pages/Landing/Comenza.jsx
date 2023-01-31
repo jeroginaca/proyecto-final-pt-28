@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import TiemposDeMeditacion2 from "../../component/TiemposDeMeditacion2.jsx";
 import BtnsSignupLogin from "./BTN-Sign-Log/BtnsSignupLogin.jsx";
 import "./landing.css";
+import { useNavigate } from "react-router-dom";
 
 const Comenza = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="display">
       <div className="display-container">
@@ -59,7 +62,14 @@ const Comenza = () => {
               objetivos y únete a nuestra comunidad de apoyo. Descarga nuestra
               app hoy y comienza tu camino hacia el éxito
             </p>
-            <button className="landing-button margin-top">Quiero unirme</button>
+            <button
+              className="landing-button margin-top"
+              onClick={() => {
+                navigate("/blog");
+              }}
+            >
+              Nuestro Blog
+            </button>
           </div>
         </Fade>
         <Fade right>
