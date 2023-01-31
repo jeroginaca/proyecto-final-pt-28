@@ -18,7 +18,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="login-bg-image pt-5">
+    <div className="signup-bg-image pt-5">
       <div className="login-container-1">
         <div className="login-container-2">
           <input
@@ -44,9 +44,9 @@ export const Login = () => {
             Login
           </button>
           <br />
-          <span className="mb-1">Don't have an account?</span>
+          <span className="mb-1">¿No tienes una cuenta?</span>
           <Link to="/signup">
-            <button className="signup-button btn btn-lg">Sign up</button>
+            <button className="signup-button btn btn-lg">Registrate</button>
           </Link>
         </div>
       </div>

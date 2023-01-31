@@ -8,7 +8,7 @@ const Felicitaciones = () => {
       <h3 className="meditacion-titulo">¡Muy Bien!</h3>
 
       <FraseInspiradora />
-      <Link className="meditacion-titulo" to={"/"}>
+      <Link className="meditacion-titulo" to={"/dashboard"}>
         <p className="siguiente">Continuar</p>
       </Link>
     </div>

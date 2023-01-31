@@ -15,30 +15,23 @@ const NavbarBlog = ({ isScrolling }) => {
   return (
     <div className={`navbar ${isScrolling > 20 ? "scrolling" : null}`}>
       <div className="navbar-container" onClick={toTheTop}>
-        <Link className="link linksitos" to={"/"}>
-          <div className="navbar-logo">Mindful Me</div>
-        </Link>
-        <ul className="links">
-          {store.token ? (
-            <li
-              className="linksitos"
-              onClick={() => {
-                actions.logout();
-                navigate("/");
-              }}
-            >
-              <Link className="link linksitos" to={"/dashboard"}>
-                Dashboard
-              </Link>
-            </li>
-          ) : (
-            <Link className="link linksitos" to={"/"}>
-              Home
-            </Link>
-          )}
+        <div
+          className="navbar-logo"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Mindful Me
+        </div>
 
-          <Link className="link linksitos" to={"/nosotros"}>
-            Nosotros
+        <ul className="links">
+          <Link
+            className={`link linksitos ${
+              isScrolling > 20 ? "scroleando" : null
+            }`}
+            to={"/"}
+          >
+            Home
           </Link>
 
           {store.token ? (
@@ -52,9 +45,14 @@ const NavbarBlog = ({ isScrolling }) => {
               Logout
             </li>
           ) : (
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <li className="linksitos login">Login</li>
-            </Link>
+            <li
+              className="linksitos"
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
+              Login
+            </li>
           )}
         </ul>
       </div>
