@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../styles/login.css";
+import Navbar from "../component/Navbar/Navbar.jsx";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
@@ -19,6 +20,7 @@ export const Login = () => {
 
   return (
     <div className="signup-bg-image pt-5">
+      <Navbar />
       <div className="login-container-1">
         <div className="login-container-2">
           <input

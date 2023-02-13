@@ -14,7 +14,6 @@
 
 .question {
   margin: 0;
-  padding: 0;
   border: 1px solid #bcccc2;
   border-radius: 30px;
   background-color: rgba(255, 255, 255, 0.173);
@@ -26,41 +25,41 @@
   color: transparent;
 }
 
-input {
-  background: none;
+.input-todo {
+  width: 100%;
+  outline: none;
+  padding: 10px 10px 10px 20px;
+}
+.input-todo:active {
+  background: white;
+  border-radius: 30px;
+}
+.input-todo:focus {
+  background: white;
+  border-radius: 30px;
+}
+
+.input-task {
   border: none;
   width: 100%;
   outline: none;
-  padding: 10px;
-}
-input:active {
-  background: white;
-  border-radius: 30px;
-}
-input:focus {
-  background: white;
-  border-radius: 30px;
 }
 
 .todo-list {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  
-.todo-container {
-    display: flex;
-    align-items: center;
-    margin-top: 18px;
-    margin-bottom: 18px;
-    background-color: white;
-    border-radius: 16px;
-    -webkit-box-shadow: 0px 0px 24px -14px rgba(0,0,0,0.76);
-    -moz-box-shadow: 0px 0px 24px -14px rgba(0,0,0,0.76);
-    box-shadow: 0px 0px 24px -14px rgba(0,0,0,0.76);
+  width: 100%;
+  margin-bottom: 30px;
 }
 
-ul li {
-  list-style: none;
+.todo-container {
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  background-color: white;
+  border-radius: 16px;
+  -webkit-box-shadow: 0px 0px 24px -14px rgba(0, 0, 0, 0.76);
+  -moz-box-shadow: 0px 0px 24px -14px rgba(0, 0, 0, 0.76);
+  box-shadow: 0px 0px 24px -14px rgba(0, 0, 0, 0.76);
 }
 
 .boton-completar {
@@ -75,10 +74,11 @@ ul li {
   width: 98%;
 }
 
-.botones {
-    display: flex;
-    justify-content: flex-end;
-    white-space: nowrap;
+.botones-todo {
+  display: flex;
+  justify-content: flex-end;
+  white-space: nowrap;
+  padding-right: 10px;
 }
 
 .boton {
@@ -87,53 +87,54 @@ ul li {
   border-radius: 50%;
   background-color: transparent;
 }
-.boton:hover, .boton-limpiar:hover {
+.boton:hover,
+.boton-limpiar:hover {
   -webkit-transition: 200ms linear;
   -ms-transition: 200ms linear;
   transition: 200ms linear;
 }
 
 .boton-editar {
-  border: 2px solid #85B5B5;
-  color: #85B5B5;
+  border: 2px solid #85b5b5;
+  color: #85b5b5;
 }
-  .boton-editar:hover {
-  background-color: #85B5B5;
+.boton-editar:hover {
+  background-color: #85b5b5;
   color: white;
 }
 
 .boton-basura {
-  border: 2px solid #CD6C51;
-  color: #CD6C51;
+  border: 2px solid #cd6c51;
+  color: #cd6c51;
   margin-right: 5px;
 }
-  .boton-basura:hover {
-  background-color: #CD6C51;
+.boton-basura:hover {
+  background-color: #cd6c51;
   color: white;
 }
 
 .boton-guardar {
-  border: 2px solid #9AA162;
-  color: #9AA162;
+  border: 2px solid #9aa162;
+  color: #9aa162;
 }
-  .boton-guardar:hover {
-  background-color: #9AA162;
+.boton-guardar:hover {
+  background-color: #9aa162;
   color: white;
 }
 
 .boton-limpiar {
   background-color: transparent;
   border-radius: 10px;
-  border: 2px solid #CD6C51;
-  color: #CD6C51;
+  border: 2px solid #cd6c51;
+  color: #cd6c51;
   height: 35px;
   padding: 0px 10px 0px 10px;
 }
-  .boton-limpiar:hover {
-    background-color: #CD6C51;
-    border-radius: 10px;
-    border: 2px solid #CD6C51;
-    color: white;
+.boton-limpiar:hover {
+  background-color: #cd6c51;
+  border-radius: 10px;
+  border: 2px solid #cd6c51;
+  color: white;
 }
 
 .todos-counter {
@@ -148,6 +149,6 @@ ul li {
 }
 
 .counter-container {
-   bottom: 0;
-   width: 100%;
+  bottom: 0;
+  width: 100%;
 }

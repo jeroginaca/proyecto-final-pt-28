@@ -12,7 +12,7 @@ import Navbar from "./component/Navbar/Navbar.jsx";
 
 import { Signup } from "./pages/signup";
 import Tiempos from "./pages/Meditacion/Tiempos.jsx";
-import Tareas from "./pages/Tareas/Tareas.jsx";
+import { ListaTareas } from "./pages/Tareas/Tareas.jsx";
 import AppJournal from "./pages/Journal/AppJournal.jsx";
 import SeleccionDeAudios from "./pages/Meditacion/SeleccionDeAudio.jsx";
 import Meditacion from "./pages/Meditacion/Meditacion.jsx";
@@ -22,7 +22,6 @@ import Pomodoro from "./pages/Pomodoro/Pomodoro.jsx";
 import Blog from "./pages/Blog/Blog.jsx";
 import Yoga from "./pages/Blog/BlogNotes/Yoga.jsx";
 import Note1 from "./pages/Blog/BlogNotes/Note 1/Note1.jsx";
-
 import Nosotros from "./pages/Nosotros/Nosotros.jsx";
 import Note2 from "./pages/Blog/BlogNotes/Note 1/Note2.jsx";
 
@@ -43,7 +42,7 @@ const Layout = () => {
             <Route element={<Demo />} path="/demo" />
             <Route element={<Login />} path="/login" />
             <Route element={<Tiempos />} path="/tiempos" />
-            <Route element={<Tareas />} path="/tareas" />
+            <Route element={<ListaTareas />} path="/tareas" />
             <Route element={<AppJournal />} path="/appjournal" />
             <Route element={<Meditacion />} path="/meditacion/:id" />
             <Route element={<Felicitaciones />} path="/felicitaciones" />

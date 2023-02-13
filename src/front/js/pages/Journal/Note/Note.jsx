@@ -54,49 +54,25 @@ function Note(props) {
   };
 
   const saveNotes = (content, id, color_param) => {
-    console.log(content, id);
-
-    if ("" === id) {
-      fetch(process.env.BACKEND_URL + `/api/insert_note`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({
-          notes: content,
-          color: color_param,
-          date: new Date(),
-        }),
+    fetch(process.env.BACKEND_URL + `/api/update_note`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        notes: content,
+        note_id: id,
+        color: color_param,
+      }),
+    })
+      .then((resp) => {
+        console.log(resp);
+        resp.json();
       })
-        .then((resp) => {
-          console.log(resp);
-          resp.json();
-        })
-        .then((data) => {
-          // setStore({ notes: data });
-        });
-    } else {
-      fetch(process.env.BACKEND_URL + `/api/update_note`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({
-          notes: content,
-          note_id: id,
-          color: color_param,
-        }),
-      })
-        .then((resp) => {
-          console.log(resp);
-          resp.json();
-        })
-        .then((data) => {
-          // setStore({ notes: data });
-        });
-    }
+      .then((data) => {
+        // setStore({ notes: data });
+      });
   };
 
   const deleteNote = (id) => {

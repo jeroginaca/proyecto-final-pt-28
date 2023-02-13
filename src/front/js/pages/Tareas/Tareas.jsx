@@ -1,6 +1,7 @@
-import React from "react";
-import "../../../styles/todolist.css";
-import TodoForm from "./TodoForm.jsx";
+import React, { useEffect, useState, useContext } from "react";
+import { Context } from "../../store/appContext";
+import { Link, useNavigate } from "react-router-dom";
+import "./tareas.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
@@ -10,9 +11,9 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import NavbarVolver from "../../component/2nd Navbar/NavbarVolver.jsx";
 import BottomBar from "../../component/Bottom Bar/BottomBar.jsx";
 
-function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
-  const [isEditing, setIsEditing] = React.useState(false);
-  const [newText, setNewText] = React.useState(todo.text);
+const Todo = ({ todo, index, completeTodo, removeTodo, editTodo }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [newText, setNewText] = useState(todo.task);
 
   const handleEdit = (index) => {
     setIsEditing(true);
@@ -20,25 +21,24 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
 
   const handleSave = (index) => {
     setIsEditing(false);
-    editTodo(index, newText);
+    editTodo(index, newText, todo);
   };
 
   return (
     <div
       className="todo-container py-2"
-      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+      style={{ textDecoration: todo.done ? "line-through" : "" }}
     >
       <button
         className="btn boton-completar"
-        onClick={() => completeTodo(index)}
+        onClick={() => completeTodo(todo)}
       >
-        <FontAwesomeIcon
-          icon={todo.isCompleted ? faCircleCheck : faCheckCircle}
-        />
+        <FontAwesomeIcon icon={todo.done ? faCircleCheck : faCheckCircle} />
       </button>
       <div className="task-container">
         {isEditing ? (
           <input
+            className="input-task"
             type="text"
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
@@ -49,10 +49,10 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
             }}
           />
         ) : (
-          <span>{todo.text}</span>
+          <span>{todo.task}</span>
         )}
       </div>
-      <div className="botones">
+      <div className="botones-todo">
         {isEditing ? (
           <button
             className="boton boton-guardar"
@@ -71,7 +71,7 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
         {!isEditing && (
           <button
             className="boton boton-basura"
-            onClick={() => removeTodo(index)}
+            onClick={() => removeTodo(todo)}
           >
             <FontAwesomeIcon icon={faTrashCan} />
           </button>
@@ -79,31 +79,124 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
       </div>
     </div>
   );
-}
+};
 
-function ListaTareas() {
-  const [todos, setTodos] = React.useState([]);
+export const ListaTareas = () => {
+  const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
+  const [todos, setTodos] = useState([]);
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/");
+    }
+  }, [store.token]);
+
+  useEffect(() => {
+    getTasks();
+  }, []);
+
+  const editTask = (todo, state) => {
+    fetch(process.env.BACKEND_URL + `/api/edit_task`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(todo),
+    })
+      .then((resp) => {
+        console.log(resp);
+        if (resp.ok) {
+          getTasks();
+        }
+      })
+      .then((data) => {
+        // setStore({ notes: data });
+      });
+  };
+
+  const addTask = (todo) => {
+    fetch(process.env.BACKEND_URL + `/api/new_task`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(todo),
+    })
+      .then((resp) => {
+        console.log(resp);
+        if (resp.ok) {
+          getTasks();
+        }
+      })
+      .then((data) => {
+        // setStore({ notes: data });
+      });
+  };
+
+  const removeTask = (todo) => {
+    console.log(todo);
+    fetch(process.env.BACKEND_URL + `/api/remove_task`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(todo),
+    })
+      .then((resp) => {
+        console.log(resp);
+        if (resp.ok) {
+          getTasks();
+        }
+      })
+      .then((data) => {
+        // setStore({ notes: data });
+      });
+  };
+
+  const getTasks = () => {
+    fetch(process.env.BACKEND_URL + `/api/get_tasks`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        setTodos(data);
+        console.log(data);
+      });
+  };
 
   const addTodo = (text) => {
-    const newTodos = [...todos, { text }];
-    setTodos(newTodos);
+    addTask({ date: new Date(), done: false, task: text });
   };
 
-  const completeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = !newTodos[index].isCompleted;
-    setTodos(newTodos);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
   };
 
-  const editTodo = (index, text) => {
-    const newTodos = [...todos];
-    newTodos[index].text = text;
-    setTodos(newTodos);
+  const completeTodo = (todo) => {
+    const updatedTodo = { ...todo, done: !todo.done };
+    editTask(updatedTodo);
   };
-  const removeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+
+  const editTodo = (index, text, todo) => {
+    todo.task = text;
+    editTask(todo);
+  };
+  const removeTodo = (todo) => {
+    removeTask(todo);
   };
 
   return (
@@ -116,7 +209,14 @@ function ListaTareas() {
         <h1>Objetivos</h1>
         <div className="ListaTareas">
           <div className="todo-list">
-            <TodoForm addTodo={addTodo} />
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                className="input-todo question my-3"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+              />
+            </form>
             {todos.map((todo, index) => (
               <Todo
                 key={index}
@@ -131,22 +231,18 @@ function ListaTareas() {
           <div className="counter-container pb-5">
             {todos.length > 0 && (
               <div className="todos-counter">
-                {todos.filter((todo) => !todo.isCompleted).length === 0 ? (
+                {todos.filter((todo) => !todo.done).length === 0 ? (
                   "¡No tienes tareas pendientes! 🥳"
-                ) : todos.filter((todo) => !todo.isCompleted).length === 1 ? (
+                ) : todos.filter((todo) => !todo.done).length === 1 ? (
                   <>
                     <span>Tienes </span>
-                    <strong>
-                      {todos.filter((todo) => !todo.isCompleted).length}
-                    </strong>
+                    <strong>{todos.filter((todo) => !todo.done).length}</strong>
                     <span> tarea pendiente⚡</span>
                   </>
                 ) : (
                   <>
                     <span>Tienes </span>
-                    <strong>
-                      {todos.filter((todo) => !todo.isCompleted).length}
-                    </strong>
+                    <strong>{todos.filter((todo) => !todo.done).length}</strong>
                     <span> tareas pendientes⚡</span>
                   </>
                 )}
@@ -154,22 +250,18 @@ function ListaTareas() {
             )}
             {todos.length > 0 && (
               <div className="todos-counter">
-                {todos.filter((todo) => todo.isCompleted).length === 0 ? (
+                {todos.filter((todo) => todo.done).length === 0 ? (
                   "No tienes tareas completadas"
-                ) : todos.filter((todo) => todo.isCompleted).length === 1 ? (
+                ) : todos.filter((todo) => todo.done).length === 1 ? (
                   <span>
                     Has completado{" "}
-                    <strong>
-                      {todos.filter((todo) => todo.isCompleted).length}
-                    </strong>{" "}
+                    <strong>{todos.filter((todo) => todo.done).length}</strong>{" "}
                     tarea ✅
                   </span>
                 ) : (
                   <span>
                     Has completado{" "}
-                    <strong>
-                      {todos.filter((todo) => todo.isCompleted).length}
-                    </strong>{" "}
+                    <strong>{todos.filter((todo) => todo.done).length}</strong>{" "}
                     tareas ✅
                   </span>
                 )}
@@ -209,5 +301,4 @@ function ListaTareas() {
       <BottomBar />
     </>
   );
-}
-export default ListaTareas;
+};
