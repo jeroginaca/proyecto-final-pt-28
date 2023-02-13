@@ -91,6 +91,8 @@ const Pomodoro = () => {
                   type="number"
                   value={pomodoroDuration}
                   onChange={handlePomodoroDurationChange}
+                  min="1"
+                  max="60"
                 />
               </div>
 
@@ -104,6 +106,8 @@ const Pomodoro = () => {
                   type="number"
                   value={breakDuration}
                   onChange={handleBreakDurationChange}
+                  min="1"
+                  max="60"
                 />
               </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import NoteContainer from "./NoteContainer/NoteContainer.jsx";
 import Sidebar from "./Sidebar/Sidebar.jsx";
 import "./AppJournal.css";
@@ -8,7 +9,14 @@ import BottomBar from "../../component/Bottom Bar/BottomBar.jsx";
 
 function AppJournal() {
   const [notes, setNotes] = useState([]);
+  const navigate = useNavigate();
   const { store, actions } = useContext(Context);
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/");
+    }
+  }, [store.token]);
 
   useEffect(() => {
     updateNotes();
@@ -74,7 +82,7 @@ function AppJournal() {
     <div className="appjournal-container">
       <NavbarVolver />
       <div className="AppJournal px-3 py-5">
-        <Sidebar addNote={addNote} />
+        <Sidebar updateNotes={updateNotes} />
         <NoteContainer
           notes={notes}
           saveNote={saveNote}

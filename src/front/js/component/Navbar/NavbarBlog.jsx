@@ -48,7 +48,7 @@ const NavbarBlog = ({ isScrolling }) => {
             <li
               className="linksitos"
               onClick={() => {
-                navigate("/signup");
+                navigate("/login");
               }}
             >
               Login
