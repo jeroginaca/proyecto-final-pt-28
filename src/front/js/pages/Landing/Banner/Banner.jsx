@@ -8,18 +8,18 @@ const Banner = () => {
   return (
     <div className="banner-container">
       <Fade bottom>
-        <h3>Explora Nuestras Funciones</h3>
+        <h3>Explora nuestras funciones</h3>
       </Fade>
       <Zoom cascade>
-        <div className="banner-extra">
-          <div className="extra">
-            <Link className="extra-1" to={"/tiempos"}>
+        <div className="banner-ban">
+          <div className="ban">
+            <Link className="ban-1" to={"/tiempos"}>
               <img src="https://i.ibb.co/rs9ZX4X/Vector.png" width={"50px"} />
               <p>Meditación</p>
             </Link>
           </div>
-          <div className="extra">
-            <Link className="extra-1" to={"/journal"}>
+          <div className="ban">
+            <Link className="ban-1" to={"/appjournal"}>
               <img
                 src="https://i.ibb.co/bNc8Csv/icon-pencil.png"
                 width={"40px"}
@@ -27,8 +27,8 @@ const Banner = () => {
               <p>Journal</p>
             </Link>
           </div>
-          <div className="extra">
-            <Link className="extra-1" to={"/objetivos"}>
+          <div className="ban">
+            <Link className="ban-1" to={"/tareas"}>
               <img
                 src="https://i.ibb.co/HFcg5xV/icon-list.png"
                 width={"40px"}
@@ -36,8 +36,8 @@ const Banner = () => {
               <p>Objetivos</p>
             </Link>
           </div>
-          <div className="extra">
-            <Link className="extra-1" to={"/pomodoro"}>
+          <div className="ban">
+            <Link className="ban-1" to={"/pomodoro"}>
               <img
                 src="https://i.ibb.co/rsxMFZy/icon-timer.png"
                 width={"40px"}

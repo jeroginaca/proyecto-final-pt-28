@@ -1,0 +1,88 @@
+.heroComent-container {
+  height: 40vh;
+  width: 100%;
+  object-fit: contain;
+  background-image: linear-gradient(
+      180deg,
+      rgba(254, 233, 221, 0) 0%,
+      rgba(254, 233, 221, 1) 100%
+    ),
+    url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674833333/bannerBlog_Mesa_de_trabajo_1_fudn8g.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.video {
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+
+.heroComent-container-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #754942;
+}
+
+.heroComent-title {
+  font-size: 8rem;
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeIn 3s;
+  animation-fill-mode: forwards;
+}
+
+.heroComent-text {
+  font-size: 2.2rem;
+  opacity: 0;
+  animation: fadeIn 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .heroComent-container {
+    height: 30vh;
+  }
+
+  .heroComent-title {
+    font-size: 5rem;
+    font-weight: 700;
+  }
+
+  .heroComent-text {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+}
+
+@media only screen and (max-width: 600px) {
+  .heroComent-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+  }
+
+  .heroComent-text {
+    font-size: 1.3rem;
+  }
+}

@@ -1,26 +1,54 @@
 import React, { useEffect, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import NoteContainer from "./NoteContainer/NoteContainer.jsx";
 import Sidebar from "./Sidebar/Sidebar.jsx";
 import "./AppJournal.css";
 import { Context } from "../../store/appContext.js";
+import NavbarVolver from "../../component/2nd Navbar/NavbarVolver.jsx";
+import BottomBar from "../../component/Bottom Bar/BottomBar.jsx";
 
 function AppJournal() {
   const [notes, setNotes] = useState([]);
+  const navigate = useNavigate();
   const { store, actions } = useContext(Context);
+
   useEffect(() => {
-    actions.getNotes();
+    if (!localStorage.getItem("token")) {
+      navigate("/");
+    }
+  }, [store.token]);
+
+  useEffect(() => {
+    updateNotes();
   }, []);
 
   const addNote = (color) => {
     const tempNotes = [...notes];
 
     tempNotes.push({
-      id: Date.now() + "" + Math.floor(Math.random() * 78),
-      text: "hola",
-      time: Date.now(),
+      id: "",
+      notes: "",
+      date: Date.now(),
       color,
     });
+    // tempNotes.reverse(); <----------------- Para que salgan las nuevas por arriba
     setNotes(tempNotes);
+  };
+
+  const updateNotes = () => {
+    fetch(process.env.BACKEND_URL + `/api/get_note`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        setNotes(data);
+      });
   };
 
   const saveNote = (id) => {
@@ -50,24 +78,21 @@ function AppJournal() {
     setNotes(tempNotes);
   };
 
-  /*   useEffect(() => {
-    localStorage.setItem("notes-app", JSON.stringify(notes));
-  }, [notes]); */
-
   return (
-    <div className="AppJournal px-3 py-5">
-      <Sidebar addNote={addNote} />
-      <NoteContainer
-        notes={notes}
-        saveNote={saveNote}
-        deleteNote={deleteNote}
-        updateText={updateText}
-      />
-      <NoteContainer
-        notes={store.notes}
-        deleteNote={deleteNote}
-        updateText={updateText}
-      />
+    <div className="appjournal-container">
+      <NavbarVolver />
+      <div className="AppJournal px-3 py-5">
+        <Sidebar updateNotes={updateNotes} />
+        <NoteContainer
+          notes={notes}
+          saveNote={saveNote}
+          deleteNote={deleteNote}
+          updateText={updateText}
+          updateNotes={updateNotes}
+          setNotes={setNotes}
+        />
+        <BottomBar />
+      </div>
     </div>
   );
 }

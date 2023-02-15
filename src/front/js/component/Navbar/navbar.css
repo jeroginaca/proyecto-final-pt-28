@@ -9,7 +9,8 @@
   top: 0;
   z-index: 999;
   padding: 1rem;
-  color: #ffffff;
+  color: #754942;
+  text-decoration: none;
 }
 
 .scrolling {
@@ -34,6 +35,11 @@
 
 .link {
   text-decoration: none;
+  color: #754942;
+}
+
+.scroleando {
+  text-decoration: none;
   color: #ffffff;
 }
 
@@ -48,6 +54,11 @@
   list-style: none;
   cursor: pointer;
   text-decoration: none;
+}
+
+.login {
+  text-decoration: none;
+  color: white;
 }
 
 .linksitos:hover,
@@ -71,5 +82,7 @@
 
   .linksitos {
     font-size: 16px;
+
+    margin: 0 0.5rem;
   }
 }

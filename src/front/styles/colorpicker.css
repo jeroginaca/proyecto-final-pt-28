@@ -1,0 +1,52 @@
+#colorpicker-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-radius: 20px;
+  box-shadow: -1px 1px 20px rgba(0, 0, 0, 0.49);
+  width: auto;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#red {
+  width: 3rem;
+  height: 3rem;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/1_eybd9e.png");
+  background-size: cover;
+}
+
+#blue {
+  width: 3rem;
+  height: 3rem;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/2_fop9lc.png");
+  background-size: cover;
+}
+
+#green {
+  width: 3rem;
+  height: 3rem;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/3_gkwcdy.png");
+  background-size: cover;
+}
+
+#yellow {
+  width: 3rem;
+  height: 3rem;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677191/emociones/4_vsqffy.png");
+  background-size: cover;
+}
+
+#purple {
+  width: 3rem;
+  height: 3rem;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/5_f9wj1h.png");
+  background-size: cover;
+}
+
+#white {
+  width: 3rem;
+  height: 3rem;
+  background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674677192/emociones/6_kidmge.png");
+  background-size: cover;
+}

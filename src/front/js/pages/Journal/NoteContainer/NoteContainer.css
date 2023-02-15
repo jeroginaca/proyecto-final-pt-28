@@ -1,16 +1,29 @@
 .note-container {
-    height: 100%;
-  }
-  
-  .note-container h2 {
-    margin-bottom: 20px;
-  }
-  
-  .note-container_notes {
-    height: 90%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    overflow-y: scroll;
-  }
-  
+  height: 100%;
+  width: 100%;
+}
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.header-container h1 {
+  color: #555A6C;
+}
+/* .note-container h2 {
+  margin-bottom: 20px;
+} */
+.boton-volver-journal {
+  margin-left: auto;
+}
+.note-container_notes {
+  margin: none;
+  height: 90%;
+  overflow: hidden;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  overflow-y: scroll;
+  gap: 20px;
+}

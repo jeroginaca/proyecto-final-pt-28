@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 .landing-button {
@@ -53,7 +54,6 @@
 
   .botones-sign-log {
     flex-direction: row;
-    align-items: center;
   }
 }
 
@@ -67,20 +67,17 @@
 
   .botones-sign-log {
     flex-direction: row;
-    align-items: center;
   }
 }
 
 @media only screen and (max-width: 600px) {
+  .botones-sign-log {
+    flex-direction: column;
+  }
   .landing-button,
   .landing-button-2 {
     padding: 1rem 2.5rem;
 
     font-size: 1rem;
-  }
-
-  .botones-sign-log {
-    flex-direction: column;
-    align-items: center;
   }
 }

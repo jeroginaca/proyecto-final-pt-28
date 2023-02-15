@@ -1,7 +1,7 @@
 .carrousel-container {
   width: 100%;
   background-color: #5c7f7e;
-
+  height: 40rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -9,6 +9,13 @@
   align-items: center;
   text-align: center;
   margin-top: 4rem;
+}
+
+.lo-que-dicen {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2rem;
+  margin-top: 3rem;
 }
 
 .big {
@@ -63,6 +70,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .lo-que-dicen {
+    font-size: 1.5rem;
+  }
+
   .testimonio {
     width: 90%;
     color: #e8e8e8;
@@ -71,5 +82,9 @@
   }
   .big {
     width: 100%;
+  }
+
+  .big h3 {
+    font-size: 1rem;
   }
 }

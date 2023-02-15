@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../../../store/appContext";
 import "./Note.css";
 import "../../../../styles/journal.css";
@@ -8,6 +8,9 @@ let timer = 500,
   timeout;
 function Note(props) {
   const { store, actions } = useContext(Context);
+
+  const [content, setContent] = useState(props.note);
+
   const formatDate = (value) => {
     if (!value) return "";
 
@@ -41,15 +44,6 @@ function Note(props) {
     return `${day} ${month} | ${hrs}:${min} ${amPm}`;
   };
 
-  const debounce = (func) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(func, timer);
-  };
-
-  /*  const updateText = (text, id) => {
-    debounce(() => props.updateText(text, id));
-  }; */
-
   const handleFullScreen = (event) => {
     const note = event.currentTarget.parentNode.parentNode;
     if (document.fullscreenElement === note) {
@@ -59,71 +53,34 @@ function Note(props) {
     }
   };
 
-  const getNote = () => {
-    debounce(() => {
-      fetch(process.env.BACKEND_URL + "/api/get_note", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data[0]);
-          localStorage.setItem("notes-app", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  };
-
-  const updateText = (text, id) => {
-    debounce(() => {
-      fetch(process.env.BACKEND_URL + "/api/update_note", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({
-          note_id: id,
-          text: text,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    });
-  };
-
-  const saveNotes = (notes, color) => {
-    fetch(process.env.BACKEND_URL + `/api/insert_note`, {
+  const saveNotes = (content, id, color_param) => {
+    fetch(process.env.BACKEND_URL + `/api/update_note`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
-        body: JSON.stringify({
-          user_id: store.user,
-          notes: notes,
-          color: color,
-        }),
       },
+      body: JSON.stringify({
+        notes: content,
+        note_id: id,
+        color: color_param,
+      }),
     })
-      .then((resp) => resp.json())
+      .then((resp) => {
+        console.log(resp);
+        resp.json();
+      })
       .then((data) => {
         // setStore({ notes: data });
       });
   };
 
   const deleteNote = (id) => {
-    fetch("/api/delete_note", {
+    fetch(process.env.BACKEND_URL + "/api/delete_note", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({
         note_id: id,
@@ -132,6 +89,7 @@ function Note(props) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        props.updateNotes();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -142,39 +100,43 @@ function Note(props) {
     <div className="note">
       <div
         className="note-color"
-        style={{ backgroundColor: props.note.color }}
+        style={{ backgroundColor: props.color }}
       ></div>
       <textarea
         className="note_text"
-        defaultValue={props.note.text}
-        onChange={(event) => updateText(event.target.value, props.note.id)}
-      />
+        onChange={(event) => setContent(event.target.value)}
+        defaultValue={props.note}
+      ></textarea>
       <div className="note_footer">
-        <p className="fecha-nota">{formatDate(props.note.time)}</p>
-        <button className="boton borrar-entrada">
-          <i
-            onClick={() => {
-              props.deleteNote(props.note.id);
-              deleteNote(props.note.id);
-            }}
-            class="fa"
-            aria-hidden="true"
-          >
+        <p className="fecha-nota">{formatDate(props.date)}</p>
+        <button
+          onClick={() => {
+            if (props.id) {
+              deleteNote(props.id);
+            } else {
+              props.setNotes((prev) => {
+                return prev.filter((element) => element.id != "");
+              });
+            }
+          }}
+          className="boton borrar-entrada"
+        >
+          <i className="fa" aria-hidden="true">
             
           </i>
         </button>
         <button
           className="boton guardar-entrada"
           onClick={() => {
-            saveNotes(props.note.text, props.note.color);
+            saveNotes(content, props.id, props.color);
           }}
-          class="fa"
-          aria-hidden="true"
         >
-          Guardar
+          <i className="fa-solid fa-floppy-disk" aria-hidden="true"></i>
         </button>
         <button className="boton pantalla-completa" onClick={handleFullScreen}>
-          <i class="fa fa-expand" aria-hidden="true"></i>
+          <i className="fa" aria-hidden="true">
+            
+          </i>
         </button>
       </div>
     </div>

@@ -8,6 +8,10 @@ import "./hero.css";
 const Hero = () => {
   const { store, actions } = useContext(Context);
 
+  useEffect(() => {
+    actions.getUser();
+  }, []);
+
   return (
     <div className="hero-container">
       <video
@@ -21,8 +25,13 @@ const Hero = () => {
       ></video>
       <div className="hero-container-text">
         <h1 className="hero-title">Mindful Me</h1>
-        {store.token ? (
-          <p className="hero-text">Hola Juan, listo para meditar?</p>
+        {store.token && store.user_name ? (
+          <p className="hero-text">
+            Hola{" "}
+            <strong> {actions.capitalizeFirstLetter(store.user_name)}</strong>,{" "}
+            <br className="br-hide" />
+            ¿empezamos a meditar?
+          </p>
         ) : (
           <p className="hero-text">Medita con nosotros en 3, 2, 1</p>
         )}

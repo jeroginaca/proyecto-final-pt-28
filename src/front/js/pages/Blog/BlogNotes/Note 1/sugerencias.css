@@ -1,0 +1,49 @@
+.blog-sugerencias {
+  width: 100%;
+  padding: 1rem;
+
+  margin-bottom: 7rem;
+
+  color: #ffffff;
+}
+
+.blog-sugerencias h2 {
+  color: #754942;
+  font-weight: 600;
+  margin: 2rem 0 4rem 0;
+}
+
+.blog-sugerencia-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 4rem auto;
+
+  width: 80%;
+}
+
+.blog-sugerencia-box {
+  width: 400px;
+
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #85b5b5;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.blog-sugerencias-img {
+  width: 50%;
+}
+
+.blog-sugerencias-text {
+  width: 80%;
+}
+
+.blog-sugerencia-box img {
+  width: 100%;
+}

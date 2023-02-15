@@ -7,6 +7,29 @@ function Sidebar(props) {
 
   const [listOpen, setListOpen] = useState(false);
 
+  const insertNote = (color_param) => {
+    fetch(process.env.BACKEND_URL + `/api/insert_note`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        notes: "",
+        color: color_param,
+        date: new Date(),
+      }),
+    })
+      .then((resp) => {
+        console.log(resp);
+        resp.json();
+        props.updateNotes();
+      })
+      .then((data) => {
+        // setStore({ notes: data });
+      });
+  };
+
   return (
     <div className="sidebar">
       <img src={plusIcon} onClick={() => setListOpen(!listOpen)} />
@@ -20,7 +43,7 @@ function Sidebar(props) {
             key={index}
             className="sidebar_list_item"
             style={{ backgroundColor: item }}
-            onClick={() => props.addNote(item)}
+            onClick={() => insertNote(item)}
           />
         ))}
       </ul>

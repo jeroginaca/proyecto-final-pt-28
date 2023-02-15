@@ -3,6 +3,8 @@
   background-image: url("https://i.ibb.co/tbJM7dP/login-signup.png");
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  background-position: center;
 }
 
 .signup-container-1 {
@@ -36,4 +38,10 @@
   color: white;
   border-radius: 20px;
   margin-top: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .signup-bg-image {
+    background-image: url("https://res.cloudinary.com/dgn3hxolh/image/upload/v1674482247/fondo_bosque_cjmogg.png");
+  }
 }

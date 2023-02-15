@@ -5,7 +5,8 @@
 }
 
 .sidebar img {
-  width: 60px;
+  /* width: 60px; */
+  width: 50px;
   cursor: pointer;
 }
 
@@ -19,7 +20,10 @@
 }
 
 .sidebar_list_active {
-  height: 700px;
+  height: fit-content;
+  background-color: rgba(255, 255, 255, 0.862);
+  padding: 10px 0px 10px 0px;
+  border-radius: 15px;
 }
 
 .sidebar_list_item {
@@ -27,6 +31,7 @@
   height: 24px;
   width: 24px;
   list-style: none;
+  cursor: pointer;
 }
 
 .align-items {

@@ -6,36 +6,36 @@ import { SlSocialInstagram } from "react-icons/sl";
 import { SlSocialTwitter } from "react-icons/sl";
 import { SlSocialPintarest } from "react-icons/sl";
 
-import "../Banner/banner.css";
+import "./redes.css";
 
 const Redes = () => {
   return (
-    <div className="banner-container">
+    <div className="redes-container">
       <Fade bottom>
-        <h3>Seguinos en las redes</h3>
+        <h3>Síguenos en redes</h3>
       </Fade>
       <Zoom cascade>
-        <div className="banner-extra">
-          <div className="extra">
-            <Link className="extra-1" to={"/tiempos"}>
+        <div className="redes-extra">
+          <div className="redes">
+            <Link className="redes-1" to={""}>
               <SlSocialFacebook style={{ fontSize: "3rem" }} />
             </Link>
           </div>
 
-          <div className="extra">
-            <Link className="extra-1" to={"/tiempos"}>
+          <div className="redes">
+            <Link className="redes-1" to={""}>
               <SlSocialInstagram style={{ fontSize: "3rem" }} />
             </Link>
           </div>
 
-          <div className="extra">
-            <Link className="extra-1" to={"/tiempos"}>
+          <div className="redes">
+            <Link className="redes-1" to={""}>
               <SlSocialTwitter style={{ fontSize: "3rem" }} />
             </Link>
           </div>
 
-          <div className="extra">
-            <Link className="extra-1" to={"/tiempos"}>
+          <div className="redes">
+            <Link className="redes-1" to={""}>
               <SlSocialPintarest style={{ fontSize: "3rem" }} />
             </Link>
           </div>

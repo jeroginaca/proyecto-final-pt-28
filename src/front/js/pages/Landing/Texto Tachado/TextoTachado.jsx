@@ -9,10 +9,12 @@ const TextoTachado = () => {
       <p className="tachado-texto">
         Clickea meditación, <br />
         <span>
-          decinos para que queres meditar, responde otra pregunta, ahora
-          selecciona entre estas opciones
+          dinos para qué quieres meditar, <br className="br-tachado-2" />{" "}
+          responde otra pregunta, <br className="br-tachado" />{" "}
+          <br className="br-tachado-2" />
+          ahora selecciona entre estas opciones
         </span>{" "}
-        <br />y comenza a meditar.
+        <br />y comienza a meditar.
       </p>
     </div>
   );

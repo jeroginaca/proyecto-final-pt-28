@@ -8,17 +8,17 @@ const Carrousel = () => {
   const testimonials = [
     {
       name: "Juansito",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias qui vitae pariatur alias perferendis quaerat.",
+      text: "La aplicación de mindfulness es realmente efectiva para ayudar a aliviar el estrés y la ansiedad. Me gusta cómo ofrece diferentes meditaciones guiadas y me noto más relajado después de usarla. ¡Lo recomiendo!",
       image: "https://randomuser.me/api/portraits/men/11.jpg",
     },
     {
       name: "Pedrito",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias qui vitae pariatur alias perferendis quaerat.",
+      text: "He estado buscando una aplicación de mindfulness que sea fácil de usar y efectiva, y esta cumple con ambas. Me gusta la variedad de meditaciones y la opción de personalizar mi plan de meditación. ¡Definitivamente la recomiendo!",
       image: "https://randomuser.me/api/portraits/men/19.jpg",
     },
     {
       name: "Laurita",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias qui vitae pariatur alias perferendis quaerat.",
+      text: "Esta aplicación de mindfulness es genial. Me ayuda a concentrarme y a ser más consciente de mi respiración y pensamientos. Además, la interfaz es clara y fácil de usar. ¡La uso todos los días!",
       image: "https://randomuser.me/api/portraits/women/11.jpg",
     },
   ];
@@ -45,19 +45,11 @@ const Carrousel = () => {
 
   return (
     <div className="carrousel-container">
-      <Fade bottom cascade>
-        <p
-          style={{
-            textAlign: "center",
-            color: "#ffffff",
-            fontSize: "2rem",
-
-            marginTop: "3rem",
-          }}
-        >
-          Lo que dicen nuestros usuarios
-        </p>
-      </Fade>
+      <div className="carrousel-titulo">
+        <Fade bottom cascade>
+          <p className="lo-que-dicen">Lo que dicen nuestros usuarios</p>
+        </Fade>
+      </div>
       <Fade>
         <div
           style={{

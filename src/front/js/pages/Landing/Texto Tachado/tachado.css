@@ -14,17 +14,61 @@
   color: #997d79;
 }
 
+.br-tachado {
+  display: block;
+}
+.br-tachado-2 {
+  display: none;
+}
+
+@media only screen and (max-width: 1500px) {
+  .br-tachado {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1300px) {
+  .br-tachado-2 {
+    display: block;
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   .tachado-container {
     width: 75%;
 
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .br-tachado-2 {
+    display: none;
+  }
+
+  .br-tachado {
+    display: block;
+  }
+
+  .tachado-container {
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .br-tachado {
+    display: none;
+  }
+}
+@media only screen and (max-width: 670px) {
+  .br-tachado-2 {
+    display: block;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .tachado-container {
     width: 90%;
+    margin-bottom: 0;
 
     font-size: 1.1rem;
   }

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import NavbarVolver from "../../component/2nd Navbar/NavbarVolver.jsx";
+import BottomBar from "../../component/Bottom Bar/BottomBar.jsx";
 import "./pomodoro.css";
 
-function Pomodoro() {
+const Pomodoro = () => {
   const [timeLeft, setTimeLeft] = useState(1500); // tiempo restante en segundos
   const [isRunning, setIsRunning] = useState(false); // indica si el cronómetro está en ejecución o en pausa
   const [pomodoroDuration, setPomodoroDuration] = useState(25); // duración de los pomodoros en minutos
@@ -51,72 +53,77 @@ function Pomodoro() {
   const seconds = timeLeft % 60;
 
   return (
-    <div className="pomodoro-background">
-      <div className="pomodoro-container">
-        <div className="background">
-          <h1 className="pomodoro-title">Zona de Estudio</h1>
+    <>
+      <NavbarVolver />
+      <div className="pomodoro-background">
+        <div className="pomodoro-container">
+          <div className="background">
+            <h1 className="pomodoro-title">Zona de Estudio</h1>
 
-          <div className="timer-container">
-            <div className="tiempo-restante">
-              <p className="tiempo-restante-text">Tiempo restante:</p>
-              <p id="timer" className="timer">
-                {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+            <div className="timer-container">
+              <div className="tiempo-restante">
+                <p className="tiempo-restante-text">Tiempo restante:</p>
+                <p id="timer" className="timer">
+                  {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                </p>
+              </div>
+              <div className="buttons-iniciar-reiniciar">
+                <button
+                  className="button"
+                  onClick={isRunning ? pauseTimer : startTimer}
+                >
+                  {isRunning ? "Pausar" : "Iniciar"}
+                </button>
+                <button className="button" onClick={resetTimer}>
+                  Reiniciar
+                </button>
+              </div>
+            </div>
+
+            <div className="duracion-container">
+              <div className="duracion-buttons">
+                <p className="text">
+                  Duración <br />
+                  de los pomodoros:
+                </p>
+                <input
+                  className="duracion-button"
+                  type="number"
+                  value={pomodoroDuration}
+                  onChange={handlePomodoroDurationChange}
+                  min="1"
+                  max="60"
+                />
+              </div>
+
+              <div className="duracion-buttons">
+                <p className="text">
+                  Duración <br />
+                  de los descansos:
+                </p>
+                <input
+                  className="duracion-button"
+                  type="number"
+                  value={breakDuration}
+                  onChange={handleBreakDurationChange}
+                  min="1"
+                  max="60"
+                />
+              </div>
+            </div>
+
+            <div className="text">
+              <p className="estamos-en">Estamos en un:</p>
+              <p className="pomodoro" id="break-or-pomodoro">
+                {isBreak ? "Descanso" : "Pomodoro"}
               </p>
             </div>
-            <div className="buttons-iniciar-reiniciar">
-              <button
-                className="button"
-                onClick={isRunning ? pauseTimer : startTimer}
-              >
-                {isRunning ? "Pausar" : "Iniciar"}
-              </button>
-              <button className="button" onClick={resetTimer}>
-                Reiniciar
-              </button>
-            </div>
-          </div>
-
-          <div className="duracion-container">
-            <div className="duracion-buttons">
-              <p className="text">
-                Duración <br />
-                de los pomodoros:
-              </p>
-              <input
-                className="duracion-button"
-                type="number"
-                value={pomodoroDuration}
-                onChange={handlePomodoroDurationChange}
-              />
-            </div>
-
-            <div className="duracion-buttons">
-              <p className="text">
-                Duración <br />
-                de los descansos:
-              </p>
-              <input
-                className="duracion-button"
-                type="number"
-                value={breakDuration}
-                onChange={handleBreakDurationChange}
-              />
-            </div>
-          </div>
-
-          <div className="text">
-            <p className="estamos-en">Estamos en un:</p>
-            <p className="pomodoro" id="break-or-pomodoro">
-              {isBreak ? "Descanso" : "Pomodoro"}
-            </p>
           </div>
         </div>
-        <Link className="text volver" to={"/"}>
-          <p>Volver</p>
-        </Link>
       </div>
-    </div>
+      <BottomBar />
+    </>
   );
-}
+};
 
 export default Pomodoro;

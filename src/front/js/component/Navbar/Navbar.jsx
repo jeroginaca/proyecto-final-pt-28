@@ -15,31 +15,59 @@ const Navbar = ({ isScrolling }) => {
   return (
     <div className={`navbar ${isScrolling > 20 ? "scrolling" : null}`}>
       <div className="navbar-container" onClick={toTheTop}>
-        <div className="navbar-logo">Mindful Me</div>
-
-        <ul className="links">
-          <Link className="link" to={"/"}>
-            <li className="linksitos">Home</li>
-          </Link>
-          <li className="linksitos">Funciones</li>
-          <li className="linksitos">Nosotros</li>
-        </ul>
-      </div>
-      {store.token ? (
-        <button
-          className="btn btn-danger"
+        <div
+          className="navbar-logo"
           onClick={() => {
-            actions.logout();
-            navigate("/dashboard");
+            navigate("/");
           }}
         >
-          Logout
-        </button>
-      ) : (
-        <Link to="/login">
-          <span className="btn btn-success">Login</span>
-        </Link>
-      )}
+          Mindful Me
+        </div>
+
+        <ul className="links">
+          <Link
+            className={`link linksitos ${
+              isScrolling > 20 ? "scroleando" : null
+            }`}
+            to={"/blog"}
+          >
+            Blog
+          </Link>
+          <Link
+            className={`link linksitos ${
+              isScrolling > 20 ? "scroleando" : null
+            }`}
+            to={"/nosotros"}
+          >
+            Comentarios
+          </Link>
+
+          {store.token ? (
+            <li
+              className={`link linksitos ${
+                isScrolling > 20 ? "scroleando" : null
+              }`}
+              onClick={() => {
+                actions.logout();
+                navigate("/");
+              }}
+            >
+              Logout
+            </li>
+          ) : (
+            <li
+              className={`link linksitos ${
+                isScrolling > 20 ? "scroleando" : null
+              }`}
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Login
+            </li>
+          )}
+        </ul>
+      </div>
     </div>
   );
 };

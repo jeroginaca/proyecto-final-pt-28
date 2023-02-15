@@ -83,7 +83,7 @@ p {
 
 .button {
   padding: 0.7rem;
-  border-radius: 15px;
+  border-radius: 20px;
   margin: 0.5rem;
   background-color: #85b5b5;
   border: none;
@@ -103,26 +103,28 @@ p {
 .duracion-button {
   width: 7rem;
   text-align: center;
-
-  border-radius: 15px;
-
+  border-radius: 20px;
   background-color: #85b5b5;
   border: none;
   color: #fbf7f1;
   margin-top: 1rem;
+  outline: none;
+  padding: 10px;
 }
+
 .duracion-button:hover {
   width: 7rem;
   text-align: center;
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: #85b5b5;
   border: none;
   color: #fbf7f1;
 }
+
 .duracion-button:active {
   width: 7rem;
   text-align: center;
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: #85b5b5;
   border: none;
   color: #fbf7f1;
@@ -223,7 +225,7 @@ p {
 
   .button {
     padding: 0.7rem;
-    border-radius: 15px;
+    border-radius: 20px;
     margin: 0.5rem;
 
     border: none;
@@ -241,7 +243,7 @@ p {
     width: 7rem;
     text-align: center;
 
-    border-radius: 15px;
+    border-radius: 20px;
 
     border: none;
     color: #fbf7f1;
@@ -250,7 +252,7 @@ p {
   .duracion-button:hover {
     width: 7rem;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 20px;
 
     border: none;
     color: #fbf7f1;
@@ -258,7 +260,7 @@ p {
   .duracion-button:active {
     width: 7rem;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 20px;
 
     border: none;
     color: #fbf7f1;

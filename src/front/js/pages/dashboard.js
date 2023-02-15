@@ -1,15 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-import { useNavigate } from "react-router-dom";
-import "../../styles/home.css";
-import { Link } from "react-router-dom";
-import targetImageUrl from "../../img/target.png";
-import editImageUrl from "../../img/edit.png";
+import { Link, useNavigate } from "react-router-dom";
+import "../../styles/dashboard.css";
 import { Calendario } from "../component/Calendario.jsx";
-import journalImageUrl from "../../img/journal.png";
-
-
-// <img src="https://i.ibb.co/v1f1GGr/Group-2.png" /> <---- IMAGEN DEL CEREBRO
+import Navbar2 from "../component/2nd Navbar/Navbar2.jsx";
+import BottomBar from "../component/Bottom Bar/BottomBar.jsx";
 
 export const Dashboard = () => {
   const { store, actions } = useContext(Context);
@@ -17,65 +12,111 @@ export const Dashboard = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      navigate("/")
+      navigate("/");
     }
-  }, [store.token])
-
-  // useEffect(() => {
-  //   if (!store.token) {
-  //     navigate("/")
-  //   }
-  // }, [store.token])
+  }, [store.token]);
 
   return (
-    <div className="home-bg-image text-center pt-5">
+    <div className="home-bg-image">
+      <Navbar2 />
+      <video
+        className="dashboard-video"
+        src={
+          "https://res.cloudinary.com/dgn3hxolh/video/upload/v1674819155/background_1_notebook_1_u8aprv.mp4"
+        }
+        autoPlay
+        loop
+        muted
+      ></video>
+      <video
+        className="mobile-hide"
+        src={
+          "https://res.cloudinary.com/dgn3hxolh/video/upload/v1674814653/background_2_mobile_2_d3xqnv.mp4"
+        }
+        autoPlay
+        loop
+        muted
+      ></video>
+      <video
+        className="tablet-hide"
+        src={
+          "https://res.cloudinary.com/dgn3hxolh/video/upload/v1674815180/background_1_tablet_xkvy8m.mp4"
+        }
+        autoPlay
+        loop
+        muted
+      ></video>
 
-      <h1 className="title">Mindful Me</h1>
-
-      <div className="container my-5">
-        <div className="row">
-          <div className="col my-2">
-            <div className="d-flex justify-content-center">
-              <Calendario />
-            </div>
+      {store.user_name ? (
+        <>
+          <div>
+            <h1 className="title">
+              Hola, <strong> {actions.capitalizeFirstLetter(store.user_name)}</strong>
+            </h1>
           </div>
-
-          <div className="col my-2">
-            <div className="buttons-container">
-
-              <button className="home-buttons" onClick={() => {
-                navigate("/tiempos")
-              }}>
-                <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
-              </button>
-
-              <button className="home-buttons" onClick={() => {
-                navigate("/tiempos")
-              }}>
-                <img src={journalImageUrl} />
-              </button>
-
-
-              <button className="home-buttons" onClick={() => {
-                navigate("/appjournal")
-              }}>
-                <img src="https://i.ibb.co/rs9ZX4X/Vector.png" />
-              </button>
-
-
-
-              <button className="home-buttons" onClick={() => {
-                navigate("/tareas")
-              }}>
-                <img src={targetImageUrl} />
-              </button>
-            </div>
-
-
-          </div>
+        </>
+      ) : (
+        <p className="hero-text">Medita con nosotros en 3, 2, 1</p>
+      )}
+      <div className="home-grid">
+        <div className="home-buttons-mobile">
+          <Link to={"/tiempos"}>
+            <img
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/meditaciones_ahwvs3.png"
+              className="home-button"
+            />
+          </Link>
+          <Link to={"/appjournal"}>
+            <img
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/entradas_fmwso1.png"
+              className="home-button"
+            />
+          </Link>
+          <Link to={"/tareas"}>
+            <img
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/mis-objetivos_gnrjcl.png"
+              className="home-button"
+            />
+          </Link>
+          <Link to={"/pomodoro"}>
+            <img
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/zona-de-estudio_gxf0ea.png"
+              className="home-button"
+            />
+          </Link>
+        </div>
+        <div>
+          <p className="dashboard-text">¿Cómo te sientes hoy?</p>
+          <Calendario />
+        </div>
+        <div className="home-buttons">
+          <Link to={"/tiempos"}>
+            <img
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/meditaciones_ahwvs3.png"
+              className="home-button"
+            />
+          </Link>
+          <Link to={"/appjournal"}>
+            <img
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/entradas_fmwso1.png"
+              className="home-button"
+            />
+          </Link>
+          <Link to={"/tareas"}>
+            <img
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/mis-objetivos_gnrjcl.png"
+              className="home-button"
+            />
+          </Link>
+          <Link to={"/pomodoro"}>
+            <img
+              src="https://res.cloudinary.com/dng3kcxcr/image/upload/v1674851436/Mindful%20Me/zona-de-estudio_gxf0ea.png"
+              className="home-button"
+            />
+          </Link>
         </div>
       </div>
+      <BottomBar />
     </div>
   );
-
 };
