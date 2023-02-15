@@ -36,7 +36,9 @@ const NavbarBlog = ({ isScrolling }) => {
 
           {store.token ? (
             <li
-              className="linksitos"
+              className={`link linksitos ${
+                isScrolling > 20 ? "scroleando" : null
+              }`}
               onClick={() => {
                 actions.logout();
                 navigate("/");
@@ -46,7 +48,9 @@ const NavbarBlog = ({ isScrolling }) => {
             </li>
           ) : (
             <li
-              className="linksitos"
+              className={`link linksitos ${
+                isScrolling > 20 ? "scroleando" : null
+              }`}
               onClick={() => {
                 navigate("/login");
               }}

@@ -17,25 +17,25 @@ const Redes = () => {
       <Zoom cascade>
         <div className="redes-extra">
           <div className="redes">
-            <Link className="redes-1" to={"/tiempos"}>
+            <Link className="redes-1" to={""}>
               <SlSocialFacebook style={{ fontSize: "3rem" }} />
             </Link>
           </div>
 
           <div className="redes">
-            <Link className="redes-1" to={"/tiempos"}>
+            <Link className="redes-1" to={""}>
               <SlSocialInstagram style={{ fontSize: "3rem" }} />
             </Link>
           </div>
 
           <div className="redes">
-            <Link className="redes-1" to={"/tiempos"}>
+            <Link className="redes-1" to={""}>
               <SlSocialTwitter style={{ fontSize: "3rem" }} />
             </Link>
           </div>
 
           <div className="redes">
-            <Link className="redes-1" to={"/tiempos"}>
+            <Link className="redes-1" to={""}>
               <SlSocialPintarest style={{ fontSize: "3rem" }} />
             </Link>
           </div>

@@ -48,17 +48,15 @@ const Preview = () => {
 
         <Fade left>
           <div className="blog-width">
-            <h2 className="motivate-titulo">
-              Desarrolla la constancia con técnicas orientales
-            </h2>
+            <h2 className="motivate-titulo">Introdúcete en la Meditación</h2>
             <p className="text-display">
-              ¿Tienes dificultades para mantenerte enfocado y motivado en tareas
-              a largo plazo? Descubre cómo la meditación y el yoga, técnicas
-              orientales antiguas, pueden ayudarte a desarrollar la constancia y
-              mejorar tu vida diaria. Aprende cómo estas prácticas pueden
-              ayudarte a concentrarte y reducir el estrés y la ansiedad.
+              En un mundo cada vez más acelerado y estresante, meditar se ha
+              vuelto más importante que nunca. La meditación es una técnica
+              antigua que ha sido utilizada durante siglos para ayudar a las
+              personas a relajarse, reducir el estrés y mejorar la salud mental
+              y física.
             </p>
-            <Link to={"/blog/note2"}>
+            <Link to={"/blog/note1"}>
               <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
@@ -85,15 +83,17 @@ const Preview = () => {
         </Fade>
         <Fade right>
           <div className="blog-width">
-            <h2 className="motivate-titulo">Introducite en la Meditación</h2>
+            <h2 className="motivate-titulo">
+              Desarrolla la constancia con técnicas orientales
+            </h2>
             <p className="text-display">
-              En un mundo cada vez más acelerado y estresante, meditar se ha
-              vuelto más importante que nunca. La meditación es una técnica
-              antigua que ha sido utilizada durante siglos para ayudar a las
-              personas a relajarse, reducir el estrés y mejorar la salud mental
-              y física.
+              ¿Tienes dificultades para mantenerte enfocado y motivado en tareas
+              a largo plazo? Descubre cómo la meditación y el yoga, técnicas
+              orientales antiguas, pueden ayudarte a desarrollar la constancia y
+              mejorar tu vida diaria. Aprende cómo estas prácticas pueden
+              ayudarte a concentrarte y reducir el estrés y la ansiedad.
             </p>
-            <Link to={"/blog/note1"}>
+            <Link to={"/blog/note2"}>
               <button className="landing-button margin-top">Ver más</button>
             </Link>
           </div>
