@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div className="banner-container">
       <Fade bottom>
-        <h3>Explora nestras funciones</h3>
+        <h3>Explora nuestras funciones</h3>
       </Fade>
       <Zoom cascade>
         <div className="banner-ban">
