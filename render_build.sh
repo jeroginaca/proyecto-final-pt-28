@@ -6,3 +6,4 @@ npm install
 npm run build
 pip install --upgrade pip
 pip install -r requirements.txt
+source database.sh
