@@ -119,7 +119,6 @@ def delete_note():
         note_id = data["note_id"]
 
         note = Journal.query.get(note_id)
-       
         db.session.delete(note)
         db.session.commit()
         return jsonify({"message": "Nota eliminada"}), 200

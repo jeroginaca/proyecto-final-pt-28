@@ -220,7 +220,7 @@ export const ListaTareas = () => {
             {todos.map((todo, index) => (
               <Todo
                 key={index}
-                index={index}
+                index={todo.id}
                 todo={todo}
                 completeTodo={completeTodo}
                 removeTodo={removeTodo}

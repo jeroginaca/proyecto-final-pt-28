@@ -9,7 +9,7 @@ let timer = 500,
 function Note(props) {
   const { store, actions } = useContext(Context);
 
-  const [content, setContent] = useState(props.note);
+  const [content, setContent] = useState();
 
   const formatDate = (value) => {
     if (!value) return "";
@@ -96,6 +96,10 @@ function Note(props) {
       });
   };
 
+  useEffect(() => {
+    setContent(props.note);
+  }, [props]);
+
   return (
     <div className="note">
       <div
@@ -105,7 +109,7 @@ function Note(props) {
       <textarea
         className="note_text"
         onChange={(event) => setContent(event.target.value)}
-        defaultValue={props.note}
+        defaultValue={content}
       ></textarea>
       <div className="note_footer">
         <p className="fecha-nota">{formatDate(props.date)}</p>

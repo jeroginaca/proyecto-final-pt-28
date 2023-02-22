@@ -9,7 +9,9 @@ const Hero = () => {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    actions.getUser();
+    if (store.token) {
+      actions.getUser();
+    }
   }, []);
 
   return (
