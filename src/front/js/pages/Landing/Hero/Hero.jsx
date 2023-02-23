@@ -8,11 +8,11 @@ import "./hero.css";
 const Hero = () => {
   const { store, actions } = useContext(Context);
 
-  // useEffect(() => {
-  //   if (store.token) {
-  //     actions.getUser();
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (store.token) {
+      actions.getUser();
+    }
+  }, []);
 
   return (
     <div className="hero-container">
@@ -27,7 +27,7 @@ const Hero = () => {
       ></video>
       <div className="hero-container-text">
         <h1 className="hero-title">Mindful Me</h1>
-        {/* {store.token && store.user_name ? (
+        {store.token && store.user_name ? (
           <p className="hero-text">
             Hola{" "}
             <strong> {actions.capitalizeFirstLetter(store.user_name)}</strong>,{" "}
@@ -36,9 +36,8 @@ const Hero = () => {
           </p>
         ) : (
           <p className="hero-text">Medita con nosotros en 3, 2, 1</p>
-        )} */}
+        )}
 
-        <p className="hero-text">Medita con nosotros en 3, 2, 1</p>
         <BtnsSignupLogin />
       </div>
     </div>

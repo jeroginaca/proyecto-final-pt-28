@@ -47,7 +47,7 @@ export const Dashboard = () => {
         muted
       ></video>
 
-      {/* {store.user_name ? (
+      {store.user_name ? (
         <>
           <div>
             <h1 className="title">
@@ -57,9 +57,7 @@ export const Dashboard = () => {
         </>
       ) : (
         <p className="hero-text">Bienvenidos!</p>
-      )} */}
-      <h1 className="title"><strong>Bienvenidos!</strong>
-      </h1>
+      )}
       <div className="home-grid">
         <div className="home-buttons-mobile">
           <Link to={"/tiempos"}>
